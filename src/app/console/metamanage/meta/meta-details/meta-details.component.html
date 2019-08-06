@@ -1,0 +1,68 @@
+<div class="collect-details-header">
+    <div class="crumbs-div">
+        <span class="crumbs-span" (click)="backToQuery()">
+            {{treeNode ? treeNode.name : ''}}
+        </span>
+        <span class="crumbs-bg"></span>
+        <span class="crumbs-span" (click)="backToQuery()">
+                {{deteailsInfo ? deteailsInfo.crumbsName : ''}}
+        </span>
+        <span class="crumbs-bg" *ngIf="deteailsInfo.name"></span>
+        <span class="crumbs-info">
+                {{deteailsInfo ? deteailsInfo.name : ''}}
+        </span>
+    </div>
+    <div class="header-span-area">
+        <div class="header-span">
+            <span class="my-label">元数据名称：</span>
+            <span class="my-info">
+                    {{deteailsInfo ? deteailsInfo.name : ''}}
+            </span>
+        </div>
+        <div class="header-span">
+            <span class="my-label">元数据类型：</span>
+            <span class="my-info">
+                    {{getkeyByvalue(deteailsInfo.metatype)}}
+            </span>
+        </div>
+        <div class="header-span">
+            <span class="my-label">采集时间：</span>
+            <span class="my-info">
+                    {{deteailsInfo ? deteailsInfo.ts : ''}}
+            </span>
+        </div>
+        <div class="header-span  path-info-span">
+            <span class="my-label">路径信息：</span>
+            <span class="path-info" *ngFor="let item of PathArr;let i = index">
+                {{ item ? '/' + item : ''}}
+            </span>
+        </div>
+    </div>
+</div>
+<div class="collect-details-table">
+    <div class="tab-list-area">
+        <ul>
+            <li [class.active]="TabList === 0" (click)="ChangeTabList(0)">表</li>
+            <li [class.active]="TabList === 1" (click)="ChangeTabList(1)">视图</li>
+            <li [class.active]="TabList === 2" (click)="ChangeTabList(2)">存储过程</li>
+        </ul>
+        <div class="bordr-div"></div>
+    </div>
+    <div class="table-area">
+        <ng-yydatafin-table class="table"
+                            [tableId]="'detailsTable'"
+                            [colHeaders]="detailsColHeaders"
+                            [dataUrl]="deteailsTable"
+                            [columns]="detailsColumns">
+        </ng-yydatafin-table>
+    </div>
+</div>
+<div class="child-details-info-area" *ngIf="showChildDetails">
+    <app-child-details [querypk]="querypk"
+                       [metaType]="metaType"
+                       [treeNode]="treeNode"
+                       [deteailsInfo]="deteailsInfo"
+                       (back)="backToMetaDetails($event)">
+    </app-child-details>
+</div>
+

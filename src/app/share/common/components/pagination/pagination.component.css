@@ -1,0 +1,153 @@
+.pagination {
+    width: 100%;
+    height: 24px;
+    flex: 0 0 30px;
+    margin: 16px 0;
+}
+
+.pagination-wrap {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+}
+
+.pagination-wrap .page-size {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    line-height: 24px;
+    font-size: 12px;
+}
+
+.pagination-wrap .page-size > input {
+    height: 20px;
+    width: 40px;
+    line-height: 15px;
+    text-align: left;
+    text-indent: 10px;
+    border: 0;
+    border-bottom: 1px solid #dcdcdc;
+    background: none;
+    box-sizing: border-box;
+}
+
+.pagination-wrap .page-size > input::-webkit-outer-spin-button,
+.pagination-wrap .page-size > input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.pagination-wrap .page-size > input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.pagination-wrap .page-size-select {
+    outline: none;
+    height: 24px;
+    line-height: 24px;
+    border: 1px solid #dadada;
+    border-radius: 0;
+    background: #fff;
+}
+
+.pagination-wrap .page-size > span {
+    cursor: pointer;
+    font-size: 12px;
+    padding: 3px 6px;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    background: #4c7daa;
+    margin-left: 10px;
+}
+
+.pagination-wrap .page-size > span.hr {
+    background: #5ac8fa
+}
+
+.pagination-wrap .page-size > span.hr:hover {
+    background: rgba(90, 200, 250, 0.7)
+}
+
+.pagination-wrap .page-size > span:hover {
+    background-color: rgba(76, 125, 170, 0.7);
+}
+
+.indexes {
+    float: right;
+    position: relative;
+    margin: 0 auto;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.indexes .page-btn {
+    cursor: pointer;
+    min-width: 30px;
+    float: left;
+    border: 1px solid #dadada;
+    color: #333;
+    padding: 0 4px;
+    margin-left: -1px;
+    text-align: center;
+    height: 24px;
+    line-height: 22px;
+    margin-top: 0;
+}
+
+.indexes .unable {
+    color: #b2b2b2;
+    cursor: default;
+}
+
+.page-index {
+    position: absolute;
+    right: 12px;
+    top: 0;
+    line-height: 24px;
+    font-size: 12px;
+}
+
+.indexes > i {
+    min-width: 30px;
+    float: left;
+    margin-top: 8px;
+    color: #333;
+    padding: 2px 4px;
+    margin-left: -1px;
+    text-align: center;
+    border: 1px solid #dadada;
+}
+
+.indexes > .current {
+    cursor: default;
+    color: #fff;
+    background: #4c7daa;
+    border-color: #4c7daa;
+}
+
+.indexes > .current.hr {
+    cursor: default;
+    color: #fff;
+    background: #5ac8fa;
+    border-color: #5ac8fa;
+}
+
+.page-index > input {
+    height: 22px;
+    width: 32px;
+    line-height: 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.page-index > span {
+    cursor: pointer;
+    font-size: 12px;
+    padding: 2px 4px;
+    border: 1px solid #cdcdcd;
+    color: #333;
+    text-align: center;
+    border-radius: 2px;
+}

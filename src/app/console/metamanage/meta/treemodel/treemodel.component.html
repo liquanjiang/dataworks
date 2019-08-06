@@ -1,0 +1,22 @@
+<div class="main">
+    <div class="tree-header">
+        <h5 title="点击选中根目录" (click)="checkRootNode()">
+            元数据分类
+        </h5>
+        <span class="new-folder" (click)="newFolder()" title="新增目录">
+            <i class="icon iconfont icon-dw_addfolder"></i>
+        </span>
+    </div>
+    <div id="datasetTree" class="my-check-tree">
+        <ng-yydatafin-tree [id]="'dataTreeID'"
+                           [treeNodes]="dataztreeNodes"
+                           [simpleData]="simpleData"
+                           [addHoverDom]="addHoverDom"
+                           [onHoverDomClick]="onHoverDomClick()"
+                           [onRename]="onRename()"
+                           [beforeClick]="beforeClick()"
+                           [clickExpand]="true">
+        </ng-yydatafin-tree>
+    </div>
+</div>
+

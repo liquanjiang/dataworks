@@ -1,0 +1,177 @@
+.stage-library-pane {
+    height: 100%;
+    font-size: 12px;
+}
+
+.tree-pull {
+    height: 32px;
+    width: 100%;
+    cursor: pointer;
+    border: 1px solid #dedede;
+    position: relative;
+}
+
+.tree-pull span {
+    color: #4c7daa;
+    font-size: 12px;
+    display: inline-block;
+}
+
+.tree-pull span.folder-bg-span {
+    background-image: url(/assets/imgs/tree/dataset_folder.svg);
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    left: 10px;
+    top: 8px;
+}
+
+.tree-pull span.folder-name-span {
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    width: calc(100% - 50px);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    left: 35px;
+    top: 0;
+}
+
+.tree-pull span.pull-down-span {
+    width: 15px;
+    height: 32px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.tree-pull span.pull-down-span .triangle {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 5px solid #333;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    position: absolute;
+    top: 13px;
+    cursor: pointer;
+}
+
+.stage-filter .tree-area {
+    position: absolute;
+    left: 12px;
+    top: 43px;
+    z-index: 30;
+    width: 175px;
+}
+
+.stage-filter, .stage-search {
+    padding: 12px 12px 0 12px;
+    position: relative;
+}
+
+.stage-search {
+    padding-bottom: 12px;
+    position: relative;
+}
+
+.stage-search .search-bg {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.stage-filter select, .stage-search input {
+    height: 32px;
+    width: 100%;
+    border: 1px solid #d7d7d7;
+    border-radius: 2px;
+    padding-left: 12px;
+}
+
+.stage-list-container {
+    width: 100%;
+    height: calc(100% - 100px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.stage-list-container::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.stage-list-container::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.stage-list-container::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+.tasks-list {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 180px;
+}
+
+.tasks-list li {
+    display: inline-block;
+    width: 89px;
+    height: 100px;
+    float: left;
+    position: relative;
+    border-bottom: 1px solid #dedede;
+    border-right: 1px solid #dedede;
+    text-align: center;
+    overflow: hidden;
+}
+
+.stage-library-pane .stage-list-container .tasks-list li div {
+    display: block;
+    width: 90px;
+    position: relative;
+    opacity: 1;
+    background: no-repeat center center;
+    background-origin: content-box;
+    padding: 0 12px;
+    background-size: contain;
+    outline: none;
+    text-decoration: none;
+}
+
+.stage-library-pane .stage-list-container .tasks-list li div img{
+    height: 28px;
+    margin: 20px 0 16px 0;
+}
+
+.stage-library-pane .stage-list-container .tasks-list li div span.nodeName-content{
+    display: table;
+    height: 24px;
+    width: 100%;
+    word-wrap: break-word;
+    table-layout: fixed;
+}
+.stage-library-pane .stage-list-container .tasks-list li div span.nodeName {
+    color: #383838;
+    font-size: 12px;
+    line-height: 12px;
+    text-align: center;
+    /*text-transform: capitalize;*/
+    overflow: hidden;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+
+

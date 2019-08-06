@@ -1,0 +1,37 @@
+<div class="time-selector">
+    <div class="time-selector-header">
+        <span class="time-select">请选择具体时间</span>
+    </div>
+    <div class="text-span">
+        <span class="hour-span">小时</span>
+        <span class="minute-span">分钟</span>
+        <span class="second-span">秒数</span>
+    </div>
+    <div class="time-selector-area">
+        <div class="hour-div time-div" id="hourdiv">
+            <ul>
+                <li *ngFor="let item of HourArr;let i = index" [class.active]="selectTime.hour === item" (click)="SeletHour(item)">
+                    {{item}}
+                </li>
+            </ul>
+        </div>
+        <div class="minute-div time-div" id="minutediv">
+            <ul>
+                <li *ngFor="let item of MinuteArr;let i = index" [class.active]="selectTime.minute === item" (click)="SeletMinute(item)">
+                    {{item}}
+                </li>
+            </ul>
+        </div>
+        <div class="second-div time-div" id="seconddiv">
+            <ul>
+                <li *ngFor="let item of SecondArr;let i = index" [class.active]="selectTime.second === item" (click)="SeletSecond(item)">
+                    {{item}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="time-selector-footer">
+        <span class="time-span time-cancel" (click)="setTimeClear()">重置</span>
+        <span class="time-span time-confirm" (click)="setTimeConfirm()">确定</span>
+    </div>
+</div>

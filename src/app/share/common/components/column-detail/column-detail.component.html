@@ -1,0 +1,74 @@
+<div class="crumbs">
+    <span class="meta-query-info" (click)="backToMetaDetails(true)" title="点击返回此目录" *ngIf="treeNode">
+        {{treeNode ? treeNode.name : ''}}
+    </span>
+    <span class="meta-query-info" (click)="backToMetaDetails(true)" title="点击返回" *ngIf="!treeNode">
+        {{moduleName}}
+    </span>
+    <span class="meta-bg-info" *ngIf="crumbsName"></span>
+    <span class="meta-query-info" (click)="backToChange()" title="点击返回此目录" *ngIf="crumbsName">
+        {{crumbsName}}
+    </span>
+    <span class="meta-bg-info"></span>
+    <span class="meta-query-info" (click)="backToMetaDetails(true)" title="点击返回此目录" *ngIf="deteailsInfo">
+        {{deteailsInfo ? deteailsInfo.crumbsName : ''}}
+    </span>
+    <span class="meta-bg-info" *ngIf="deteailsInfo"></span>
+    <span class="meta-query-info" title="点击返回此目录" (click)="backToMetaDetails(false)" *ngIf="deteailsInfo">
+        {{deteailsInfo ? deteailsInfo.name : ''}}
+    </span>
+    <span class="meta-bg-info" *ngIf="deteailsInfo"></span>
+    <span class="meta-query-info" title="点击返回此目录" (click)="backToPre()" *ngIf="ColumnParent">
+        {{ColumnParent ? ColumnParent.meta_name : ''}}
+    </span>
+    <span class="meta-bg-info" *ngIf="ColumnParent"></span>
+    <span class="list-info" title={{ColumnDetailData.meta_name}}>
+        {{ColumnDetailData.meta_name}}
+    </span>
+</div>
+
+<div class="meta-list">
+    <!-- 查询详情-信息详情展示 -->
+    <div class="list-details">
+        <div class="input-area">
+            <label>元数据名称：</label>
+            <span>
+                {{ColumnDetailData.meta_name}}
+            </span>
+        </div>
+        <div class="input-area">
+            <label>元数据类型：</label>
+            <span>
+                {{getkeyByvalue(ColumnDetailData.meta_type,typeArr)}}
+            </span>
+        </div>
+        <div class="input-area">
+            <label>采集时间：</label>
+            <span>
+                {{ColumnDetailData.ts}}
+            </span>
+        </div>
+        <div class="input-area">
+            <label>类型：</label>
+            <span>
+                {{ColumnDetailData.dataType}}
+            </span>
+        </div>
+        <div class="input-area">
+            <label>注释：</label>
+            <span>{{ColumnDetailData.meta_comment}}</span>
+        </div>
+        <div class="input-area">
+            <label>是否允许空：</label>
+            <span>
+                {{ColumnDetailData.nullable}}
+            </span>
+        </div>
+        <div class="input-area path-info-span">
+            <label>路径信息：</label>
+            <span class="path-info" *ngFor="let item of PathArr;let i = index">
+                {{ item ? '/' + item : ''}}
+            </span>
+        </div>
+    </div>
+</div>

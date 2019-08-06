@@ -1,0 +1,30 @@
+.echarts-table-area {
+    width: 100%;
+    height: calc(100% - 60px);
+    position: relative;
+}
+
+.echarts-table-area .no-result {
+    position: absolute;
+    width: 133px;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 150px;
+}
+
+.echarts-table-area .no-result-bg {
+    width: 133px;
+    height: 114px;
+    background-image: url(/assets/imgs/checkresult/no-data.svg);
+}
+
+.echarts-table-area .no-result-text {
+    height: 20px;
+    line-height: 20px;
+    width: 100%;
+    text-align: center;
+    margin-top: 16px;
+    color: #aaa;
+    font-size: 14px;
+}

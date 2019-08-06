@@ -1,0 +1,179 @@
+<div class="report-content">
+    <div class="title-bread">
+        <span class="title-return" (click)="closeDetaiWindow()">订阅报告</span>
+        <div class="icon-twrap" style="display: inline-block;font-size: 12px;line-height: 16px;vertical-align: top;transform: scale(0.8);"><svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M801.4 512c0 22.9-9 44.5-25.5 60.6l-384 378.2c-12.6 12.4-32.9 12.2-45.3-0.4-12.4-12.6-12.2-32.9 0.4-45.3L731.1 527c4.1-4 6.4-9.4 6.4-15s-2.3-11-6.4-15L347 118.8c-12.6-12.4-12.8-32.7-0.4-45.3s32.7-12.8 45.3-0.4L776 451.4c16.4 16.1 25.4 37.7 25.4 60.6z" p-id="5737"></path></svg></div>
+        <!--<i class="iconfont icon-data"></i>-->
+        <span>{{reportDetail.reportName}}</span>
+    </div>
+    <div class="report-result">
+        <ul class="total-analysis">
+            <li>
+                <div class="number">
+                    <i class="iconfont icon-data" style="position: relative"><input id="checkDate" type="text"/></i>
+                    <span>{{reportDetail.reportDate}}</span>
+                </div>
+                <p class="number-title">报告日期</p>
+            </li>
+            <li>
+                <div class="number">
+                    <i *ngIf="reportDetail.issueRecordTrend === '1'" class="iconfont icon-rise"></i>
+                    <i *ngIf="reportDetail.issueRecordTrend === '-1'" class="iconfont icon-decline"></i>
+                    <span>{{reportDetail.issueRecordNum}}</span>
+                </div>
+                <p class="number-title">问题记录数</p>
+            </li>
+            <li>
+                <div class="number">
+                    <i *ngIf="reportDetail.issueRuleTrend === '1'" class="iconfont icon-rise"></i>
+                    <i *ngIf="reportDetail.issueRuleTrend === '-1'" class="iconfont icon-decline"></i>
+                    <span>{{reportDetail.issueRuleNum}}</span>
+                </div>
+                <p class="number-title">问题规则数</p>
+            </li>
+            <ng-container *ngIf="reportDetail.addDelMetaTrend">
+                <li>
+                    <div class="number">
+                        <i *ngIf="reportDetail.addDelMetaTrend === '1'" class="iconfont icon-rise"></i>
+                        <i *ngIf="reportDetail.addDelMetaTrend === '-1'" class="iconfont icon-decline"></i>
+                        <span>{{reportDetail.addDelMetaNum}}</span>
+                    </div>
+                    <p class="number-title">新增/删除元数据</p>
+                </li>
+            </ng-container>
+            <ng-container *ngIf="reportDetail.modifyMetaTrend">
+                <li>
+                    <div class="number">
+                        <i *ngIf="reportDetail.modifyMetaTrend === '1'" class="iconfont icon-rise"></i>
+                        <i *ngIf="reportDetail.modifyMetaTrend === '-1'" class="iconfont icon-decline"></i>
+                        <span>{{reportDetail.modifyMetaNum}}</span>
+                    </div>
+                    <p class="number-title">修改元数据</p>
+                </li>
+            </ng-container>
+        </ul>
+        <div class="check-list">
+            <div class="check-item" *ngFor="let checkRes of reportDetail.checkRes">
+                <div class="check-title">
+                    <span class="check-name">{{checkRes.ruleType}}</span>
+                    <span class="check-issue">问题记录数 {{checkRes.issueRecord}}</span>
+                </div>
+                <div class="check-detail" *ngFor="let checkResDetail of checkRes.checkResDetailList">
+                    <div class="icon">
+                        <span></span>
+                    </div>
+                    <div class="check-detail-content">
+                        <div class="check-rule-list">
+                            <div class="check-rule">
+                                <span class="check-rule-label">检核规则:</span>
+                                <span>{{checkResDetail.rule_name}}</span>
+                            </div>
+                            <div class="check-rule">
+                                <span class="check-rule-label">问题记录数:</span>
+                                <span>{{checkResDetail.issue_recordcount}}</span>
+                            </div>
+                            <div class="check-rule">
+                                <span class="check-rule-label">检核时间:</span>
+                                <span>{{checkResDetail.check_date}}</span>
+                            </div>
+                        </div>
+                        <div class="check-rule-list">
+                            <div class="check-rule">
+                                <span class="check-rule-label">检核系统:</span>
+                                <span>{{checkResDetail.ds_name}}</span>
+                            </div>
+                            <div class="check-rule">
+                                <span class="check-rule-label">检核表:</span>
+                                <span>{{checkResDetail.table_name}}</span>
+                            </div>
+                            <div class="check-rule">
+                                <span class="check-rule-label">检核字段:</span>
+                                <span>{{checkResDetail.column_name}}</span>
+                            </div>
+                        </div>
+                        <ng-container *ngIf="checkResDetail.issueRecords && checkResDetail.issueRecords.length>0">
+                            <div class="check-issue">
+                                <span class="check-issue-title">问题记录：</span>
+                                <div class="check-issue-detail" *ngIf="keys(checkResDetail.issueRecords[0]).length > 0">
+                                    <table>
+                                        <thead>
+                                        <tr>
+                                            <th *ngFor="let key of keys(checkResDetail.issueRecords[0])">{{key}}</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr *ngFor="let issueRecord of checkResDetail.issueRecords">
+                                            <td *ngFor="let key of keys(checkResDetail.issueRecords[0])">{{issueRecord[key]}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <app-pagination [pager]="{allRowCount: checkResDetail.totalCount}"
+                                                    (pageChange)="checkResPageChange($event,checkResDetail)"
+                                                    (pageSizeChange)="checkResPageChange($event,checkResDetail)">
+                                    </app-pagination>
+                                </div>
+                                <span *ngIf="!(keys(checkResDetail.issueRecords[0]).length > 0)">(未选择标识字段)</span>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-container *ngIf="reportDetail.meta_subscibe===1">
+            <div class="update-list">
+                <div class="update-item">
+                    <div class="update-title">
+                        <span class="update-name">元数据变更</span>
+                        <span class="update-number">变更总数 {{reportDetail.metaChangeCountTotal}}</span>
+                    </div>
+                    <div class="update-detail">
+                        <div class="icon" style="">
+                            <div class="icon-twrap" style="font-size: 14px;line-height: 14px;"><svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="611"><path d="M904.0896 1024H120.1152A120.1152 120.1152 0 0 1 0.1024 903.9872V199.9872a120.1152 120.1152 0 0 1 120.0128-120.0128h783.9744A120.1152 120.1152 0 0 1 1024.1024 199.9872v704A120.1152 120.1152 0 0 1 904.0896 1024zM120.1152 160a39.9872 39.9872 0 0 0-39.9872 39.9872v704c0 22.1184 17.92 40.0384 39.936 40.0384h784.0256c22.1184 0 40.0384-17.92 40.0384-40.0384V199.9872a39.9872 39.9872 0 0 0-40.0384-39.9872H120.1152z" fill="#4C7DAA" p-id="612"></path><path d="M984.1152 408.0128H40.0384a39.9872 39.9872 0 1 1 0-80.0256H984.1664a39.9872 39.9872 0 1 1 0 80.0256zM256.1024 239.9744a39.9872 39.9872 0 0 1-39.9872-39.936V39.936a39.9872 39.9872 0 1 1 79.9744 0v160c0 22.1184-17.92 39.9872-39.9872 39.9872z m512 0a39.9872 39.9872 0 0 1-39.9872-39.936V39.936a39.9872 39.9872 0 1 1 79.9744 0v160c0 22.1184-17.92 39.9872-39.9872 39.9872zM413.4912 876.0832H413.2864c-40.8064-0.6656-72.2944-11.264-93.5936-31.5904-21.504-20.3776-32.6656-50.4832-33.3824-89.6a10.1376 10.1376 0 0 1 9.984-10.24h50.7904c5.5296 0 10.0352 4.5568 10.0352 10.0352 0 20.736 4.6592 36.096 13.8752 45.9264 9.0112 9.5744 23.296 14.3872 42.3936 14.3872 35.1232-1.1776 53.76-17.408 58.5216-51.0976-1.3824-42.1888-23.7056-62.464-70.1952-63.6928h-15.616a10.0352 10.0352 0 0 1-9.984-10.0352v-43.008c0-2.7648 1.1776-5.4784 3.2768-7.3728a10.3424 10.3424 0 0 1 7.68-2.56c28.672 2.6624 48.7424-1.3312 59.8528-11.776 7.9872-7.4752 11.6736-18.7392 11.264-34.3552-2.304-24.5248-16.4864-37.12-44.9024-39.424-30.976 1.3312-45.2608 15.8208-46.3872 47.0016a9.9328 9.9328 0 0 1-9.984 9.6256h-50.7904a10.0352 10.0352 0 0 1-10.0352-9.984c0-35.4304 10.5984-62.8224 31.5904-81.7152 20.6336-18.4832 51.3024-28.5184 91.3408-29.9008 0.512 0 0.8704 0 1.3824 0.1024 32.6144 3.4816 58.368 13.6704 76.4928 30.4128 18.432 16.896 29.184 40.6016 32 70.4a5.4272 5.4272 0 0 1 0 1.792c-2.048 25.8048-8.2944 46.1824-18.432 60.5696a61.184 61.184 0 0 1-19.1488 18.1248c12.1856 6.4 22.3744 15.104 30.3104 25.9072 12.4928 17.1008 19.5584 39.936 20.992 67.8912v1.0752c-2.0992 35.84-14.336 63.6416-36.096 82.6368-21.504 18.688-52.736 28.8768-92.6208 30.2592-0.2048 0.2048-0.3072 0.2048-0.4096 0.2048z m314.368-1.8944h-50.7392a10.0352 10.0352 0 0 1-10.0352-9.984v-310.272h-52.48a10.0352 10.0352 0 0 1-9.984-10.0352v-40.96c0-5.5296 4.5056-10.0352 9.984-10.0352h113.3056c5.4784 0 9.984 4.5056 9.984 9.984v361.3184a10.0352 10.0352 0 0 1-9.984 9.984z" fill="#4C7DAA"></path></svg></div>
+                        </div>
+                        <div class="update-detail-content">
+                            <div class="update-date">
+                                <span class="update-date-title">变更时间:</span>
+                                <span class="link" (click)="turnToUpdateDetail()"><span>{{reportDetail.metaChangeTimeStart}}</span> 至 <span>{{reportDetail.metaChangeTimeEnd}}</span></span>
+                            </div>
+                            <ng-container *ngIf="reportDetail.metaChange">
+                                <div class="update-table">
+                                    <span class="update-date-title">问题记录：</span>
+                                    <div class="check-issue-detail">
+                                        <table>
+                                            <thead>
+                                            <tr>
+                                                <th class="fourItem"></th>
+                                                <th>新增</th>
+                                                <th>修改</th>
+                                                <th>删除</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td class="bold">表</td>
+                                                <td *ngFor="let table of reportDetail.metaChange.table">{{table}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bold">视图</td>
+                                                <td *ngFor="let view of reportDetail.metaChange.view">{{view}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bold">存储过程</td>
+                                                <td *ngFor="let procedure of reportDetail.metaChange.procedure">{{procedure}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bold">字段</td>
+                                                <td *ngFor="let field of reportDetail.metaChange.field">{{field}}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
+

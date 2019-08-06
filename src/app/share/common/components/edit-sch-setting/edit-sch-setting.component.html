@@ -1,0 +1,92 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button"
+                class="close"
+                (click)="CancelEditeditScheObj()"
+                data-dismiss="modal"
+                aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">调度设置</h4>
+    </div>
+    <div class="modal-body" style="padding-bottom: 10px!important;position:relative;overflow:visible;">
+        <div class="ipt-area pause-area">
+            <span class="mylabel">是否启用：</span>
+            <span class="checkbox-bg"
+                  (click)="changePause(editScheObj.pause, 1)"
+                  [class.active]="!editScheObj.pause">
+                    </span>
+            <span class="checkbox-span">启用</span>
+            <div class="error"></div>
+        </div>
+        <div class="ipt-area time-period">
+            <span class="mylabel">调度周期：</span>
+            <div class="div time-period-b">
+                        <span class="select-value time-period-span" (click)="showNewPeriod(1)" id="editPeriodUl">
+                            {{getkeyByValue(editScheObj.schePeriod, setPeriodArr, 'value', 'key')}}
+                            <span class="triangle time-period-triangle"></span>
+                        </span>
+                <ul class="period-ul time-period-ul" *ngIf="showEidtPeriodUL">
+                    <li *ngFor="let item of setPeriodArr"
+                        [class.active]="editScheObj.schePeriod === item.value"
+                        (click)="changeeditschePeriod(item.value)">
+                        {{item.key}}
+                    </li>
+                </ul>
+            </div>
+            <div class="div time-period-a"
+                 *ngIf="editScheObj.schePeriod !== 'Hour'"
+                 (click)="PeriodSelectorShow(1)" id="EditPeriod">
+                        <span class="select-value time-period-span" title="{{getCalc(editScheObj)}}">
+                            {{getCalc(editScheObj)}}
+                            <span class="triangle time-period-triangle"></span>
+                        </span>
+
+            </div>
+        </div>
+        <div class="ipt-area" style="padding-top:10px;">
+            <span class="mylabel">调度时间：</span>
+            <input class="input" title="调度时间" type="text" id="SettingEditDate" autocomplete="off"
+                   (click)="TimeSelectorShow(1)"
+                   [(ngModel)]="editScheObj.specificTime"/>
+            <span class="timeselect-span">
+                         {{ editScheObj.specificTime }}
+                    </span>
+            <div class="error"></div>
+        </div>
+        <div class="ipt-area can-date">
+            <span class="mylabel">有效日期：</span>
+            <input type="text" class="date-input" id="editStart" title="开始时间" [(ngModel)]="editScheObj.startTime">
+            <span class="editStart-span time-span">
+                        {{getStartEndTimeStr(editScheObj.startTime)}}
+                    </span>
+            <span class="font-text">至</span>
+            <input type="text" class="date-input" id="editEnd" title="结束时间" [(ngModel)]="editScheObj.endTime">
+            <span class="editEnd-span time-span">
+                        {{getStartEndTimeStr(editScheObj.endTime)}}
+                    </span>
+            <div class="error"></div>
+        </div>
+        <div class="time-selector-div" *ngIf="showEidtTimeSelector" [style.top]="WindowHeight > 700 ? '148px' : '-179px'">
+            <app-timeselector
+                [TimeInit]="TimeInit"
+                [timeType]="editScheObj.schePeriod"
+                (TimeCancel)="TimeSelectClose()"
+                (TimeSelected)="changeTimeSelected($event)">
+            </app-timeselector>
+        </div>
+        <div class="time-periodsetter-div" *ngIf="showEditPeriodSettor">
+            <app-periodsetter
+                (PeriodSelected)="ConfirmPeriod($event)"
+                [PeriodArr]="PeriodArr"
+                [PeriodType]="schePeriod">
+            </app-periodsetter>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="CancelEditeditScheObj()">
+            取消
+        </button>
+        <button type="button" class="btn btn-primary" (click)="EditeditScheObj()">确定</button>
+    </div>
+</div>

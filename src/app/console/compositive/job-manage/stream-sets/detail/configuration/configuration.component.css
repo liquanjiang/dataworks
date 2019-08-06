@@ -1,0 +1,91 @@
+.map-array .map-array-title {
+    border-bottom: 2px solid #d7d7d7;
+    margin-bottom: 8px;
+    padding-right: 67px;
+    display: flex;
+}
+
+.map-array .title-value {
+    display: inline-block;
+    flex: 1;
+}
+
+.map-array .title-value:not(:first-child) {
+    margin-left: 20px;
+}
+
+.map-array .map-array-content {
+    display: inline-block;
+    width: calc(100% - 25px);
+}
+
+.stremsets-config .config-item .map{
+    position: relative;
+    vertical-align: top;
+    top: 45px;
+}
+.stremsets-config .config-item .sql{
+    position: relative;
+    vertical-align: top;
+    top: 24px;
+}
+.map-array-value-content {
+    display: inline-block;
+    width: calc(100% - 42px);
+    margin-bottom: 20px;
+    position: relative;
+}
+.map-array-value {
+   display: flex;
+}
+
+.map-array .map-array-value .my-column {
+    flex: 1;
+}
+
+.map-array .map-array-value .my-column:not(:first-child) {
+    margin-left: 20px;
+}
+
+.stremsets-config .config-item .config-value input.map-value {
+    margin-left: 20px;
+}
+
+.map-array-button {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.map-array .icon-Minus, .map-array .icon-plus{
+    border: 1px solid #4c7daa;
+    padding: 2px;
+    background: #4c7daa;
+    color: #fff;
+    border-radius: 2px;
+}
+
+#data {
+    width: calc(50% - 10px);
+    position: absolute;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: 1px solid #d7d7d7;
+    box-shadow: 0 1px 4px 1px rgba(193, 193, 193, 0.5);
+
+}
+
+#data li {
+    padding-left: 12px;
+    cursor: default;
+}
+
+
+#data li:hover {
+    background: #f1f1f1;
+}
+
+.self-tooltip {
+    line-height: 17px;
+}

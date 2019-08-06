@@ -1,0 +1,220 @@
+.report-content{
+    background: #fff;
+    height: 100%;
+    font-size: 12px;
+}
+
+.report-content .title-bread{
+    margin-bottom:12px;
+    padding:20px 20px 0;
+}
+
+
+.report-content .title-return{
+    color:#4c7daa;
+    cursor: pointer;
+}
+
+
+.report-content .report-result{
+    padding: 4px 20px 0;
+    height:calc(100% - 49px);
+    overflow: auto;
+}
+
+.report-content .report-result .total-analysis{
+    margin:0 0 12px;
+    padding: 0;
+    display: flex;
+    text-align: center;
+    box-shadow: 3px 2px 6px 2px rgba(233,233,233,0.50);
+}
+
+.total-analysis li {
+    display: inline-block;
+    flex: 1;
+    border-radius: 2px 0 0 2px;
+    padding: 34px 0 28px;
+    border-right: 1px solid rgba(229, 229, 229, 0.5);
+}
+
+.total-analysis li .number{
+    font-size: 0;
+}
+
+
+.total-analysis li .number .iconfont{
+    line-height: 30px;
+    vertical-align: top;
+    display: inline-block;
+    margin-right: 12px;
+}
+
+.icon-rise {
+    color: #FF364F;
+}
+
+.icon-decline {
+    color: #7ED321;
+}
+
+
+.total-analysis .number span {
+    font-size: 24px;
+    line-height: 30px
+}
+
+.total-analysis li p {
+    margin: 0;
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.report-content .report-result .check-list .check-item{
+    border: 1px solid #E5E5E5;
+    margin-bottom: 12px;
+}
+
+.check-item .check-title{
+    line-height: 40px;
+    background: #ECECEC;padding: 0 20px;
+}
+
+.check-item .check-title .check-issue {
+    float: right;
+}
+
+.check-item .check-detail {
+    padding: 20px;
+    display: flex;
+}
+
+.check-item .check-detail .icon {
+    width: 20px;
+}
+
+.check-item .check-detail .icon span {
+    display: inline-block;
+    width: 4px;
+    height: 14px;
+    background: #FF6E0B;
+}
+
+.check-item .check-detail .check-detail-content{
+    flex: 1
+}
+
+.check-detail-content .check-rule-list {
+    display: flex;
+    margin-bottom: 20px;
+    line-height: 17px;
+}
+.check-rule-list .check-rule {
+    flex: 1
+}
+
+.check-rule-list .check-rule .check-rule-label {
+    padding-right:12px
+}
+
+.check-detail-content .check-issue {
+    display: flex;
+}
+.check-issue .check-issue-title {
+    width: 64px;
+}
+
+.check-issue .check-issue-detail {
+    flex: 1;
+    background: #F3F3F3;
+    padding: 20px;
+}
+
+.check-issue .check-issue-detail table{
+    width: 100%;
+    line-height: 30px;
+}
+
+.report-content .report-result .update-list .update-item {
+    border: 1px solid #E5E5E5;
+    margin-bottom: 12px;
+}
+
+.update-item .update-title {
+    line-height: 40px;
+    background: #ECECEC;
+    padding: 0 20px;
+}
+
+.update-item .update-number {
+    float: right;
+}
+
+.update-item .update-detail {
+    padding: 20px;
+    display: flex;
+}
+
+.update-item .update-detail .icon {
+    width: 20px
+}
+
+.update-detail .update-detail-content {
+    flex: 1
+}
+
+.update-detail .update-detail-content .update-date {
+    margin-bottom: 20px;
+    line-height: 17px;
+}
+
+.update-date .update-date-title {
+    padding-right:12px
+}
+
+.update-detail .update-detail-content .update-table {
+    display: flex;
+}
+
+.update-table .update-date-title{
+    width:64px;
+}
+
+.update-table .check-issue-detail {
+    flex: 1;
+    background: #F3F3F3;
+    padding: 20px;
+}
+
+.update-table .check-issue-detail table{
+    width: 100%;
+    line-height: 30px;
+}
+
+thead tr {
+    text-align: left;
+}
+
+thead tr th.fourItem {
+    width: 40%;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+#checkDate {
+    width: 14px;
+    height: 20px;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.link {
+    color: #4c7daa;
+    cursor: pointer;
+}

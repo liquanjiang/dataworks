@@ -1,0 +1,42 @@
+<div class="stage-library-pane">
+    <div class="stage-filter">
+        <app-simple-select [(selectValue)]="stageFilterGroup"
+                           (selectValueChange)="onStageFilterGroupChange()"
+                           [selectList]="stageList">
+        </app-simple-select>
+    </div>
+
+    <div class="stage-search" >
+        <input type="search" placeholder="搜索"
+               [(ngModel)]="searchInput"
+               (change)="onStageFilterGroupChange()">
+        <i class="iconfont icon-dw_search"></i>
+    </div>
+
+    <div class="stage-list-container">
+        <ul class="stages-list">
+            <li  *ngFor="let stageLibrary of filteredStageLibraries" draggable
+                 (dragstart)="addDragStart($event, stageLibrary)"
+                 [title]="stageLibrary.nodeName">
+                <a role="menuitem" tabindex="-1"
+                   (click)="addStage(stageLibrary, $event)">
+                    <img height="100%" width="100%"
+                         [src]="getStageIconURL(stageLibrary, false, null)"
+                         (error)="getStageIconURL(stageLibrary, true, $event)">
+                    <span class="nodeName-content">
+                        <span class="nodeName">{{stageLibrary.nodeName}}</span>
+                    </span>
+                    <span
+                        *ngIf="stageLibrary.nodeType == pipelineConstant.SOURCE_STAGE_TYPE"
+                        class="circle origin">S</span>
+                    <span
+                        *ngIf="stageLibrary.nodeType == pipelineConstant.PROCESSOR_STAGE_TYPE"
+                        class="circle processor">P</span>
+                    <span
+                        *ngIf="stageLibrary.nodeType == pipelineConstant.TARGET_STAGE_TYPE"
+                        class="circle destination">T</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

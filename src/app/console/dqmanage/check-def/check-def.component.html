@@ -1,0 +1,328 @@
+<div style="position: relative;height:100%;background: #fff;">
+    <div class="tree-model">
+        <app-check-treemodel (querydirPK)="changeQuerydirPK($event)"></app-check-treemodel>
+    </div>
+    <div id="check-def" class="check-def">
+        <ng-container *ngIf="QuerydirPK">
+            <div class="check-def-top">
+                <div class="float-right">
+                    <div class="check-def-search">
+                        <input type="text" (change)="searchCheck($event)" placeholder="请输入规则名称">
+                        <i class="iconfont icon-dw_search searchCheck"></i>
+                    </div>
+                    <span class="refreshCheck" title="刷新列表"
+                          [class.circle]="showCircle"
+                          (click)="refreshMeta(true,false)">
+                <i class="icon iconfont icon-dw_refresh"></i>
+            </span>
+                    <i class="iconfont icon-dw_add addCheck" title='新增' (click)="addCheck()"></i>
+                </div>
+            </div>
+            <div id="checkTable">
+                <ng-yydatafin-table class="table"
+                                    [tableId]="'checkTable'"
+                                    [colHeaders]="tableColHeaders"
+                                    [dataUrl]="tableUrl"
+                                    [columns]="tableColumns" #checkTable>
+                </ng-yydatafin-table>
+            </div>
+        </ng-container>
+
+    </div>
+</div>
+<!-- 新增检查定义 弹框 -->
+<div *ngIf="currentCheckShow" class="modal" tabindex="-1" role="dialog" id="checkModel" data-backdrop="static">
+    <div class="modal-dialog" role="document" style="width:500px!important;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="CancelAdd()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">{{currentCheckObj.pkQuality ? '编辑' : '新增'}}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="check-loading" *ngIf="checkLoading">
+                    <div class="loading" style="display: block">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="two-row">
+                    <div class="item-content">
+                        <label class="always-key">规则名称</label>
+                        <input type="text" placeholder="请输入规则名称" [(ngModel)]="currentCheckObj.ruleName"/>
+                        <span class="always-key-empty" *ngIf="!currentCheckObj.ruleName&&saveError">*请输入规则名称</span>
+                    </div>
+                    <div class="item-content">
+                        <label class="always-key">检核系统</label>
+                        <app-simple-select class="simple-select"
+                                           [placeholder]="'请选择检核系统'"
+                                           [selectList]="dsNameList"
+                                           [selectValue]="currentCheckObj.dsName"
+                                           [lazyShow]="dsNameLazy"
+                                           (selectListLoad)="getDsNameList()"
+                                           (selectValueChange)="dsNameChange($event)">
+                        </app-simple-select>
+                        <span class="always-key-empty" *ngIf="!currentCheckObj.dsName&&saveError">*请选择检核系统</span>
+                    </div>
+                </div>
+                <div class="two-row" [class.custom]="currentCheckObj.ruleType==='CustomCheck'">
+                    <div class="item-content">
+                        <label class="always-key">规则类型</label>
+                        <app-simple-select class="simple-select"
+                                           [placeholder]="'请选择规则类型'"
+                                           [selectValue]="currentCheckObj.ruleType"
+                                           (selectValueChange)="ruleTypeChange($event)"
+                                           [selectList]="ruleList">
+                        </app-simple-select>
+                        <span class="always-key-empty" *ngIf="!currentCheckObj.ruleType&&saveError">*请选择规则类型</span>
+                    </div>
+                    <div class="item-content" *ngIf="currentCheckObj.ruleType!=='CustomCheck'">
+                        <label class="always-key">检核表</label>
+                        <app-simple-select class="simple-select"
+                                           [placeholder]="'请选择检核表'"
+                                           [selectList]="tableList"
+                                           [selectValue]="currentCheckObj.tableName"
+                                           [readonly]="false"
+                                           [lazyShow]="tableLazy"
+                                           (selectListLoad)="getTableList()"
+                                           (selectValueChange)="tableChange($event)">
+                        </app-simple-select>
+                        <span class="always-key-empty" *ngIf="!currentCheckObj.tableName&&saveError">*请选择检核表&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    </div>
+                </div>
+                <ng-container *ngIf="currentCheckObj.ruleType!=='CustomCheck'">
+                    <div class="two-row">
+                        <div class="item-content">
+                            <label [class.always-key]="currentCheckObj.ruleType!=='ConsistencyCheck'">检核字段</label>
+                            <app-simple-select class="simple-select"
+                                               [placeholder]="'请选择检核字段'"
+                                               [selectList]="columnList"
+                                               [readonly]="false"
+                                               [multi]="currentCheckObj.ruleType==='ConsistencyCheck'"
+                                               [lazyShow]="columnLazy"
+                                               (selectListLoad)="getColumnList()"
+                                               [(selectValue)]="currentCheckObj.columnName">
+                            </app-simple-select>
+                            <span class="always-key-empty" *ngIf="!currentCheckObj.columnName&&saveError&&currentCheckObj.ruleType!=='ConsistencyCheck'">*请选择检核字段</span>
+                        </div>
+                        <div class="item-content">
+                            <ng-container *ngIf="currentCheckObj.ruleType!=='ConsistencyCheck'">
+                                <label>标识字段</label>
+                                <app-simple-select class="simple-select"
+                                                   [placeholder]="'请选择标识字段'"
+                                                   [selectList]="columnList"
+                                                   [readonly]="false"
+                                                   [multi]="true"
+                                                   [lazyShow]="columnLazy"
+                                                   (selectListLoad)="getColumnList()"
+                                                   [(selectValue)]="currentCheckObj.jsonColumn">
+                                </app-simple-select>
+                            </ng-container>
+                        </div>
+                    </div>
+                </ng-container>
+                <div class="one-row"
+                     *ngIf="currentCheckObj.ruleType==='CorrectCodeCheck'">
+                    <div class="item-content">
+                        <label>代码规范</label>
+                        <textarea class="value-content"
+                                  placeholder="代码以逗号分隔" [(ngModel)]="currentCheckObj.unionWhere">
+                        </textarea>
+                    </div>
+                </div>
+                <div class="one-row"
+                     *ngIf="currentCheckObj.ruleType==='CorrectLengthCheck'">
+                    <div class="item-content">
+                        <label>长度规范</label>
+                        <div class="value-content lengthStandard">
+                            <app-simple-select class="simple-select"
+                                               [selectList]="lengthRelationList"
+                                               [selectValue]="currentCheckObj.unionTable?currentCheckObj.unionTable:'<'"
+                                               (selectValueChange)="currentCheckObj.unionTable=$event">
+                            </app-simple-select>
+                            <input type="text" placeholder="请输入数值" [(ngModel)]="currentCheckObj.unionColumn"/>
+                            <span style="right:118px;" class="always-key-empty" *ngIf="!currentCheckObj.unionColumn&&saveError || (!isNumber(currentCheckObj.unionColumn)&&saveError)">*只能是数字且不能为空</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="one-row"
+                     *ngIf="currentCheckObj.ruleType==='CustomCheck'">
+                    <div class="item-content">
+                        <label>自定义sql
+                            <span class="self-tooltip">
+                                        <i class="iconfont icon-tip"></i>
+                                        <span class="tooltiptext" style="width: 160px;">
+                                           错误数量别名：errorNum
+                                           检测总数别名：totalNum
+                                        </span>
+                                    </span>
+                        </label>
+                        <div class="value-content code-area">
+                            <app-code-area [(sqlValue)]="currentCheckObj.whereSql"></app-code-area>
+                        </div>
+                    </div>
+                </div>
+                <div class="one-row"
+                     *ngIf="dsNameType[currentCheckObj.dsName]!=='KUDU'&&currentCheckObj.ruleType!=='CustomCheck'">
+                    <div class="item-content">
+                        <label>定义where条件</label>
+                        <div class="value-content code-area">
+                            <app-code-area [(sqlValue)]="currentCheckObj.whereSql"></app-code-area>
+                        </div>
+                    </div>
+                </div>
+                <!--外键检查-->
+                <ng-container
+                    *ngIf="currentCheckObj.ruleType==='UniqueForeignCheck'">
+                    <div class="two-row">
+                        <div class="item-content">
+                            <label class="always-key">主键表</label>
+                            <app-simple-select class="simple-select"
+                                               [placeholder]="'请选择主键表'"
+                                               [selectList]="unionTableList"
+                                               [readonly]="false"
+                                               [selectValue]="currentCheckObj.unionTable"
+                                               (selectValueChange)="unionTableChange($event)">
+                            </app-simple-select>
+                            <span class="always-key-empty" *ngIf="!currentCheckObj.unionTable&&saveError">*请选择主键表&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </div>
+                        <div class="item-content">
+                            <label class="always-key">主键字段</label>
+                            <app-simple-select class="simple-select"
+                                               [placeholder]="'请选择主键字段'"
+                                               [selectList]="unionColumnList"
+                                               [readonly]="false"
+                                               [lazyShow]="unionColumnLazy"
+                                               (selectListLoad)="getUnionColumnList()"
+                                               [(selectValue)]="currentCheckObj.unionColumn">
+                            </app-simple-select>
+                            <span class="always-key-empty" *ngIf="!currentCheckObj.unionColumn&&saveError">*请选择主键字段</span>
+                        </div>
+                    </div>
+                    <div class="one-row" *ngIf="dsNameType[currentCheckObj.dsName]!=='KUDU'">
+                        <div class="item-content">
+                            <label>主键表where条件</label>
+                            <div class="value-content code-area">
+                                <app-code-area [(sqlValue)]="currentCheckObj.unionWhere">
+                                </app-code-area>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <!--一致性检查-->
+                <ng-container *ngIf="currentCheckObj.ruleType==='ConsistencyCheck'">
+                    <div class="two-row">
+                        <div class="item-content">
+                            <label class="always-key">主系统</label>
+                            <app-simple-select class="simple-select"
+                                               [placeholder]="'请选择主系统'"
+                                               [selectList]="dsNameList"
+                                               [readonly]="false"
+                                               [selectValue]="currentCheckObj.unionJson"
+                                               [lazyShow]="dsNameLazy"
+                                               (selectListLoad)="getDsNameList()"
+                                               (selectValueChange)="unionDsNameChange($event)">
+                            </app-simple-select>
+                            <span class="always-key-empty" *ngIf="!currentCheckObj.unionTable&&saveError">*请选择主系统&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </div>
+                        <div class="item-content">
+                            <label class="always-key">主表</label>
+                            <app-simple-select class="simple-select"
+                                               [placeholder]="'请选择主表'"
+                                               [selectList]="unionTableList"
+                                               [readonly]="false"
+                                               [selectValue]="currentCheckObj.unionTable"
+                                               [lazyShow]="unionTableLazy"
+                                               (selectListLoad)="getUnionTableList()"
+                                               (selectValueChange)="unionTableChange($event)">
+                            </app-simple-select>
+                            <span class="always-key-empty" *ngIf="!currentCheckObj.unionTable&&saveError">*请选择主表&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </div>
+                    </div>
+                    <div class="two-row">
+                        <div class="item-content">
+                            <label>主字段</label>
+                            <app-simple-select class="simple-select"
+                                               [placeholder]="'请选择主字段'"
+                                               [selectList]="unionColumnList"
+                                               [readonly]="false"
+                                               [multi]="true"
+                                               [lazyShow]="unionColumnLazy"
+                                               (selectListLoad)="getUnionColumnList()"
+                                               [(selectValue)]="currentCheckObj.unionColumn">
+                            </app-simple-select>
+                        </div>
+                        <div class="item-content"></div>
+                    </div>
+                    <div class="one-row" *ngIf="dsNameType[currentCheckObj.unionJson]!=='KUDU'">
+                        <div class="item-content">
+                            <label>主表where条件</label>
+                            <div class="value-content code-area">
+                                <app-code-area [(sqlValue)]="currentCheckObj.unionWhere">
+                                </app-code-area>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <div class="one-row">
+                    <div class="item-content">
+                        <label>备注</label>
+                        <textarea class="value-content"
+                                  placeholder="请输入备注"
+                                  [(ngModel)]="currentCheckObj.ruleNote">
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="CancelAdd()">取消</button>
+                <button type="button" class="btn btn-primary" (click)="checkDataAdd()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 调度设置新增 弹框 -->
+<div class="modal" tabindex="-1" role="dialog" id="SettingMetaModel" data-backdrop="static">
+    <div class="modal-dialog" role="document" style="width:408px!important;">
+        <app-new-sch-setting
+            [buildCls]="buildCls"
+            (newScheSetting)="AddnewScheObj($event)"
+            (cancelNewSche)="CancelAddnewScheObj($event)"
+            [businessId]="NewScebusinessId"
+            [triggerName]="NewSchetriggerName"
+            *ngIf="showNewSche">
+        </app-new-sch-setting>
+    </div>
+</div>
+
+<!-- 调度设置修改 弹框-->
+<div class="modal" tabindex="-1" role="dialog" id="EditSettingMetaModel" data-backdrop="static">
+    <div class="modal-dialog" role="document" style="width:408px!important;">
+        <app-edit-sch-setting
+            [EditTimeInit]="TimeInit"
+            [EditScheObject]="editScheObj"
+            (EditScheSetting)="EditeditScheObj($event)"
+            (cancelEditSche)="CancelEditeditScheObj($event)"
+            *ngIf="showEditSche">
+        </app-edit-sch-setting>
+    </div>
+</div>
+
+
+<!-- 显示日志 弹框 -->
+<div class="modal" tabindex="-1" role="dialog" id="showLogs" data-backdrop="static">
+    <div class="modal-dialog" role="document" style="width:380px!important;">
+        <div class="modal-content">
+            <app-scan-logs
+                [logsName]="'检核状态'"
+                [logInfoStyle]="logInfoStyle"
+                [logInfoObj]="logInfoObj">
+            </app-scan-logs>
+        </div>
+    </div>
+</div>
+

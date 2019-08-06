@@ -1,0 +1,26 @@
+<div class="pagination">
+    <div class="pagination-wrap">
+        <div class="page-size">
+            <em>共 {{pager.allRowCount}} 条数据，每页显示</em>
+            <input type="number" #pageSizeNum value="{{pager.pageSize}}">
+            <em>条</em>
+            <span (click)="setPageSize(pageSizeNum.value)"  [ngClass]="reportTheme  !== 'default' ?  reportTheme : ''">确定</span>
+        </div>
+        <div class="indexes">
+      <span class="page-btn"
+            [class.unable]="pager.pageIndex == 1"
+            (click)="prePage()">上一页</span>
+            <span class="page-btn"
+                  *ngFor="let page of pagerIndexArr"
+                  (click)="turnPage(page)"
+                  [class.current]="page == pager.pageIndex"
+                  [ngClass]="reportTheme  !== 'default' ?  reportTheme : ''"
+            >
+                {{page > 0 ? page : '···'}}
+            </span>
+            <span class="page-btn"
+                  [class.unable]="-pager.pageIndex <= -pager.pageCount"
+                  (click)="nextPage()">下一页</span>
+        </div>
+    </div>
+</div>

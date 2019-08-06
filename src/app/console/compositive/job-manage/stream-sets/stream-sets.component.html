@@ -1,0 +1,48 @@
+<div class="table-out-area">
+    <div class="streamset-top">
+        <div class="stream-sets-header">
+            <ul>
+                <li (click)="saveUpdates()" title="保存"><i class="iconfont icon-save"></i></li>
+                <li (click)="startOrStopPipeline()" [title]="isPipelineRunning? '停止' : '开始'">
+                    <i class="iconfont"
+                       [class.icon-admin_running]="!isPipelineRunning"
+                       [class.icon-end]="isPipelineRunning">
+                    </i>
+                </li>
+                <li (click)="clickDelete()" title="删除"><i class="iconfont icon-dw_delete"></i></li>
+                <li (click)="slideClick()" [title]="this.slideHidden?'显示节点列表':'隐藏节点列表'"><i class="iconfont icon-expand"></i></li>
+            </ul>
+        </div>
+    </div>
+    <div class="streamset-bottom" [ngClass]="slidePanelClass+' '+detailPanelClass">
+        <div id="streamsets-left" class="streamsets-left">
+            <div class="split-pane1" (dragover)="$event.preventDefault()" (drop)="stageDrop($event)">
+                <app-streamsets-graph #graph (onNodeSelection)="updateDetailPane($event)"
+                                      (onRemoveNodeSelection)="updateDetailPane($event)">
+                </app-streamsets-graph>
+            </div>
+            <div id="split-handler" class="split-handler"
+                 (mousedown)="moveSpiltHandleStart($event)">
+            </div>
+            <div class="split-pane2">
+                <app-streamsets-detail
+                    *ngIf="pipelineConfig"
+                    [isPipelineRunning]="isPipelineRunning"
+                    [selectedType]="selectedType"
+                    [selectedObject]="selectedObject"
+                    [logList]="logList"
+                    [stageInstances]="stageInstances"
+                    [edges]="edges"
+                    (maxPanelClick)="maxPanelClick($event)"
+                    (minPanelClick)="minPanelClick($event)"
+                    (updateGraph)="graph.graph.renameNode($event)"
+                ></app-streamsets-detail>
+            </div>
+        </div>
+        <div class="streamsets-right">
+            <app-streamsets-stage-library
+                (addStageInstance)="addStageInstance($event)">
+            </app-streamsets-stage-library>
+        </div>
+    </div>
+</div>

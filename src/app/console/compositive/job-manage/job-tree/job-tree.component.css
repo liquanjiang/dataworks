@@ -1,0 +1,123 @@
+.main {
+    height: calc(100%);
+}
+
+.main .tree-header {
+    padding-left: 20px;
+    position: relative;
+    cursor: pointer;
+    border-bottom: 1px solid #dadada;
+}
+
+.main .tree-header h5 {
+    font-size: 14px;
+    font-weight: normal;
+    height: 49px;
+    width: 100px;
+    line-height: 49px;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.main .tree-header .new-folder {
+    position: absolute;
+    right: 40px;
+    top: 18px;
+    cursor: pointer;
+    line-height: 14px;
+}
+
+.main .tree-header .new-folder i {
+    color: #4c7daa;
+}
+
+.main .tree-header .add-job {
+    position: absolute;
+    right: 12px;
+    top: 18px;
+    cursor: pointer;
+    line-height: 14px;
+}
+
+.main .tree-header .add-job i {
+    color: #4c7daa;
+}
+
+.my-check-tree {
+    height: calc(100% - 50px);
+    overflow: auto;
+    position: relative;
+    z-index: 0;
+}
+
+.my-check-tree.my-copy-tree {
+    height: calc(100% - 40px);
+    overflow-y: auto;
+}
+
+.my-check-tree::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.my-check-tree::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.1)
+}
+
+.my-check-tree::-webkit-scrollbar-track {
+    background: #ededed
+}
+
+.check-all {
+    width: 60px;
+    height: 20px;
+    margin-left: 35px;
+    margin-bottom: 10px;
+}
+
+.check-all span {
+    display: inline-block;
+}
+
+.check-all .check-all-btn {
+    width: 12px;
+    height: 12px;
+    background: url(/assets/plugins/reportplugin/img/check-normal.svg) no-repeat;
+    background-size: 12px;
+}
+
+.check-all .check-all-btn.active {
+    background: url(/assets/plugins/reportplugin/img/check-active.svg) no-repeat;
+    background-size: 12px;
+}
+
+.check-all .check-all-text {
+    font-size: 12px;
+    margin-left: 6px;
+}
+
+.copy-tree-title {
+    font-size: 12px;
+    font-weight: normal;
+    cursor: pointer;
+    position: relative;
+}
+
+.copy-tree-title span {
+    display: inline-block;
+}
+
+.copy-tree-title span.h5-bg-span {
+    position: absolute;
+    top: 0;
+    right: 35px;
+    width: 12px;
+    height: 12px;
+    background-image: url(/assets/imgs/tree/ok.svg);
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+    background-position: center right;
+}
+

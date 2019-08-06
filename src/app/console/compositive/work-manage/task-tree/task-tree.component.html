@@ -1,0 +1,16 @@
+<div id="TaskTree" class="my-check-tree">
+    <h5 class="copy-tree-title" (click)="selectAllTask()" title="点击选择所有任务">
+        <span>所有任务</span>
+        <span class="h5-bg-span" *ngIf="selectTreeNode === 'ALL'"></span>
+    </h5>
+    <h5 class="copy-tree-title" (click)="selectCopyRoot()" title="点击选择根目录">
+        <span>根目录</span>
+        <span class="h5-bg-span" *ngIf="selectTreeNode === 'root'"></span>
+    </h5>
+    <ng-yydatafin-tree [id]="'TaskTreeID'"
+                       [treeNodes]="copyztreeNodes"
+                       [simpleData]="simpleData"
+                       [beforeClick]="beforeClick()"
+                       [clickExpand]="true">
+    </ng-yydatafin-tree>
+</div>

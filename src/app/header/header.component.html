@@ -1,0 +1,35 @@
+<nav class="navbar navbar-default navbar-fixed-top TopMenuNav">
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <div class="navbar-nav navbar-left nav">
+            <div class="headLogo"></div>
+        </div>
+        <ul class="navbar-nav nav"
+            *ngFor="let item of topMenus;let i = index;">
+            <li class="nav-item">
+                <a class="nav-link"
+                   [routerLink]="item.url"
+                   routerLinkActive="activeMenu"
+                   (click)="showThisMenu(i, item, $event)">{{item.menuName}}</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav navbar-right nav">
+            <li class="nav-item dropdown" style="margin-right: 4px;">
+                <a class="nav-link dropdown-toggle" id="dropdown03" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="true">
+                    <div class="userImg">
+                        <i class="icon iconfont icon-dw_login_person"></i>
+                    </div>
+                    <span class="user-name" title={{userName}}>
+                        {{userName ? (userName.length < 6 ? userName : userName.substring(0, 4) + '...') : ''}}
+                    </span>
+                    <span class="pull-span"></span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown03">
+                    <li style="padding:0 10px">
+                        <a class="dropdown-item" (click)="logout()">注销</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

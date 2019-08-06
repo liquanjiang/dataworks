@@ -1,0 +1,192 @@
+.main-right-area {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    padding: 20px;
+}
+
+.add-area {
+    margin-bottom: 11px;
+}
+
+.modal-body .mylabel {
+    display: inline-block;
+    width: 48px;
+    text-align: right;
+    margin-right: 12px;
+    font-size: 12px;
+}
+
+.modal-body .input[type='text'], .modal-body .input[type='password'] {
+    border: 1px solid #dadada;
+    border-radius: 4px;
+    width: 276px;
+    height: 32px;
+    text-indent: 10px;
+    font-size: 12px;
+    outline: none;
+}
+
+.modal-body .select {
+    display: inline-block;
+    border-radius: 4px;
+    width: 240px;
+    height: 32px;
+    text-indent: 10px;
+    font-size: 12px;
+    border: 1px solid #dadada;
+    vertical-align: top;
+    appearance: none;
+    -webkit-appearance: none;
+    background: #fff;
+}
+
+.modal-body .select:focus {
+    outline: none;
+}
+
+.modal-body .error {
+    height: 20px;
+    line-height: 20px;
+    color: #ee4a4b;
+    font-size: 12px;
+    padding-left: 94px;
+}
+
+.table_container {
+    width: 390px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+.modal-body .checkbox_item {
+    display: inline-block;
+    margin-right: 16px;
+    font-weight: normal;
+}
+
+.modal-body .checkbox_item input {
+    vertical-align: 0;
+}
+
+.modal-footer {
+    position: relative;
+}
+
+.modal-footer .test-btn {
+    position: absolute;
+    left: 30px;
+}
+
+.test-message {
+    display: inline-block;
+    width: 60px;
+    height: 28px;
+    font-size: 12px;
+    position: absolute;
+    left: 100px;
+    line-height: 28px;
+}
+
+.success-test {
+    color: #5cc85c;
+}
+
+.fail-test {
+    color: #f00
+}
+
+.ipt-area {
+    position: relative;
+}
+
+.select-value {
+    display: inline-block;
+    border: 1px solid #dadada;
+    border-radius: 4px;
+    width: 276px;
+    height: 32px;
+    text-indent: 10px;
+    font-size: 12px;
+    outline: none;
+    position: absolute;
+    left: 60px;
+    top: -4px;
+    line-height: 32px;
+    cursor: pointer;
+}
+
+.triangle {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 6px solid #999;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    position: absolute;
+    left: 260px;
+    top: 12px;
+    cursor: pointer;
+}
+
+.my-select {
+    opacity: 0;
+}
+
+.table-area.table-area-copy {
+    position: absolute;
+    left: 20px;
+    top: 60px;
+    z-index: 3;
+    background: transparent;
+    height: 34px;
+    overflow: hidden;
+    width: calc(100% - 40px);
+    margin-bottom: 0;
+}
+
+.period-ul {
+    position: absolute;
+    left: 60px;
+    width: 276px;
+    margin: 0;
+    padding: 1px;
+    border: 1px solid #dedede;
+    border-radius: 3px;
+    top: 27px;
+    background: #fff;
+    z-index: 10;
+}
+
+.period-ul li {
+    list-style: none;
+    text-align: left;
+    width: 100%;
+    height: 28px;
+    line-height: 28px;
+    color: #333;
+    font-size: 12px;
+    cursor: pointer;
+    text-indent: 10px;
+}
+
+.period-ul li.active {
+    color: #4c7daa;
+}
+
+.period-ul li:hover {
+    background: #f1f1f1;
+    color: #333;
+}
+
+.period-ul li.active:hover {
+    background: #f1f1f1;
+    color: #4c7daa;
+}
+
+
+
+
+
+

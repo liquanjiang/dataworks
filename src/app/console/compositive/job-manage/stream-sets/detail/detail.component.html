@@ -1,0 +1,60 @@
+<div class="panel panel-default detail-pane">
+
+    <div class="panel-heading clearfix">
+        <h3 class="panel-title pull-left">{{getDetailPaneLabel()}}</h3>
+
+        <div class="pull-right size-toolbar">
+            <span (click)="minPanel()"><i class="iconfont icon-minimize"></i></span>
+            <span (click)="maxPanel()"><i class="iconfont icon-maximize"></i></span>
+        </div>
+
+    </div>
+
+    <div class="panel-body">
+        <ng-container *ngIf="selectedType === 'PIPELINE'">
+            <ul class="tab-menu vertical">
+                <li [class.tabSelected]="activeTab === 'info'"
+                    (click)="onTabSelect('info')"><i class="iconfont icon-tip"></i>基本信息</li>
+                <li [class.tabSelected]="activeTab === 'log'"
+                    (click)="onTabSelect('log')"><i class="iconfont icon-log"></i>日志</li>
+            </ul>
+            <div class="tab-content">
+                <app-streamsets-info *ngIf="activeTab === 'info'" [pipelineConfig]="selectedObject">
+                </app-streamsets-info>
+                <div class="log-content" *ngIf="activeTab === 'log'">
+                    <ng-container *ngIf="logList">
+                        <p *ngFor="let log of logList" [class.error]="log.code===1">
+                            {{log.msg}}
+                        </p>
+                    </ng-container>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="selectedType !== 'PIPELINE'">
+            <ul class="tab-menu vertical">
+                <li [class.tabSelected]="activeTab === 'info'"
+                    (click)="onTabSelect('info')"><i class="iconfont icon-tip"></i>基本信息</li>
+                <li [class.tabSelected]="activeTab === 'config'"
+                    (click)="onTabSelect('config')"><i class="iconfont icon-dw_settings"></i>配置</li>
+            </ul>
+            <div class="tab-content">
+                <div class="node-info" *ngIf="activeTab === 'info'">
+                    <div class="info-item">
+                        <label>节点名称</label><p>{{selectedObject.nodeName}}</p>
+                    </div>
+                    <div class="info-item">
+                        <label>节点类型</label><p>{{nodeTypeMap[selectedObject.nodeType]}}</p>
+                    </div>
+                </div>
+                <app-streamsets-configuration *ngIf="activeTab === 'config'"
+                                              [selectedObject]="selectedObject"
+                                              [selectedType]="selectedType"
+                                              [stageInstances]="stageInstances"
+                                              [edges]="edges"
+                                              (updateGraph)="update($event)">
+                </app-streamsets-configuration>
+            </div>
+        </ng-container>
+
+    </div>
+</div>

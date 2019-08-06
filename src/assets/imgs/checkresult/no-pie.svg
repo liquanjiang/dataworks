@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>饼图</title>
+    <desc>Created with Sketch.</desc>
+    <g id="dataworks" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="24.1-数据质量管理-检核结果为空" transform="translate(-426.000000, -318.000000)" fill="#DDDDDD" fill-rule="nonzero">
+            <g id="cont" transform="translate(212.000000, 73.000000)">
+                <g id="饼图" transform="translate(214.000000, 245.000000)">
+                    <path d="M43.8432769,36.2950344 L43.8432769,0.637927473 C63.5358267,0.637927473 79.4990598,16.6024019 79.4990598,36.2950344 L43.8432769,36.2950344 Z M36.4663182,79.3280243 C16.7736029,79.3280243 0.810535256,63.3647912 0.810535256,43.6721586 C0.810535256,23.979526 16.7736856,8.01637565 36.4663182,8.01637565 L36.4663182,43.6721586 L72.1221012,43.6721586 C72.1221012,63.3648739 56.1589508,79.3280243 36.4663182,79.3280243 Z" id="形状"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

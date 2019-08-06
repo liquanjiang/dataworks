@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="24px" viewBox="0 0 10 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>下降</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="v5.2新增功能" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="3-条件格式---指标卡---可视化设计" transform="translate(-720.000000, -424.000000)" fill="#7ED321">
+            <g id="颜色设置弹窗" transform="translate(471.000000, 259.000000)">
+                <g id="下降" transform="translate(254.000000, 171.000000) rotate(180.000000) translate(-254.000000, -171.000000) translate(249.000000, 165.000000)">
+                    <polygon id="Triangle" points="5 0 10 6 0 6"></polygon>
+                    <rect id="Rectangle-12" x="3" y="4" width="4" height="8"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

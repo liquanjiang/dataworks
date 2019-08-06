@@ -1,0 +1,47 @@
+<div class="search-table-area">
+    <div class="search-div">
+        <input type="text" class="search-input"
+               [(ngModel)]="searchParam"
+               placeholder="请输入规则名称" (keyup.enter)="searchData()">
+        <span class="bg" (click)="searchData()">
+            <i class="icon iconfont icon-dw_search"></i>
+        </span>
+    </div>
+</div>
+<div class="result-tabls-area">
+    <ng-yydatafin-table class="table"
+                        [tableId]="'resultTable'"
+                        [colHeaders]="detailsColumnColHeaders"
+                        [dataUrl]="resultTableUrl"
+                        [columns]="detailsColumnColumns" #resultTable>
+    </ng-yydatafin-table>
+</div>
+
+<div class="pull-down-div"
+     *ngIf="showSchema"
+     [style.left]="Schemaleft"
+     [style.top]="Schematop">
+    <ul>
+        <li *ngFor="let item of SchemaFilterArr"
+            (click)="filterSchema(item)"
+            [class.active]="item === checkSchema">
+            {{item}}
+        </li>
+    </ul>
+</div>
+
+<div class="pull-down-div"
+     *ngIf="showRule"
+     [style.left]="Ruleleft"
+     [style.top]="Ruletop">
+    <ul>
+        <li *ngFor="let item of RuleFilterArr"
+            (click)="filterRule(item)"
+            [class.active]="item.en_name === ruleType">
+            {{item.zh_name}}
+        </li>
+    </ul>
+</div>
+
+
+

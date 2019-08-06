@@ -1,0 +1,103 @@
+.leftMenusPage {
+    color: #333;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.parentMenuName {
+    height: 12px;
+    color: #333;
+    font-size: 14px;
+    font-weight: normal;
+    padding-left: 20px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+
+.leftMenusPage .menuIcon {
+    width: 16px;
+    height: 16px;
+    margin-top: 12px;
+    background-size: 100%;
+    float: left;
+    margin-right: 12px;
+}
+
+.leftMenusPage .level2MenuList {
+    margin-left: -40px;
+    margin-bottom: 0;
+}
+
+.leftMenusPage .level2MenuLi {
+    list-style-type: none;
+    line-height: 40px;
+    height: 40px;
+    margin-bottom: 0;
+    margin-top: 0;
+    background-color: #ededed;
+    padding-left: 20px;
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+}
+
+.leftMenusPage li a {
+    text-decoration: none;
+    color: #333;
+    width: 100%;
+}
+
+.leftMenusPage li a:hover {
+    background-color: #e4e4e4;
+}
+
+.leftMenusPage li a:active {
+    background-color: #dbdbdb;
+}
+
+.leftMenusPage .level3MenuList {
+    padding-left: 4px;
+    margin-bottom: 0;
+}
+
+.leftMenusPage .level3MenuLi {
+    list-style-type: none;
+    line-height: 40px;
+    height: 40px;
+    margin-bottom: 0;
+    margin-top: 0;
+    background-color: #ededed;
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+.menuSelected {
+    background-color: #fff;
+}
+
+.level2MenuLiName {
+    width: 200px;
+    margin-left: -21px;
+}
+
+.level2MenuLiName:hover {
+    background-color: #e4e4e4;
+}
+
+.level3MenuLiName {
+    margin-left: -65px;
+    text-indent: 65px;
+    width: 150px;
+}
+
+.level3MenuLiName:hover {
+    background-color: #e4e4e4;
+}
+
+.menuIcon i {
+    position: relative;
+    top: -12px;
+    color: #333;
+}
+
+

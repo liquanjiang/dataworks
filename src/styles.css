@@ -1,0 +1,1736 @@
+/**
+ * Created by LiQuanjiang on 2018/8/23 15:50.
+ * Description: 公共样式
+ */
+body {
+    height: 100%;
+    min-width: 1000px;
+    font-family: "Microsoft Yahei", "PingFang SC", Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.iconfont {
+    font-size: 14px;
+    color: #4c7daa;
+    cursor: pointer;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+input::-webkit-input-placeholder, input:-moz-placeholder, input::-moz-placeholder, input:-ms-input-placeholder {
+    color: #999;
+    opacity: 1;
+}
+
+textarea:disabled, input:not([type]):disabled, input[type="color" i]:disabled, input[type="date" i]:disabled, input[type="datetime" i]:disabled, input[type="datetime-local" i]:disabled, input[type="email" i]:disabled, input[type="month" i]:disabled, input[type="password" i]:disabled, input[type="number" i]:disabled, input[type="search" i]:disabled, input[type="tel" i]:disabled, input[type="text" i]:disabled, input[type="time" i]:disabled, input[type="url" i]:disabled, input[type="week" i]:disabled {
+    background-color: rgb(235, 235, 228);
+}
+
+input:focus {
+    outline: none;
+}
+
+input {
+    -ms-appearance: none
+}
+
+.msg-tips {
+    display: none;
+    opacity: 0;
+    z-index: 10000;
+    position: fixed;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 40px;
+    background: #fff;
+    font-size: 14px;
+    border-radius: 5px !important;
+    padding: 0 40px 0 56px;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    background-size: 16px;
+}
+
+.msg-tips > div {
+    /*float: left;*/
+    display: inline-block;
+}
+
+.msg-tips .msg-content {
+    line-height: 40px;
+    white-space: nowrap;
+}
+
+.msg-tips.success {
+    background-image: url("assets/share/img/msg-success.svg");
+    background-color: #ecfddf;
+    color: #31c603;
+}
+
+.msg-tips.info {
+    background-image: url("assets/share/img/msg-info.svg");
+    background-color: #f3f4f5;
+    color: #878d99;
+}
+
+.msg-tips.error {
+    background-image: url("assets/share/img/msg-error.svg");
+    background-color: #fee;
+    color: #fa5453;
+}
+
+.msg-tips.warning {
+    background-image: url("assets/share/img/msg-warning.svg");
+    background-color: #fef5e6;
+    color: #eb9e07;
+}
+
+.headLogo {
+    background: url("assets/imgs/header/menu_logo.svg") center no-repeat;
+}
+
+.switchon {
+    width: 20px;
+    height: 15px;
+    background: url("assets/imgs/perfmonitor/perfmonitor-service-switchon.svg") center no-repeat;
+    background-size: 100%;
+}
+
+.switchoff {
+    width: 20px;
+    height: 15px;
+    background: url("assets/imgs/perfmonitor/perfmonitor-service-switchoff.svg") center no-repeat;
+    background-size: 100%;
+}
+
+.drag-graph-area li .drat-list-del {
+    background-image: url(assets/share/img/msg-error.svg);
+}
+
+#container {
+    background-image: url(assets/imgs/tree/back.png);
+}
+
+.spmylabel:hover .spmylabel_close {
+    display: block;
+}
+
+.spmylabel_close {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: -2px;
+    right: 0px;
+    background: #888;
+    display: none;
+    color: #fff;
+    line-height: 22px;
+    border-radius: 12px;
+    font-size: 20px;
+    transform: scale(0.6);
+}
+
+/*调度管理表格的样式*/
+.bootstrap_table_allstyle {
+    position: relative;
+    height: calc(100% - 85px);
+}
+
+.bootstrap_table_allstyle .bootstrap-table {
+    height: 100%;
+}
+
+.bootstrap_table_allstyle .fixed-table-body {
+    min-height: 242px;
+    height: 100%;
+}
+
+.bootstrap_table_allstyle .fixed-table-body a {
+    text-decoration: none
+}
+
+.bootstrap_table_allstyle .fixed-table-body::-webkit-scrollbar { /*滚动条整体样式*/
+    width: 5px; /*高宽分别对应横竖滚动条的尺寸*/
+    height: 5px;
+}
+
+.bootstrap_table_allstyle .fixed-table-body::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.bootstrap_table_allstyle .fixed-table-body::-webkit-scrollbar-track { /*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.bootstrap_table_allstyle .fixed-table-body .history {
+    margin: 0 24px;
+}
+
+.bootstrap_table_allstyle .schedual_manager_status .dropdown {
+    display: inline-block;
+    color: #4c7daa;
+    margin-left: 12px;
+}
+
+.bootstrap_table_allstyle .schedual_manager_status .dropdown-menu {
+    right: calc(100% - 22px);
+    top: calc(100% + 2px);
+    left: auto;
+    font-size: 12px;
+    box-shadow: none;
+    min-width: 80px;
+    padding: 0;
+    margin: 0;
+}
+
+.bootstrap_table_allstyle .schedual_manager_status .dropdown-menu li:first-child {
+    border-radius: 4px 4px 0 0;
+}
+
+.bootstrap_table_allstyle .schedual_manager_status .dropdown-menu li:last-child {
+    border-radius: 0 0 4px 4px;
+}
+
+.bootstrap_table_allstyle .schedual_manager_status .dropdown-menu:after {
+}
+
+.bootstrap_table_allstyle .schedual_manager_status .dropdown-menu:before {
+}
+
+.bootstrap_table_allstyle .schedual_manager_status li {
+    cursor: pointer;
+    color: #333;
+    padding: 6px 10px;
+}
+
+.bootstrap_table_allstyle .schedual_manager_status li:hover {
+    background-color: #f5f5f5;
+}
+
+.bootstrap_table_allstyle .schedual_manager_status .active_filter_style {
+    color: #4c7daa;
+}
+
+.bootstrap_table_allstyle .schedual_manager_status .th-inner, .bootstrap_table_allstyle .fixed-table-header {
+    overflow: inherit;
+}
+
+.bootstrap_table_allstyle .fixed-table-container {
+    border: 0;
+    height: calc(100% - 45px)
+}
+
+.bootstrap_table_allstyle .fixed-table-header {
+    background-color: #fafafa;
+}
+
+.bootstrap_table_allstyle .bootstrap-table .table {
+    font-size: 12px;
+    color: #333;
+    border: 1px solid #efefef;
+    border-right: none;
+}
+
+.bootstrap_table_allstyle .fixed-table-container tbody td, .bootstrap_table_allstyle .fixed-table-container thead th {
+    border-bottom: 1px solid #efefef;
+    border-right: 1px solid #efefef;
+    border-left: none;
+}
+
+.bootstrap_table_allstyle .bootstrap-table .table > thead > tr {
+    background-color: #fafafa;
+}
+
+.bootstrap_table_allstyle .table-hover > tbody > tr:hover > td, .bootstrap_table_allstyle .table-hover > tbody > tr:hover > th {
+    background: none;
+    vertical-align: middle
+}
+
+.bootstrap_table_allstyle .table-hover > tbody > tr > td, .bootstrap_table_allstyle .table-hover > tbody > tr > th {
+    vertical-align: middle
+}
+
+.bootstrap_table_allstyle .table-hover > tbody > tr:hover {
+    background: none;
+}
+
+.bootstrap_table_allstyle .bootstrap-table .table > thead > tr > th {
+    border-bottom: 1px solid #efefef;
+    border-right: 1px solid #efefef;
+    font-weight: normal;
+}
+
+.bootstrap_table_allstyle .fixed-table-container tbody td .th-inner, .bootstrap_table_allstyle .fixed-table-container thead th .th-inner {
+    line-height: 18px;
+    margin-right: 12px;
+}
+
+.bootstrap_table_allstyle .fixed-table-pagination .pagination-detail, .bootstrap_table_allstyle .fixed-table-pagination div.pagination {
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+.bootstrap_table_allstyle .fixed-table-container tbody tr td, .bootstrap_table_allstyle .fixed-table-container thead th .th-inner {
+    padding-left: 20px !important;
+}
+
+.bootstrap_table_allstyle .btn {
+    padding: 2px 6px;
+    font-size: 12px;
+    border-radius: 0;
+}
+
+.bootstrap_table_allstyle .btn-default:hover {
+    background-color: white;
+    border-color: #ccc;
+}
+
+.bootstrap_table_allstyle .pagination > li > a, .bootstrap_table_allstyle .pagination > li > span {
+    color: #333;
+    padding: 2px 8px;
+}
+
+.bootstrap_table_allstyle .pagination > .active > a,
+.bootstrap_table_allstyle .pagination > .active > span,
+.bootstrap_table_allstyle .pagination > .active > a:hover,
+.bootstrap_table_allstyle .pagination > .active > span:hover,
+.bootstrap_table_allstyle .pagination > .active > a:focus,
+.bootstrap_table_allstyle .pagination > .active > span:focus {
+    background-color: #4c7daa;
+    color: white;
+}
+
+.bootstrap_table_allstyle #refresh {
+    position: absolute;
+    right: 0;
+    top: 6px;
+}
+
+.bootstrap_table_allstyle .fixed-table-toolbar {
+    padding-right: 50px;
+}
+
+.bootstrap_table_allstyle .fixed-table-toolbar .search {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.bootstrap_table_allstyle .fixed-table-toolbar .search .form-control {
+    width: 120px;
+    height: 24px;
+    font-size: 12px;
+    line-height: 12px;
+    border-radius: 12px;
+    border-color: #dadada;
+}
+
+.rightPanel .form-control {
+    font-size: 12px !important;
+    box-shadow: none !important;
+}
+
+.bootstrap_table_allstyle .fixed-table-toolbar .search .form-control:focus {
+    box-shadow: none;
+    border-color: #dadada;
+}
+
+.bootstrap_table_allstyle .pagination > li:first-child > a, .bootstrap_table_allstyle .pagination > li:first-child > span,
+.bootstrap_table_allstyle .pagination > li:last-child > a, .bootstrap_table_allstyle .pagination > li:last-child > span {
+    border-radius: 0;
+}
+
+.bootstrap_table_allstyle .fixed-table-pagination .caret {
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -moz-transform: rotate(180deg); /* Firefox */
+    -webkit-transform: rotate(180deg); /* Safari 和 Chrome */
+    -o-transform: rotate(180deg); /* Opera */
+    margin-left: 10px !important;
+    vertical-align: 2px;
+}
+
+.bootstrap_table_allstyle .fixed-table-pagination .dropdown-menu {
+    min-width: 42px;
+}
+
+.bootstrap_table_allstyle .fixed-table-pagination .dropdown-menu > li > a {
+    padding: 3px 0;
+    text-align: center;
+}
+
+.bootstrap_table_allstyle .gorouter {
+    color: #333;
+}
+
+/*
+.bootstrap_table_allstyle .gorouter:hover {
+    text-decoration: none;
+}*/
+
+.bootstrap_table_allstyle .module:first-child {
+    margin-left: 0;
+}
+
+.bootstrap_table_allstyle .module {
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.bootstrap_table_allstyle .role {
+    color: white;
+    background-color: #ccc;
+    padding: 2px 3px;
+    margin-right: 10px;
+    display: inline-block;
+    border-radius: 2px;
+    transform: scale(0.9);
+}
+
+.bootstrap_table_allstyle .special_role {
+    background-color: #db5752;
+}
+
+.bootstrap_table_allstyle .designer_role {
+    background: #e8c65c;
+}
+
+.bootstrap_table_allstyle .browser_role {
+    background: #c5d66c;
+}
+
+/*-----------------登录页面样式 start--------------------*/
+.loginPage {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-image: url("assets/share/img/bg.png");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.loginPage .form-signin-heading {
+    height: 28px;
+    cursor: pointer;
+    width: 134px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: 40px auto 30px auto;
+}
+
+.login-text-div {
+    font-size: 20px;
+    color: #333;
+    height: 28px;
+    line-height: 28px;
+    width: 100%;
+    text-align: center;
+    font-weight: normal;
+}
+
+.loginPage .form-signin > div {
+    position: relative;
+}
+
+.loginPage .userNameDiv {
+    width: 320px;
+    border-radius: 4px;
+    height: 50px;
+    margin: 0 auto 20px auto;
+}
+
+.loginPage .passwordDiv {
+    width: 320px;
+    border-radius: 4px;
+    height: 50px;
+    margin: 0 auto 20px auto;
+}
+
+.loginPage .validationDiv {
+    width: 320px;
+    border-radius: 4px;
+    margin: 0 auto 12px auto;
+}
+
+.loginPage .createDiv {
+    height: 28px;
+    position: absolute !important;
+    border-top: 1px solid #d6d6d6;
+    width: 72px;
+    border-radius: 4px;
+    z-index: 5;
+    right: 10px;
+    top: 11px;
+    cursor: pointer;
+}
+
+.loginPage .forgetPasswordDiv {
+    width: 320px;
+    margin: 0 auto 20px auto;
+}
+
+.loginPage .forgetHref {
+    float: right;
+    font-size: 12px;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.btn {
+    background-image: none;
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.loginPage .loginBtnDiv {
+    width: 320px;
+    margin: 0 auto;
+}
+
+.loginPage .form-signin .form-control {
+    border: 1px solid #ccc !important;
+    border-left: none !important;
+    border-radius: 0 4px 4px 0 !important;
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+.loginPage .form-control::-moz-placeholder, .loginPage .form-control::-ms-input-placeholder {
+    color: #999;
+    font-size: 12px;
+}
+
+.loginPage .form-control::-webkit-input-placeholder {
+    /* placeholder颜色  */
+    color: #999;
+    /* placeholder字体大小  */
+    font-size: 12px;
+    /* placeholder位置  */
+    font-weight: normal;
+}
+
+.loginPage .form-control:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+.loginPage .form-control:focus {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+.loginPage .input-group input {
+    border-left: none;
+    position: absolute;
+    left: 2px;
+    text-indent: 40px;
+    border-radius: 4px !important;
+}
+
+.loginPage .input-group-addon {
+    width: 40px !important;
+    background: #fff;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    height: 50px;
+    float: left;
+    position: relative;
+    z-index: 300;
+}
+
+.loginPage .input-group-addon i {
+    font-size: 16px;
+    color: #bcbcbc;
+    line-height: 50px;
+}
+
+.loginPage .input-group-addon .div1 {
+    background: none !important;
+}
+
+.loginPage .userInputIcon {
+    background: url("assets/imgs/login/login-userIcon.svg") center no-repeat;
+    background-size: 14px 16px;
+    width: 40px;
+    height: 50px;
+    background-position-y: 16px;
+}
+
+.loginPage .passwordIcon {
+    background: url("assets/imgs/login/login-passwordIcon.svg") center no-repeat;
+    background-size: 14px 16px;
+    width: 40px;
+    height: 50px;
+    background-position-y: 16px;
+}
+
+.loginPage .validationIcon {
+    background: url("assets/imgs/login/login-validationIcon.svg") center no-repeat;
+    background-size: 14px 16px;
+    width: 40px;
+    height: 50px;
+    background-position-y: 16px;
+}
+
+.loginPage .loginBtn {
+    height: 50px;
+    background-color: #4c7daa;
+    color: #fff;
+    border: 0 !important;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.loginPage .loginBtn:focus, .loginPage .loginBtn:hover {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.loginPage .loginBtn:hover {
+    background-color: rgba(76, 125, 170, 0.7);
+}
+
+.modal-footer .comOkBtn {
+    width: 60px;
+    height: 28px;
+    border: 0 !important;
+    font-size: 12px;
+    color: #fff;
+    letter-spacing: 0;
+    background: #4c7daa;
+    border-radius: 4px;
+    padding: 0px 12px !important;
+    margin-left: 18px !important;
+    line-height: 28px;
+}
+
+.modal-footer .comOkBtn:hover {
+    color: #fff;
+    background-color: rgba(76, 125, 170, 0.7);
+}
+
+.modal-footer .comCancelBtn {
+    margin-left: 30px;
+    width: 60px;
+    height: 28px;
+    border: 1px solid #c7c7c7 !important;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #333;
+    padding: 0px 12px !important;
+    letter-spacing: 0;
+    background: none;
+    line-height: 26px;
+}
+
+/*-----------------登录页面样式 end--------------------*/
+
+/*-----------------workbench左侧菜单图标 end------------------*/
+
+/*弹框样式改动*/
+.modal-dialog {
+    word-break: break-all;
+    word-wrap: break-word;
+    width: 400px !important;
+    margin: 0 auto !important;
+    position: relative;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    -ms-transform: translateY(-50%) !important; /* IE 9 */
+    -moz-transform: translateY(-50%) !important; /* Firefox */
+    -webkit-transform: translateY(-50%) !important; /* Safari 和 Chrome */
+    -o-transform: translateY(-50%) !important; /* Opera */
+}
+
+.small-modal-dialog {
+    width: 300px !important;
+}
+
+.modal-header {
+    padding: 10px 20px 10px 20px !important;
+    border-bottom-color: #dadada !important;
+    background-color: #ededed;
+    border-radius: 8px 8px 0 0;
+}
+
+.modal-title {
+    font-size: 14px;
+    font-weight: normal;
+    color: #333;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.close_model {
+    background: url("assets/share/img/close.svg") center no-repeat;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+}
+
+.modal-body {
+    padding: 30px !important;
+    max-height: 380px;
+    overflow: auto;
+}
+
+.modal-body::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.1)
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: #ededed
+}
+
+.modal-body .logcontainer {
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.modal-body .logcontainer:last-child {
+    margin-bottom: 0;
+}
+
+.modal-body .lefttitle {
+    /*font-weight: bold;*/
+    margin-bottom: 12px;
+}
+
+.modal-body .input[type=text] {
+    background: #fff;
+}
+
+.modal-footer {
+    border-top-color: #dadada !important;
+    background-color: #ededed;
+    border-radius: 0 0 8px 8px;
+    padding: 6px 20px !important;
+}
+
+.modal-footer .btn {
+    width: 60px;
+    line-height: 12px;
+    padding: 0;
+    font-size: 12px;
+    border-width: 1px;
+    height: 28.5px;
+}
+
+.modal-footer .btn + .btn {
+    margin-left: 20px !important;
+}
+
+.modal-footer .btn-default {
+    border-color: #c7c7c7;
+    background: #ededed;
+}
+
+.modal-footer .btn-default:hover {
+    background: #ededed;
+    border-color: #c7c7c7;
+}
+
+.modal-footer .btn-default:focus,
+.modal-footer .btn-primary:focus
+.modal-footer .btn-default:active:focus,
+.modal-footer .btn-primary:active:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.modal-footer .btn-primary {
+    background-color: #4c7daa;
+    border: 0;
+    line-height: 12px;
+}
+
+.modal-footer .btn-primary:hover {
+    background-color: rgba(76, 125, 170, 0.7);
+    border: 0;
+}
+
+.modal-header .close {
+    font-weight: 200;
+    font-size: 18px;
+    color: #333;
+    opacity: 1;
+    line-height: 20px;
+    margin-right: -6px;
+    margin-top: -1px !important;
+}
+
+.modal-header .close:focus, .modal-header .close span:focus, .modal-header .close:hover {
+    color: #333;
+    outline: none;
+    opacity: 1;
+}
+
+.fixed-table-container .fixed-table-body thead th .both {
+    background-image: url(assets/imgs/user/console-sort-none.svg);
+    background-size: 8px auto;
+}
+
+.fixed-table-container .fixed-table-body thead th .desc {
+    background-image: url(assets/imgs/user/console-sort-down.svg);
+    background-size: 8px auto;
+
+}
+
+.fixed-table-container .fixed-table-body thead th .asc {
+    background-image: url(assets/imgs/user/console-sort-up.svg);
+    background-size: 8px auto;
+}
+
+/*------------表格无内容时显示的提示样式----------------*/
+
+.no-data {
+    height: 35px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 35px;
+    border: 1px solid #efefef;
+    border-top: none;
+}
+
+/*-----------------------提示框样式--------------------------*/
+/*-----------------confirm model css start---------------*/
+.dap-wrap {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1999;
+    display: none;
+}
+
+.dap-wrap .confirm {
+    width: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -90px;
+    font-size: 14px;
+    background: #fff;
+    border-radius: 6px;
+}
+
+.dap-wrap .confirm-header {
+    background: #ededed;
+    height: 40px;
+    padding: 10px;
+    border-bottom: 1px solid #dadada;
+    border-radius: 8px 8px 0 0;
+}
+
+.dap-wrap .confirm-header-content {
+    font-size: 14px;
+    font-weight: normal;
+    color: #333;
+    letter-spacing: 0;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.dap-wrap .confirm-content-wrap {
+    font-size: 14px;
+    color: #333;
+    padding: 30px;
+}
+
+.dap-wrap .confirm-button {
+    background: #ededed;
+    border-top: 0;
+    height: 40px;
+    padding: 6px 10px;
+    border-radius: 0 0 8px 8px;
+    border-top: 1px solid #dadada;
+    text-align: right;
+}
+
+.dap-wrap .confirm-ok, .dap-wrap .confirm-cancel {
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    line-height: 20px;
+}
+
+.dap-wrap .confirm-ok {
+    width: 60px;
+    height: 28px;
+    border: 0 !important;
+    font-size: 12px;
+    color: #fff;
+    letter-spacing: 0;
+    background: #4c7daa;
+    border-radius: 4px;
+    padding: 4px 12px !important;
+    margin-left: 18px !important;
+}
+
+.dap-wrap .confirm-ok:hover {
+    background-color: rgba(76, 125, 170, 0.7);
+}
+
+.dap-wrap .confirm-cancel {
+    margin-left: 30px;
+    width: 60px;
+    height: 28px;
+    border: 1px solid #c7c7c7 !important;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #333;
+    padding: 3px 12px 4px !important;
+    letter-spacing: 0;
+    background: none;
+}
+
+.dap-wrap .cancel {
+    font-weight: 200;
+    font-size: 18px;
+    color: #333;
+    opacity: 1;
+    line-height: 20px;
+    margin-right: 4px;
+    margin-top: -1px;
+    float: right;
+    cursor: pointer;
+}
+
+.datetimepicker table {
+    width: 268px !important;
+}
+
+.datetimepicker table tr td span {
+    width: 15% !important;
+    margin: 2px !important;
+}
+
+.datetimepicker .table-condensed .prev, .datetimepicker .table-condensed .prev:hover {
+    background-image: url("assets/imgs/tree/treeDown-icon2.svg") !important;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-position: 10px 12px;
+    transform: rotate(90deg);
+}
+
+.datetimepicker .table-condensed .next, .datetimepicker .table-condensed .next:hover {
+    background-image: url("assets/imgs/tree/treeDown-icon2.svg") !important;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-position: 10px 12px;
+    transform: rotate(-90deg);
+}
+
+.datetimepicker .datetimepicker-months .table-condensed .prev, .datetimepicker .datetimepicker-months .table-condensed .prev:hover {
+    background-image: url("assets/imgs/tree/treeDown-icon2.svg") !important;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-position: 0 6px;
+    transform: rotate(90deg);
+}
+
+.datetimepicker .datetimepicker-years .table-condensed .prev, .datetimepicker .datetimepicker-years .table-condensed .prev:hover {
+    background-image: url("assets/imgs/tree/treeDown-icon2.svg") !important;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-position: 0 6px;
+    transform: rotate(90deg);
+}
+
+.datetimepicker .datetimepicker-months .table-condensed .next, .datetimepicker .datetimepicker-months .table-condensed .next:hover {
+    background-image: url("assets/imgs/tree/treeDown-icon2.svg") !important;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-position: 4px 6px;
+    transform: rotate(-90deg);
+}
+
+.datetimepicker .datetimepicker-years .table-condensed .next, .datetimepicker .datetimepicker-years .table-condensed .next:hover {
+    background-image: url("assets/imgs/tree/treeDown-icon2.svg") !important;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-position: 4px 6px;
+    transform: rotate(-90deg);
+}
+
+.datetimepicker table tr td.active:active,
+.datetimepicker table tr td.active:hover:active,
+.datetimepicker table tr td.active.disabled:active,
+.datetimepicker table tr td.active.disabled:hover:active,
+.datetimepicker table tr td.active.active,
+.datetimepicker table tr td.active:hover.active,
+.datetimepicker table tr td.active.disabled.active,
+.datetimepicker table tr td.active.disabled:hover.active {
+    background-image: none !important;
+    background-color: #4c7daa !important;
+}
+
+/*---------------------表格区域的样式-------------------------*/
+.ht_master .wtHolder::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.ht_master .wtHolder::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.ht_master .wtHolder::-webkit-scrollbar-track {
+    background: #ededed;
+    border-radius: 0;
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.table-area {
+    height: calc(100% - 60px);
+    overflow: auto;
+    margin-bottom: 20px;
+}
+
+.table-area::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.table-area::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.table-area::-webkit-scrollbar-track {
+    background: #ededed;
+    border-radius: 0;
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.table-area .table {
+    margin-bottom: 0;
+    font-size: 12px;
+}
+
+table tbody tr td span.table-info {
+    color: #4c7daa;
+    cursor: pointer;
+    display: inline-block;
+    height: 100%;
+    min-width: 20px;
+}
+
+.table-area .table tbody tr td span.table-span {
+    cursor: pointer;
+    color: #4c7daa;
+}
+
+.table-area .table tbody tr td span.table-span i {
+    color: inherit;
+    font-size: 14px;
+    background: none;
+}
+
+.table-area .table span.table-span:not(:first-child) {
+    margin-left: 20px;
+}
+
+/*表格查询图标*/
+
+.add-area {
+    height: 24px;
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.add-area > span {
+    float: right;
+    line-height: 24px;
+    vertical-align: middle;
+}
+
+.add-area > span:not(:first-child) {
+    margin-right: 20px;
+}
+
+.add-area span.search {
+    width: 140px;
+    height: 25px;
+    border: 1px solid #dadada;
+    line-height: 22px
+}
+
+.search input {
+    width: 120px;
+    height: 22px;
+    border: none;
+    text-indent: 10px;
+    font-size: 12px;
+    outline: none;
+    box-shadow: none;
+}
+
+.search-area {
+    width: 100%;
+    height: 25px;
+}
+
+.search-area .search-btn {
+    border: 1px solid #4c7daa;
+    border-radius: 4px;
+    font-size: 12px;
+    display: inline-block;
+    float: right;
+    text-align: center;
+    color: #4c7daa;
+    margin: 0;
+    cursor: pointer;
+    padding: 3px 12px;
+    position: relative;
+    top: -25px;
+}
+
+.ztree li span.button {
+    font-size: 14px;
+}
+
+/* ---------------- 数据地图的加载动画开始-------------- */
+
+.loading {
+    width: 80px;
+    height: 40px;
+    margin: 0 auto;
+    position: absolute;
+    z-index: 5000;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%) scale(.5);
+    display: none;
+}
+
+.loading span {
+    display: inline-block;
+    width: 8px;
+    height: 100%;
+    border-radius: 4px;
+    background: lightgreen;
+    margin: 0 2px;
+    vertical-align: middle;
+    animation: load .5s ease infinite;
+    -webkit-animation: load .5s ease infinite;
+}
+
+.loading span:nth-child(2n) {
+    height: 40px;
+    background: lightgreen;
+}
+
+.loading span:nth-child(2n+1) {
+    height: 70px;
+    background: lightblue;
+}
+
+@-webkit-keyframes load {
+    0%, 100% {
+        height: 40px;
+        background: lightgreen;
+    }
+    50% {
+        height: 70px;
+        background: lightblue;
+    }
+}
+
+.loading span:nth-child(2) {
+    animation-delay: 0.2s;
+    -webkit-animation-delay: 0.2s;
+}
+
+.loading span:nth-child(3) {
+    animation-delay: 0.4s;
+    -webkit-animation-delay: 0.4s;
+}
+
+.loading span:nth-child(4) {
+    animation-delay: 0.6s;
+    -webkit-animation-delay: 0.6s;
+}
+
+.loading span:nth-child(5) {
+    animation-delay: 0.8s;
+    -webkit-animation-delay: 0.8s;
+}
+
+
+/* ---------------- 数据地图加载动画结束-------------- */
+
+input.rename {
+    background: #e4e4e4 !important;
+}
+
+/* ----------------- 旋转动画开始 -------------*/
+
+.circle {
+    animation: myfirst 0.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes myfirst {
+    0% {
+        transform: rotate(0)
+    }
+    10% {
+        transform: rotate(36deg)
+    }
+    20% {
+        transform: rotate(72deg)
+    }
+    25% {
+        transform: rotate(90deg)
+    }
+    30% {
+        transform: rotate(108deg)
+    }
+    40% {
+        transform: rotate(144deg)
+    }
+    50% {
+        transform: rotate(180deg)
+    }
+    60% {
+        transform: rotate(216deg)
+    }
+    70% {
+        transform: rotate(252deg)
+    }
+    75% {
+        transform: rotate(270deg)
+    }
+    80% {
+        transform: rotate(288deg)
+    }
+    90% {
+        transform: rotate(324deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+/* ----------------- 旋转动画结束 -------------*/
+
+/*----------------------------- 影响关系区域样式开始 *-------------------------------*/
+.div-area.relation-area {
+    width: 100%;
+    overflow: auto;
+    position: relative;
+}
+
+.relation-area::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.relation-area:hover::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+}
+
+.relation-area::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.1)
+}
+
+.relation-area::-webkit-scrollbar-track {
+    background: #ededed
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .relation-area {
+        /*三角箭头的颜色*/
+        scrollbar-arrow-color: #f0f0f0;
+        /*滚动条滑块按钮的颜色*/
+        scrollbar-face-color: #f0f0f0;
+        /*滚动条整体颜色*/
+        scrollbar-highlight-color: #f0f0f0;
+        /*滚动条阴影*/
+        scrollbar-shadow-color: #fff;
+        /*滚动条轨道颜色*/
+        scrollbar-track-color: #fff;
+    }
+}
+
+/*----------------------------- 影响关系区域样式结束 *-------------------------------*/
+.none-boder-ul {
+    border: none !important;
+}
+
+.none-boder-ul li.active, .none-boder-ul li {
+    border: 1px solid #dedede !important;
+    border-bottom: none !important;
+}
+
+.sql-list-ul {
+    margin: 20px 0;
+    padding: 0 0 0 20px;
+}
+
+.sql-list-ul li {
+    list-style: none;
+    border: none !important;
+    font-size: 12px;
+}
+
+.path-info-span {
+    display: block !important;
+    width: calc(100% - 20px) !important;
+}
+
+.path-info-span .path-info {
+    display: inline-block;
+    width: auto !important;
+    margin-right: 3px;
+}
+
+.path-info-span .path-info:hover {
+    text-decoration: underline;
+}
+
+.Sql-area {
+    height: 100% !important;
+}
+
+.Sql-area .sql-area-span {
+    display: inline-block;
+    line-height: 30px;
+    padding: 10px 20px;
+    border: 1px solid #dedede;
+    width: 100%;
+    border-radius: 5px;
+    height: 100%;
+    overflow: auto;
+}
+
+.sql-area-span::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.sql-area-span::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.1)
+}
+
+.sql-area-span::-webkit-scrollbar-track {
+    background: #ededed
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .sql-area-span {
+        /*三角箭头的颜色*/
+        scrollbar-arrow-color: #f0f0f0;
+        /*滚动条滑块按钮的颜色*/
+        scrollbar-face-color: #f0f0f0;
+        /*滚动条整体颜色*/
+        scrollbar-highlight-color: #f0f0f0;
+        /*滚动条阴影*/
+        scrollbar-shadow-color: #fff;
+        /*滚动条轨道颜色*/
+        scrollbar-track-color: #fff;
+    }
+}
+
+/*============================================详情区域头部面包屑样式开始====================================*/
+.crumbs {
+    height: 40px;
+    width: 100%;
+}
+
+.crumbs .meta-query-info, .crumbs .meta-bg-info, .crumbs .list-info, .crumbs .back-info {
+    display: inline-block;
+    font-size: 12px;
+}
+
+.crumbs .meta-query-info {
+    color: #4c7daa;
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 10px;
+    width: auto;
+}
+
+.crumbs .meta-bg-info {
+    width: 10px;
+    height: 10px;
+    background-image: url(/assets/imgs/meta/slide_down.svg);
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
+    transform: rotate(-90deg);
+    margin: 0 5px;
+}
+
+.crumbs .back-info {
+    float: right;
+    color: #4c7daa;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.crumbs .list-info {
+    color: #333;
+    margin-left: 10px;
+}
+
+/*============================================详情区域头部面包屑样式结束====================================*/
+
+/*============================================详情区域头部面包屑下方详细信息部分样式开始==============================*/
+
+.meta-list {
+    height: calc(100% - 40px);
+    overflow-y: auto;
+}
+
+.meta-list::-webkit-scrollbar { /*滚动条整体样式*/
+    width: 5px; /*高宽分别对应横竖滚动条的尺寸*/
+    height: 5px;
+}
+
+.meta-list::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.meta-list::-webkit-scrollbar-track { /*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.meta-list .list-details {
+    width: 100%;
+    background: #f7f7f7;
+    padding: 12px 10px;
+}
+
+.meta-list .list-details .input-area {
+    height: 18px;
+    width: 30%;
+    margin: 8px 10px;
+    display: inline-block;
+}
+
+.meta-list .list-details .input-area label {
+    margin: 0;
+    font-size: 12px;
+    display: inline-block;
+    width: 80px;
+    margin-right: 12px;
+    font-weight: normal;
+    height: 18px;
+    line-height: 18px;
+    text-align: right;
+}
+
+.meta-list .list-details .input-area span {
+    font-size: 12px;
+    display: inline-block;
+    width: calc(100% - 101px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 18px;
+    line-height: 18px;
+    vertical-align: middle;
+}
+
+.meta-list .list-details .input-area span.path-info {
+    color: #4c7daa;
+    cursor: pointer;
+}
+
+/*------------------ 路径信息 ----------------*/
+span.path-info, span.path-info span {
+    color: #4c7daa;
+    cursor: pointer;
+    min-width: 20px;
+}
+
+/*============================================详情区域头部面包屑下方详细信息部分样式结束==============================*/
+
+/*=======================================详情信息下方切换tab列表的样式开始================================*/
+
+.tab-list {
+    margin-top: 28px;
+    width: 100%;
+    height: 40px
+}
+
+.tab-list ul {
+    border: 1px solid #dadada;
+    width: 242px;
+    height: 42px;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid transparent;
+    display: inline-block;
+    border-radius: 4px 4px 0 0;
+}
+
+.tab-list ul li {
+    list-style: none;
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    border-left: 1px solid #dadada;
+    border-bottom: 1px solid #dadada;
+}
+
+.tab-list ul li.active {
+    color: #4c7daa;
+    border-bottom: none;
+}
+
+.tab-list ul li:first-child {
+    border-left: none;
+}
+
+/*=======================================详情信息下方切换tab列表的样式结束================================*/
+.ztree#TaskTreeID {
+    padding-left: 10px;
+}
+
+.ztree#TreeID li a, .ztree#dataTreeID li a, .ztree#TaskTreeID li a {
+    display: inline-block;
+    padding-right: 0;
+}
+
+.ztree#TreeID li a span {
+    margin-right: 10px;
+}
+
+.ztree#TreeID li a.curSelectedNode, .ztree#TaskTreeID li a.curSelectedNode {
+    background-image: url(/assets/imgs/tree/ok.svg);
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+    background-position: center right;
+}
+
+.ztree#TreeID li a.curSelectedNode span, .ztree#TaskTreeID li a.curSelectedNode span {
+    color: #4c7daa;
+}
+
+.ztree#dataTreeID li a span.taskIcon_ico_docu {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.ztree#dataTreeID li a span.taskIcon_ico_docu:before {
+    font-family: "iconfont" !important;
+    font-size: 14px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\e68f"
+}
+
+.ztree#dataTreeID li span:before, .ztree#TreeID li span:before {
+    font-size: 14px;
+}
+
+.ztree#dataTreeID li a span.button.ico_open:before {
+    font-size: 13px;
+}
+
+.ztree#dataTreeID li span.button.ico_open, .ztree#dataTreeID li span.button.ico_close, .ztree#dataTreeID li span.button.ico_docu {
+    margin-right: 10px;
+}
+
+.ztree#dataTreeID li span.button.switch, .ztree#TreeID li span.button.switch,
+.ztree#TaskTreeID li span.button.switch {
+    display: none;
+}
+
+.ztree#TaskTreeID li a {
+    width: calc(100% - 20px);
+}
+
+.logModal {
+    max-height: 280px !important;
+}
+
+.pull-triangle {
+    margin-left: 6px;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+}
+
+.pull-triangle i {
+    font-size: 12px;
+}
+
+
+.pull-down-div {
+    position: fixed;
+    max-width: 160px;
+    height: auto;
+    background: #fff;
+    z-index: 20000;
+    border: 1px solid #dedede;
+    border-radius: 4px;
+    cursor: pointer;
+    max-height: 205px;
+    overflow: auto;
+}
+
+.pull-down-div::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.pull-down-div::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.1)
+}
+
+.pull-down-div::-webkit-scrollbar-track {
+    background: #ededed
+}
+
+
+.pull-down-div ul {
+    margin: 0;
+    padding: 0;
+    cursor: default;
+    list-style: none;
+}
+
+.pull-down-div ul li {
+    font-size: 12px;
+    color: #333;
+    list-style: none;
+    padding: 0 10px;
+    text-align: left;
+    line-height: 28px;
+}
+
+.pull-down-div ul li:hover {
+    background: #f1f1f1;
+}
+
+.pull-down-div ul li.active {
+    color: #4c7daa;
+}
+
+
+.hover-info:hover {
+    text-decoration: underline;
+    text-underline: #4c7daa;
+}
+
+
+.self-tooltip {
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.self-tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+    border-radius: 6px;
+    padding: 6px;
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    left: 24px;
+    border: 1px solid #d7d7d7;
+    box-shadow: 0 1px 4px 1px rgba(193, 193, 193, 0.5);
+    transform: translateY(-50%);
+    z-index: 99999;
+}
+
+.self-tooltip .tooltiptext::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent #d7d7d7 transparent transparent;
+}
+
+.self-tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: calc(50% + 1px);
+    right: calc(100% - 1px);
+    margin-top: -8px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: transparent #fff transparent transparent;
+}
+
+.self-tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.zz {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 996;
+}
+
+
+.CodeMirror-hscrollbar::-webkit-scrollbar { /*滚动条整体样式*/
+    width: 5px; /*高宽分别对应横竖滚动条的尺寸*/
+    height: 5px;
+}
+
+.CodeMirror-hscrollbar::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.CodeMirror-hscrollbar::-webkit-scrollbar-track { /*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+    background: rgba(0, 0, 0, 0.1);
+}

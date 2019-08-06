@@ -1,0 +1,82 @@
+<div class="loginPage">
+    <div class="logo-area"></div>
+    <form class="form-signin" autocomplete="off">
+        <div class="form-signin-heading">
+            <div class="login-text-div">
+                登录
+            </div>
+        </div>
+        <div class="input-group userNameDiv">
+            <div class="input-group-addon">
+                <div class="div1 userInputIcon">
+                    <i class="icon iconfont icon-dw_login_person"></i>
+                </div>
+            </div>
+            <input type="text" #username class="form-control ng-pristine ng-invalid ng-touched"
+                   placeholder="请输入用户名" required="" autocomplete="off">
+            <div class="usernameRemind">{{usernameRemind}}</div>
+        </div>
+        <div class="input-group passwordDiv">
+            <div class="input-group-addon">
+                <div class="div1 passwordIcon">
+                    <i class="icon iconfont icon-dw_login_password"></i>
+                </div>
+            </div>
+            <input type="password" #password class="form-control ng-pristine ng-invalid ng-touched"
+                   placeholder="请输入密码" required>
+            <div class="passwordRemind">{{passwordRemind}}</div>
+        </div>
+        <div class="input-group validationDiv">
+            <div class="input-group-addon">
+                <div class="div1 validationIcon">
+                    <i class="icon iconfont icon-dw_login_verificatio"></i>
+                </div>
+            </div>
+            <input type="text" #validation class="form-control ng-pristine ng-invalid ng-touched"
+                   placeholder="请输入验证码" required="" (keyup.enter)="login(username, password, validation)">
+            <div class=" createDiv" title="点击刷新验证码">
+                <img [src]="validationCode" alt="" class="validation" (click)="createCode()" *ngIf="validationCode">
+            </div>
+        </div>
+
+        <div class="input-group forgetPasswordDiv">
+            <a class="forgetHref" (click)="forgetPsw()">忘记密码</a>
+        </div>
+        <div class="input-group loginBtnDiv">
+            <button class="btn btn-block loginBtn" (click)="login(username, password,validation)" type="button">
+                登录
+            </button>
+        </div>
+        <!--<div class="totalRemind">{{totalRemind}}</div>-->
+    </form>
+
+    <!-- 修改密码 -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="resetPasswordModel" data-backdrop="static">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">重置密码</h4>
+                </div>
+                <div class="modal-body">
+                    <span class="simplePassword">您的密码过于简单,请修改登录密码</span>
+                    <div class="newPwdDiv">
+                        <span class="newPassword">新密码</span>
+                        <span id="logNewPwdNull" class="passwordCGremind">{{passwordCGremind}}</span>
+                        <input #newPassword class="newPasswordInput form-control input-sm" type="password">
+                    </div>
+                    <div class="rptNewPwdDiv">
+                        <span class="repeatPassword">重复新密码</span>
+                        <span id="logRepwdNotSame" class="rpPasswordCGremind">{{rpPasswordCGremind}}</span>
+                        <input #rpNewPassword class="repeatPasswordInput form-control input-sm" type="password">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn comCancelBtn" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn comOkBtn" (click)="modifyPassword(newPassword, rpNewPassword)">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

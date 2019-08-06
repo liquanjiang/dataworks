@@ -1,0 +1,48 @@
+.my-check-tree {
+    background: #fff;
+    border: 1px solid #dedede;
+    padding: 0;
+    border-radius: 4px 4px 0 0;
+    min-height: 100px;
+    max-height: 240px;
+    overflow-y: auto;
+}
+
+.my-check-tree::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.my-check-tree::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.1)
+}
+
+.my-check-tree::-webkit-scrollbar-track {
+    background: #ededed
+}
+
+.copy-tree-title {
+    position: relative;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.copy-tree-title span {
+    font-weight: normal;
+    padding-left: 10px;
+    font-size: 12px;
+}
+
+.h5-bg-span {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    width: 12px;
+    height: 12px;
+    background-image: url(/assets/imgs/tree/ok.svg);
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+    background-position: center right;
+}
+

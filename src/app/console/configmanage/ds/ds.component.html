@@ -1,0 +1,155 @@
+<div class="main-right-area">
+    <div id='user_consumer' class="add-area">
+        <!--<span class="serach">
+            <input type="text" placeholder="搜索">
+            <span class="search-span" (click)="searchConfig()"></span>
+        </span>-->
+        <span class="add" title="新增配置" (click)="addConfig()">
+        <i class="icon iconfont icon-dw_add"></i>
+    </span>
+    </div>
+    <div class="table-area" id="mainTablearea" style="height:calc(100% - 30px);">
+        <ng-yydatafin-table class="table"
+                            [tableId]="'mainTable'"
+                            [colHeaders]="tableColHeaders"
+                            [dataUrl]="tableUrl"
+                            [columns]="tableColumns" #mainTable>
+        </ng-yydatafin-table>
+    </div>
+</div>
+
+<!-- 新增 弹框 -->
+<div class="modal fade" tabindex="-1" role="dialog" id="configModel" data-backdrop="static">
+    <div class="modal-dialog" role="document" style="width:400px!important;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">数据源</h4>
+            </div>
+            <div class="modal-body" style="padding-bottom: 10px!important;">
+                <div class="ipt-area">
+                    <span class="mylabel">名称：</span>
+                    <input class="input" title="userName" type="text" [(ngModel)]="newConfig.dsname"/>
+                    <div class="error"></div>
+                </div>
+                <div class="ipt-area">
+                    <span class="mylabel">类型：</span>
+                    <span class="select-value" (click)="showConfigUL(0)" id="showNewConfig">
+                        {{getKeyByValue(newConfig.dstype, DSType)}}
+                        <span class="triangle"></span>
+                    </span>
+                    <ul class="period-ul" *ngIf="showNewConfig">
+                        <li *ngFor="let item of DSTypeArr"
+                            [class.active]="newConfig.dstype === item.value"
+                            (click)="changenewConfig(item)">
+                            {{item.key}}
+                        </li>
+                    </ul>
+                    <div class="error"></div>
+                </div>
+                <div class="ipt-area">
+                    <span class="mylabel">URL：</span>
+                    <input class="input" title="url" type="text" [(ngModel)]="newConfig['jdbc.url']"/>
+                    <div class="error"></div>
+                </div>
+                <div class="ipt-area">
+                    <span class="mylabel">用户名：</span>
+                    <input class="input" title="用户名" type="text" [(ngModel)]="newConfig['jdbc.username']"/>
+                    <input class="input" title="密码" autocomplete="off" type="password" hidden>
+                    <div class="error"></div>
+                </div>
+                <div class="ipt-area">
+                    <span class="mylabel">密码：</span>
+                    <input class="input" title="密码" autocomplete="off" type="password" [(ngModel)]="newConfig['jdbc.password']"/>
+                    <div class="error"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default test-btn" (click)="testlink(newConfig)">测试连接</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="CancelAdd()">取消</button>
+                <button type="button" class="btn btn-primary" (click)="ConfigManageAdd()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 修改 弹框 -->
+<div class="modal fade" tabindex="-1" role="dialog" id="EditconfigModel" data-backdrop="static">
+    <div class="modal-dialog" role="document" style="width:410px!important;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" (click)="CancelEidt()">&times;</span>
+                </button>
+                <h4 class="modal-title">数据源</h4>
+            </div>
+            <div class="modal-body" style="padding-bottom: 10px!important;">
+                <div class="ipt-area">
+                    <span class="mylabel">名称：</span>
+                    <input class="input" title="userName" type="text" [(ngModel)]="editConfig.dsname"/>
+                    <div class="error"></div>
+                </div>
+                <div class="ipt-area">
+                    <span class="mylabel">类型：</span>
+                    <span class="select-value" (click)="showConfigUL(1)" id="showEditConfig">
+                        {{getKeyByValue(editConfig.dstype, DSType)}}
+                        <span class="triangle"></span>
+                    </span>
+
+                    <ul class="period-ul" *ngIf="showEditConfig">
+                        <li *ngFor="let item of DSTypeArr"
+                            [class.active]="editConfig.dstype === item.value"
+                            (click)="changeeditConfig(item)">
+                            {{item.key}}
+                        </li>
+                    </ul>
+                    <div class="error"></div>
+                </div>
+                <div class="ipt-area">
+                    <span class="mylabel">URL：</span>
+                    <input class="input" title="url" type="text" [(ngModel)]="editConfig['jdbc.url']"/>
+                    <div class="error"></div>
+                </div>
+                <div class="ipt-area">
+                    <span class="mylabel">用户名：</span>
+                    <input class="input" title="用户名" type="text" [(ngModel)]="editConfig['jdbc.username']"/>
+                    <div class="error"></div>
+                </div>
+                <div class="ipt-area">
+                    <span class="mylabel">密码：</span>
+                    <input class="input" title="密码" type="password" [(ngModel)]="editConfig['jdbc.password']"/>
+                    <div class="error"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default test-btn" (click)="testEditlink(editConfig)">测试连接</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="CancelEidt()">取消</button>
+                <button type="button" class="btn btn-primary" (click)="ConfigManageEidt()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 删除 弹框 -->
+<div class="modal fade" tabindex="-1" role="dialog" id="configDeleteModel" data-backdrop="static">
+    <div class="modal-dialog small-modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">提示</h4>
+            </div>
+            <div class="modal-body">
+                <p>确定删除该条数据？</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deleteConfig()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>

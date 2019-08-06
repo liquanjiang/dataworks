@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="26px" viewBox="0 0 28 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>视图</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="dataworks" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="03-元数据管理-数据地图-华北销售" transform="translate(-1236.000000, -109.000000)">
+            <g id="cont" transform="translate(218.000000, 75.000000)">
+                <g id="视图" transform="translate(1018.000000, 34.000000)">
+                    <polygon id="Star-2" fill="#F5A623" points="14 21 5.77100647 25.3262379 7.34260439 16.163119 0.685208772 9.67376208 9.88550323 8.33688104 14 0 18.1144968 8.33688104 27.3147912 9.67376208 20.6573956 16.163119 22.2289935 25.3262379"></polygon>
+                    <polygon id="Star-2" fill="#FFFFFF" points="14 17 10.4732885 18.854102 11.1468305 14.927051 8.2936609 12.145898 12.2366442 11.572949 14 8 15.7633558 11.572949 19.7063391 12.145898 16.8531695 14.927051 17.5267115 18.854102"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,202 @@
+<!-- 元数据采集左侧树 -->
+<div class="main-right-area">
+    <div class="ztree-area">
+        <app-treemodel
+            (rootNode)="changeRootNode($event)"
+            (querydirPK)="changeQuerydirPK($event)"
+            (treeNode)="changeTreeNode($event)">
+        </app-treemodel>
+    </div>
+    <div class="table-out-area">
+        <div class="add-area">
+            <span class="add" title="新建采集任务" (click)="addMeta()">
+                 <i class="icon iconfont icon-dw_add"></i>
+            </span>
+            <span class="refresh" title="刷新列表"
+                  [class.circle]="showCircle"
+                  (click)="refreshMeta(true,false)">
+                <i class="icon iconfont icon-dw_refresh"></i>
+            </span>
+        </div>
+        <div class="table-area" id="metaTable">
+            <ng-yydatafin-table class="table"
+                                [tableId]="'metaTable'"
+                                [colHeaders]="tableColHeaders"
+                                [dataUrl]="tableUrl"
+                                [columns]="tableColumns" #metaTable>
+            </ng-yydatafin-table>
+        </div>
+    </div>
+    <div class="no-folder" *ngIf="showRightarea"
+         title="在根目录下新建目录">
+        <div class="new-folder-area" (click)="newTreeFolder()">
+        </div>
+    </div>
+    <div class="collect-details" *ngIf="showTableDetails">
+        <app-meta-details [deteailsInfo]="deteailsInfo"
+                          [treeNode]="treeNode"
+                          [queryDetailspk]="queryDetailspk"
+                          (back)="backToQuery($event)">
+        </app-meta-details>
+    </div>
+</div>
+
+
+<!-- 新增任务 弹框 -->
+<div class="modal fade" tabindex="-1" role="dialog" id="MetaModel" data-backdrop="static">
+    <div class="modal-dialog" role="document" style="width:366px!important;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="CancelAdd()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">元数据</h4>
+            </div>
+            <div class="modal-body" style="padding-bottom: 25px!important;overflow: visible">
+                <div class="ipt-area">
+                    <span class="mylabel">类型：</span>
+                    <span>采集库</span>
+                    <div class="error"></div>
+                </div>
+                <div class="ipt-area">
+                    <span class="mylabel">名称：</span>
+                    <input class="input" title="userName" type="text" [(ngModel)]="newMeta.name"/>
+                    <div class="error"></div>
+                </div>
+                <div class="ipt-area">
+                    <span class="mylabel">数据源：</span>
+                    <span class="select-value" (click)="showMetaUL(0)" id="showNewMeta">
+                        {{newMeta.dsName}}
+                        <span class="triangle"></span>
+                    </span>
+                    <ul class="period-ul" *ngIf="showNewMetaUL" style="left:60px;top:31px">
+                        <li *ngFor="let item of metaDsArr"
+                            [class.active]="newMetaTypePk === item.dsName"
+                            (click)="changeNewMetaType(item.dsName, metaDsArr)">
+                            {{item.dsName}}
+                        </li>
+                    </ul>
+                    <div class="error"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="CancelAdd()">取消</button>
+                <button type="button" class="btn btn-primary" (click)="MetaDataAdd()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 修改任务 弹框 -->
+<div class="modal fade" tabindex="-1" role="dialog" id="EditMetaModel" data-backdrop="static">
+    <div class="modal-dialog" role="document" style="width:366px!important;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">元数据</h4>
+            </div>
+            <div class="modal-body" style="padding-bottom: 25px!important;overflow: visible">
+                <div class="ipt-area">
+                    <span class="mylabel">类型：</span>
+                    <span>采集库</span>
+                    <div class="error"></div>
+                </div>
+                <div class="ipt-area">
+                    <span class="mylabel">名称：</span>
+                    <input class="input" title="userName" type="text" [(ngModel)]="editMeta.name"/>
+                    <div class="error"></div>
+                </div>
+                <div class="ipt-area">
+                    <span class="mylabel">数据源：</span>
+                    <span class="select-value" (click)="showMetaUL(1)"
+                          [style.background]="editMetaAllowed ? '#fff' : '#f1f1f1'"
+                          id="showEditMeta">
+                        {{editMeta.dsName}}
+                        <span class="triangle"></span>
+                    </span>
+                    <ul class="period-ul" *ngIf="showEditMetaUL" style="left:60px;top:31px">
+                        <li *ngFor="let item of metaDsArr"
+                            [class.active]="editMetaTypePk === item.dsName"
+                            (click)="changeEidtMetaType(item.dsName, metaDsArr)">
+                            {{item.dsName}}
+                        </li>
+                    </ul>
+                    <div class="error"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="CancelEidt()">取消</button>
+                <button type="button" class="btn btn-primary" (click)="MetaDataEidt()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 调度设置新增 弹框 -->
+<div class="modal fade" tabindex="-1" role="dialog" id="SettingMetaModel" data-backdrop="static">
+    <div class="modal-dialog" role="document" style="width:408px!important;">
+        <app-new-sch-setting
+            [buildCls]="buildCls"
+            (newScheSetting)="AddnewScheObj($event)"
+            (cancelNewSche)="CancelAddnewScheObj($event)"
+            [businessId]="NewScebusinessId"
+            [triggerName]="NewSchetriggerName"
+            *ngIf="showNewSche">
+        </app-new-sch-setting>
+    </div>
+</div>
+
+<!-- 调度设置修改 弹框 -->
+<div class="modal fade" tabindex="-1" role="dialog" id="EditSettingMetaModel" data-backdrop="static">
+    <div class="modal-dialog" role="document" style="width:408px!important;">
+        <app-edit-sch-setting
+            [EditTimeInit]="TimeInit"
+            [EditScheObject]="editScheObj"
+            (EditScheSetting)="EditeditScheObj($event)"
+            (cancelEditSche)="CancelEditeditScheObj($event)"
+            *ngIf="showEditSche">
+        </app-edit-sch-setting>
+    </div>
+</div>
+
+<!-- 显示日志 弹框 -->
+<div class="modal fade" tabindex="-1" role="dialog" id="showLogs" data-backdrop="static">
+    <div class="modal-dialog" role="document" style="width:380px!important;">
+        <div class="modal-content">
+            <app-scan-logs
+                [logsName]="'采集状态'"
+                [logInfoStyle]="logInfoStyle"
+                [logInfoObj]="logInfoObj">
+            </app-scan-logs>
+        </div>
+    </div>
+</div>
+
+<div class="pull-down-div"
+     *ngIf="showJob"
+     [style.left]="Jobleft"
+     [style.top]="Jobtop">
+    <ul>
+        <li *ngFor="let item of JobFilterArr"
+            (click)="filterJobStatus(item)"
+            [class.active]="item.status === jobStatus">
+            {{item.name}}
+        </li>
+    </ul>
+</div>
+
+<div class="pull-down-div"
+     *ngIf="showTrigger"
+     [style.left]="Triggerleft"
+     [style.top]="Triggertop">
+    <ul>
+        <li *ngFor="let item of TriggerFilterArr"
+            (click)="filterTriggerStatus(item)"
+            [class.active]="item.status === triggerstatus">
+            {{item.name}}
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,29 @@
+
+.modal-body .ipt-area {
+    position: relative;
+}
+
+.modal-body .ipt-area span {
+    font-size: 12px;
+}
+
+.modal-body .ipt-area span.mylabel {
+    display: inline-block;
+    width: 60px;
+    margin-right: 12px;
+}
+
+.log-info-label-span {
+    position: absolute !important;
+    left: 0;
+    top: 3px;
+}
+
+.log-info-span {
+    display: inline-block;
+    position: relative;
+    left: 72px;
+    min-height: 30px;
+    line-height: 2;
+    width: 240px;
+}

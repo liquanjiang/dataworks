@@ -1,0 +1,56 @@
+<!-- 查询列表区域 -->
+<div class="meta-query" [style.opacity]="showMetaQuery ? 1 : 0">
+    <div class="query-area">
+        <div class="query-ipt">
+            <label>元数据名称：</label>
+            <input type="text" title="元数据名称" [(ngModel)]="searchValue.name" (keyup.enter)="searchMeta(searchValue)">
+        </div>
+        <div class="query-ipt">
+            <label class="meta-type">元数据类型：</label>
+            <span class="select-area" (click)="showSearchMeta()" id="searchMeta">
+                {{getkeyByvalue(searchValue.metatype,typeArr)}}
+            </span>
+            <ul class="select-ul" *ngIf="showSearch">
+                <li *ngFor="let item of typeArr; let i =index"
+                    [class.active]="searchValue.metatype === item.code"
+                    (click)="changeSearch(item.code)">
+                    {{item.name}}
+                </li>
+            </ul>
+        </div>
+        <span class="search-btn" (click)="searchMeta(searchValue)">搜索</span>
+    </div>
+    <div class="search-area">
+
+    </div>
+    <div class="table-area" style="height:calc(100% - 50px)">
+        <ng-yydatafin-table class="table"
+                            [tableId]="'queryTable'"
+                            [colHeaders]="tableColHeaders"
+                            [dataUrl]="tableUrl"
+                            [columns]="tableColumns">
+        </ng-yydatafin-table>
+    </div>
+</div>
+
+<!-- 查询详情区域 -->
+<div class="details-area" *ngIf="!showMetaQuery">
+    <app-details
+        [typeArr]="typeArr"
+        [querypk]="querypk"
+        [metaType]="metaType"
+        (back)="backToQuery($event)">
+    </app-details>
+</div>
+<!-- 查询字段详情区域 -->
+<div class="details-area" *ngIf="showColumnDetails">
+    <app-column-detail [treeNode]="null"
+                       [moduleName]="'元数据查询'"
+                       [deteailsInfo]="null"
+                       [ColumnParent]="null"
+                       [ColumnData]="ColumnDetailData"
+                       (back)="backToPre($event)">
+    </app-column-detail>
+</div>
+
+

@@ -1,0 +1,230 @@
+.check-result {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background: #fff;
+}
+
+.check-result::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.check-result::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.1)
+}
+
+.check-result::-webkit-scrollbar-track {
+    background: #ededed
+}
+
+.background-area {
+    height: 10px;
+    width: 100%;
+    background: #ededed;
+}
+
+.top-content-area {
+    width: 100%;
+    height: 120px;
+    background: #ededed;
+}
+
+.top-content-area .top-div {
+    width: calc(25% - 1px);
+    margin-left: 1px;
+    background: #fff;
+    height: 120px;
+    display: inline-block;
+    position: relative;
+}
+
+.top-content-area .top-div:last-child {
+    width: 25%;
+}
+
+.top-content-area .top-div:first-child {
+    margin-left: 0;
+}
+
+.top-content-area .top-div .content-span {
+    display: inline-block;
+    width: calc(100% - 20px);
+    height: 80px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+}
+
+.top-content-area .top-div .content-span .top-area {
+    display: block;
+    width: 100%;
+    height: 48px;
+    text-align: center;
+}
+
+.top-content-area .top-div .content-span .top-area span {
+    display: inline-block;
+}
+
+.top-content-area .top-div .content-span .top-area .top-area-icon {
+    width: 16px;
+    height: 24px;
+    line-height: 1;
+    background-repeat: no-repeat;
+    background-size: 12px 24px;
+    position: relative;
+    top: 3px;
+}
+
+.top-content-area .top-div .content-span .top-area .top-area-icon.font-icon {
+    top: -1px;
+}
+
+.top-content-area .top-div .content-span .top-area .top-area-icon.font-icon i {
+    font-size: 18px;
+}
+
+.top-content-area .top-div .content-span .top-area .top-area-icon.date {
+    height: 24px;
+    top: -1px;
+    cursor: pointer;
+    left: -10px;
+}
+
+.top-content-area .top-div .content-span .top-area .top-area-icon.date i {
+    font-size: 20px
+}
+
+
+
+.top-content-area .top-div .content-span .top-area .top-area-icon.date input {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    opacity: 0;
+    z-index: 2;
+    left: -2px;
+    top: -2px;
+    cursor: pointer;
+}
+
+.top-content-area .top-div .content-span .top-area .top-area-num {
+    height: 48px;
+    font-size: 24px;
+    line-height: 48px;
+}
+
+.top-content-area .top-div .content-span .text-span {
+    font-size: 14px;
+    display: block;
+    height: 32px;
+    width: 100%;
+    text-align: center;
+    line-height: 32px;
+}
+
+.echarts-area {
+    width: 100%;
+    height: 321px;
+    padding: 16px 20px 0;
+    background: #fff;
+    overflow: auto;
+    position: relative;
+}
+
+.echarts-area .charts-div {
+    display: inline-block;
+    height: 300px;
+    background: #f6f6f6;
+
+}
+
+.echarts-area .charts-div.no-charts {
+    position: absolute;
+}
+
+.echarts-area .charts-div.no-charts h5 {
+    color: #333;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-size: 14px;
+}
+
+.echarts-area .charts-div.no-charts .no-charts-bg {
+    width: 100px;
+    height: 120px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.echarts-area .charts-div.no-charts .no-charts-bg .no-pie-bg {
+    width: 80px;
+    height: 80px;
+    background-image: url(/assets/imgs/checkresult/no-pie.svg);
+    background-repeat: repeat;
+    margin: 0 auto;
+}
+
+.echarts-area .charts-div.no-charts .no-charts-bg .no-bar-bg {
+    width: 80px;
+    height: 80px;
+    background-image: url(/assets/imgs/checkresult/no-bar.svg);
+    background-repeat: repeat;
+    margin: 0 auto;
+}
+
+.echarts-area .charts-div.no-charts .no-charts-bg .no-charts-data {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+}
+
+.echarts-area .charts-div.no-charts.no-pie-charts {
+    left: 20px;
+    top: 16px;
+    width: calc(42% - 24px);
+    z-index: 2500;
+}
+
+.echarts-area .charts-div.no-charts.no-bar-charts {
+    right: 20px;
+    top: 16px;
+    width: calc(58% - 24px);
+    z-index: 2500;
+}
+
+.echarts-area .charts-div.pie-charts-area {
+    width: calc(42% - 8px);
+    margin-right: 16px;
+}
+
+.echarts-area .charts-div.bar-charts-area {
+    width: calc(58% - 8px);
+}
+
+.data-table-area {
+    padding: 0 20px;
+}
+
+/*--------------问题记录详情页-------------*/
+
+.record-details {
+    position: absolute;
+    width: calc(100% - 32px);
+    height: calc(100% - 32px);
+    z-index: 1000;
+    left: 16px;
+    top: 16px;
+    background: #fff;
+    padding: 20px 20px 0 20px;
+}

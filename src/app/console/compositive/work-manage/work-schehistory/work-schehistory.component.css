@@ -1,0 +1,26 @@
+.table-area {
+    height: calc(100% - 20px);
+    margin-top: 20px;
+    margin-bottom: 0;
+    overflow: auto;
+    width: calc(100% - 20px);
+    min-width: 800px;
+}
+
+.table-area::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.table-area::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.1)
+}
+
+.table-area::-webkit-scrollbar-track {
+    background: #ededed
+}
+
+
+
+

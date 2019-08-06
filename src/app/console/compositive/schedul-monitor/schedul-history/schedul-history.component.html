@@ -1,0 +1,30 @@
+<div class="crumbs-area">
+    <span class="crumbs-header" (click)="back()">
+        调度监控
+    </span>
+    <span class="crumbs-bg-info"></span>
+    <span class="">
+        {{dataObj.name}}调度历史
+    </span>
+</div>
+<div class="table-area" id="mainTablearea" style="height:calc(100% - 30px);">
+    <ng-yydatafin-table class="table"
+                        [tableId]="'mainTable'"
+                        [colHeaders]="tableColHeaders"
+                        [dataUrl]="tableUrl"
+                        [columns]="tableColumns">
+    </ng-yydatafin-table>
+</div>
+
+<!-- 显示日志 弹框 -->
+<div class="modal fade" tabindex="-1" role="dialog" id="showLogs" data-backdrop="static">
+    <div class="modal-dialog" role="document" style="width:380px!important;">
+        <div class="modal-content">
+            <app-scan-logs
+                [logsName]="'执行状态'"
+                [logInfoStyle]="logInfoStyle"
+                [logInfoObj]="logInfoObj">
+            </app-scan-logs>
+        </div>
+    </div>
+</div>

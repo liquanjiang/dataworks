@@ -1,0 +1,20 @@
+<div class="table-area" id="mainTablearea">
+    <ng-yydatafin-table class="table"
+                        [tableId]="'mainTable'"
+                        [colHeaders]="tableColHeaders"
+                        [dataUrl]="tableUrl"
+                        [columns]="tableColumns">
+    </ng-yydatafin-table>
+</div>
+
+<!-- 显示日志 弹框 -->
+<div class="modal fade" tabindex="-1" role="dialog" id="showLogs" data-backdrop="static">
+    <div class="modal-dialog" role="document" style="width:380px!important;">
+        <div class="modal-content">
+            <app-scan-logs
+                [logInfoStyle]="logInfoStyle"
+                [logInfoObj]="logInfoObj">
+            </app-scan-logs>
+        </div>
+    </div>
+</div>

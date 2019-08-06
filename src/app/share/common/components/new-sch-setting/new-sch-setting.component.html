@@ -1,0 +1,93 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="CancelAddnewScheObj()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">调度设置</h4>
+    </div>
+    <div class="modal-body" style="padding-bottom: 10px!important;position:relative;overflow:visible;">
+        <div class="ipt-area pause-area">
+            <span class="mylabel">是否启用：</span>
+            <span class="checkbox-bg"
+                  (click)="changePause(newScheObj.pause, 0)"
+                  [class.active]="!newScheObj.pause"></span>
+            <span class="checkbox-span">启用</span>
+            <div class="error"></div>
+        </div>
+        <div class="ipt-area time-period">
+            <span class="mylabel">调度周期：</span>
+            <div class="div time-period-b">
+                        <span class="select-value time-period-span" (click)="showNewPeriod(0)" id="newPeriodUl">
+                            {{getkeyByValue(newScheObj.schePeriod, setPeriodArr, 'value', 'key')}}
+                            <span class="triangle time-period-triangle"></span>
+                        </span>
+
+                <ul class="period-ul time-period-ul" *ngIf="showNewPeriodUL">
+                    <li *ngFor="let item of setPeriodArr"
+                        [class.active]="newScheObj.schePeriod === item.value"
+                        (click)="changenewschePeriod(item.value)">
+                        {{item.key}}
+                    </li>
+                </ul>
+            </div>
+            <div class="div time-period-a" id="NewPeriod"
+                 (click)="PeriodSelectorShow(0)"
+                 *ngIf="newScheObj.schePeriod && newScheObj.schePeriod !== 'Hour'">
+                        <span class="select-value time-period-span" title="{{getCalc(newScheObj)}}">
+                            {{getCalc(newScheObj)}}
+                            <span class="triangle time-period-triangle"></span>
+                        </span>
+
+            </div>
+        </div>
+        <div class="ipt-area" style="padding-top:10px;">
+            <span class="mylabel">调度时间：</span>
+            <input class="input" id="SettingDate" type="text" autocomplete="off" disableautocomplete
+                   title="调度时间"
+                   (click)="TimeSelectorShow(0)"
+                   [(ngModel)]="newScheObj.specificTime"/>
+            <span class="timeselect-span">
+                        {{ newScheObj.specificTime }}
+                    </span>
+            <div class="error"></div>
+        </div>
+        <div class="ipt-area can-date">
+            <span class="mylabel">有效日期：</span>
+            <input type="text" class="date-input" id="dateStart" autocomplete="off" disableautocomplete
+                   title="开始时间" [(ngModel)]="newScheObj.startTime">
+            <span class="editStart-span time-span">
+                        {{getStartEndTimeStr(newScheObj.startTime)}}
+                    </span>
+            <span class="font-text">至</span>
+            <input type="text" class="date-input" id="dateEnd" autocomplete="off" disableautocomplete
+                   title="结束时间" [(ngModel)]="newScheObj.endTime">
+            <span class="editEnd-span time-span">
+                        {{getStartEndTimeStr(newScheObj.endTime)}}
+                    </span>
+            <div class="error"></div>
+        </div>
+        <div class="time-selector-div" *ngIf="showTimeSelector" [style.top]="WindowHeight > 700 ? '148px' : '-175px'">
+            <app-timeselector
+                [TimeInit]="newTimeInit"
+                [timeType]="newScheObj.schePeriod"
+                (TimeCancel)="TimeSelectClose()"
+                (TimeSelected)="changeNewTimeSelected($event)">
+            </app-timeselector>
+        </div>
+        <div class="time-periodsetter-div" *ngIf="showPeriodSettor">
+            <app-periodsetter
+                [PeriodArr]="newPeriodArr"
+                [PeriodType]="newschePeriod"
+                (PeriodSelected)="ConfirmNewPeriod($event)">
+            </app-periodsetter>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="CancelAddnewScheObj()">
+            取消
+        </button>
+        <button type="button" class="btn btn-primary" (click)="AddnewScheObj()">
+            确定
+        </button>
+    </div>
+</div>

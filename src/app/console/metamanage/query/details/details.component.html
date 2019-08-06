@@ -1,0 +1,103 @@
+<div class="crumbs">
+    <span class="meta-query-info" (click)="backToQuery()" title="点击返回返回查询列表">
+        元数据查询
+    </span>
+    <span class="meta-bg-info"></span>
+    <span class="list-info" title={{metaDetailData.meta_name}}>
+        {{metaDetailData.meta_name}}
+    </span>
+</div>
+<div class="meta-list">
+    <!-- 查询详情-信息详情展示 -->
+    <div class="list-details">
+        <div class="input-area">
+            <label>元数据名称：</label>
+            <span>{{metaDetailData.meta_name}}</span>
+        </div>
+        <div class="input-area">
+            <label>元数据类型：</label>
+            <span>{{getkeyByvalue(metaDetailData.meta_type,typeArr)}}</span>
+        </div>
+        <div class="input-area">
+            <label>采集时间：</label>
+            <span>{{metaDetailData.ts}}</span>
+        </div>
+        <div class="input-area" *ngIf="metaDetailData.meta_type ===  'Table'">
+            <label>注释：</label>
+            <span>{{metaDetailData.meta_comment}}</span>
+        </div>
+
+        <div class="input-area path-info-span">
+            <label>路径信息：</label>
+            <span class="path-info" *ngFor="let item of PathArr;let i = index">
+                {{ item ? '/' + item : '' }}
+            </span>
+        </div>
+    </div>
+    <ul class="sql-list-ul" *ngIf="metaDetailData.meta_type === 'Procedure'">
+        <li>SQL：</li>
+    </ul>
+    <!-- 查询详情-表头 -->
+    <div class="tab-list" *ngIf="tablist.length > 0">
+        <ul class="tab-list-ul" *ngIf="tablist.length > 1">
+            <li [class.active]="activeIndex === i"
+                *ngFor="let item of tablist; let i =index"
+                (click)="Listtab(i,metaType,item.value)">
+                {{item.name}}
+            </li>
+        </ul>
+        <ul class="tab-list-ul none-boder-ul" *ngIf="tablist.length === 1">
+            <li [class.active]="activeIndex === i"
+                *ngFor="let item of tablist; let i =index"
+                (click)="Listtab(i,metaType,item.value)">
+                {{item.name}}
+            </li>
+        </ul>
+        <div class="border-div" *ngIf="tablist.length > 2"></div>
+    </div>
+    <div class="tab-content-area"
+         [style.height]="metaDetailData.meta_type === 'Table' ? 'calc(100% - 215px)' : 'calc(100% - 180px)'">
+        <!-- SQL语句显示区域，只有存储过程类型的才有SQL-->
+        <div class="Sql-area div-area" *ngIf="tablist.length === 0 && metaDetailData.meta_type === 'Procedure'">
+            <span class="sql-area-span" [innerHTML]="metaDetailData.sql">
+            </span>
+        </div>
+        <!-- 字段表格区域，表，视图类型的有此表格 -->
+        <div class="Column-area  div-area" *ngIf="tablist.length > 0 && activeIndex === 0 && metaType !== 'Schema'">
+            <ng-yydatafin-table class="table"
+                                [tableId]="'queryTable'"
+                                [colHeaders]="detailsColHeaders"
+                                [dataUrl]="tableUrl"
+                                [columns]="detailsColumns">
+            </ng-yydatafin-table>
+        </div>
+        <!-- 表、视图、存储过程表格区域,只有库类型的才有此表格 -->
+        <div class="Column-area  div-area" *ngIf="tablist.length > 0 && metaType === 'Schema'">
+            <ng-yydatafin-table class="table"
+                                [tableId]="'queryTable'"
+                                [colHeaders]="detailsColHeaders"
+                                [dataUrl]="tableUrl"
+                                [columns]="detailsColColumns">
+            </ng-yydatafin-table>
+        </div>
+        <!-- 查询详情-影响关系 只有表类型的才有影响关系-->
+        <div class="relation-area div-area" *ngIf="activeIndex === 1 && metaType === 'Table'">
+            <app-relation-ship [querypk]="relationPK" [Blood]="false" [name]="metaDetailData.meta_name">
+
+            </app-relation-ship>
+        </div>
+        <!-- 查询详情-血缘关系 只有表类型的才有血缘关系-->
+        <div class="relation-area div-area" *ngIf="activeIndex === 2 && metaType === 'Table'">
+            <app-relation-ship [querypk]="bloodPK" [Blood]="true" [name]="metaDetailData.meta_name">
+
+            </app-relation-ship>
+        </div>
+    </div>
+</div>
+<div class="child-details-info-area" *ngIf="showChildDetails">
+    <app-childobj [querypk]="childQueryPk"
+                  [preNameObj]="metaDetailData"
+                  [metaType]="childMetatype"
+                  (back)="backToMetaDetails($event)">
+    </app-childobj>
+</div>

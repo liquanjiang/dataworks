@@ -1,0 +1,18 @@
+<div class="simple-select">
+    <div class="simple-select-title" (click)="selectListToggle($event)">
+        <!--<span>{{getSelectValue()}}</span>-->
+        <input type="text" [readonly]="readonly"
+               [placeholder]="placeholder"
+               [ngModel]="selectValueName"
+               (ngModelChange)="setSelectValue($event)"/>
+        <i class="iconfont icon-dw_dropdown"></i>
+    </div>
+    <!--<ul class="simple-select-list" *ngIf="selectListShow">-->
+        <!--<li *ngFor="let item of filterList"-->
+            <!--[class.selected]="getSelected(item.value)"-->
+            <!--(click)="selectChange(item)">-->
+            <!--<span *ngIf="multi" class="checkbox-bg" [class.active]="getSelected(item.value)"></span>-->
+            <!--<span>{{item.name}}</span>-->
+        <!--</li>-->
+    <!--</ul>-->
+</div>

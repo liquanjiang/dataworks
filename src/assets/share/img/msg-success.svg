@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>成功提示</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="吐司样式" transform="translate(-651.000000, -352.000000)" fill="#66C23A" fill-rule="nonzero">
+            <g id="成功提示" transform="translate(651.000000, 352.000000)">
+                <path d="M8,16 C3.58172481,16 0,12.4182752 0,8 C0,3.58172481 3.58172481,0 8,0 C12.4182752,0 16,3.58172481 16,8 C16,12.4182752 12.4182752,16 8,16 Z M11.8802579,3.01612895 C9.09740472,4.84451814 7.33269775,10.3297363 7.33269775,10.3297363 L6.24666436,7.63065055 L4.00682556,9.37198848 C4.95708923,9.80733678 6.31454692,11.2004053 7.46840759,13.0287899 C8.28290616,11.1133218 10.7942844,7.19533448 12.0160276,6.84706506 C11.5408958,5.45399655 11.8124306,4.32211398 11.8802579,3.01612895 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

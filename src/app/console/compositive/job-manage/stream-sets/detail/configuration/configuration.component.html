@@ -1,0 +1,163 @@
+
+<div class="stremsets-config">
+    <div class="config-item">
+        <label>名称</label>
+        <div class="config-value">
+            <input type="text" [value]="selectedObject.nodeName" (change)="update($event)"/>
+        </div>
+    </div>
+    <ng-container *ngIf="selectedObject && selectedObject.nodeConfigs">
+        <ng-container *ngFor="let configDefinition of selectedObject.nodeConfigs;let configIndex = index">
+            <div class="config-item">
+                <label [class.map]="configDefinition.configtype === 'mappingarray' || configDefinition.configtype === 'jsonarray' || configDefinition.configtype === 'tripletext1' || configDefinition.configtype === 'tripletext2'"
+                       [class.sql]="configDefinition.configtype === 'code'">
+                    {{configDefinition.configdescribe}}
+                    <span class="self-tooltip" *ngIf="configDefinition.configtype === 'jsonarray'||configDefinition.configtype === 'notetext'">
+                         <i class="iconfont icon-tip"></i>
+                         <span class="tooltiptext">{{configDefinition.value.note}}</span>
+                    </span>
+
+                </label>
+                <div class="config-value" *ngIf="configDefinition.configtype === 'selectlist'">
+                    <app-simple-select [(selectValue)]="configDefinition.value.select"
+                                       [selectList]="configDefinition.value.datalist">
+                    </app-simple-select>
+                </div>
+                <div class="config-value" *ngIf="configDefinition.configtype === 'text'">
+                    <input type="text" [name]="configDefinition.configname" [(ngModel)]="configDefinition.value">
+                </div>
+                <div class="config-value" *ngIf="configDefinition.configtype === 'notetext'">
+                    <input type="text" [name]="configDefinition.configname" [(ngModel)]="configDefinition.value.path">
+                </div>
+                <div class="config-value" *ngIf="configDefinition.configtype === 'code'">
+                    <app-code-area [(sqlValue)]="configDefinition.value"></app-code-area>
+                </div>
+                <div class="config-value" *ngIf="configDefinition.configtype === 'passwd'">
+                    <input type="password" [name]="configDefinition.configname" [(ngModel)]="configDefinition.value">
+                </div>
+                <div class="config-value"
+                     *ngIf="configDefinition.configtype === 'mappingarray'">
+                    <div class="map-array">
+                        <div class="map-array-title">
+                            <p class="title-name">源列</p>
+                            <p class="title-value">目标列</p>
+                        </div>
+                        <div *ngIf="configDefinition.value && configDefinition.value.length > 0" class="map-array-content">
+                            <ng-container  *ngFor="let tempValue of configDefinition.value;let i =index;">
+                                <div class="map-array-value-content">
+                                    <div class="map-array-value">
+                                        <input class="map-key" type="text" name="map-key" [(ngModel)]="tempValue[0]"/>
+                                        <input class="map-value" type="text" name="map-value" [(ngModel)]="tempValue[1]"/>
+                                    </div>
+                                </div>
+                                <div class="map-array-button">
+                                    <i class="iconfont icon-Minus" (click)="deleteMapValue(configDefinition,i)"></i>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <i class="iconfont icon-plus" (click)="addMapValue(configDefinition)"></i>
+                    </div>
+                </div>
+                <div class="config-value"
+                     *ngIf="configDefinition.configtype === 'jsonarray'">
+                    <div class="map-array">
+                        <div class="map-array-title">
+                            <p class="title-value">名称</p>
+                            <p class="title-value">值</p>
+                        </div>
+                        <div *ngIf="configDefinition.value.sysvarible && configDefinition.value.sysvarible.length > 0" class="map-array-content">
+                            <ng-container  *ngFor="let tempValue of configDefinition.value.sysvarible;let i =index;">
+                                <div class="map-array-value-content">
+                                    <div class="map-array-value">
+                                        <input class="map-key" type="text" name="map-key" [(ngModel)]="tempValue[0]"/>
+                                        <input class="map-value" type="text" name="map-value" [(ngModel)]="tempValue[1]"/>
+                                        <!--<ul id="data" *ngIf="tempValue[1].indexOf('$') === 0 && isFocus">-->
+                                            <!--<li (mousedown)="tempValue[1]=configDefinition.value.note">-->
+                                                <!--{{configDefinition.value.note}}-->
+                                            <!--</li>-->
+                                        <!--</ul>-->
+                                    </div>
+                                </div>
+                                <div class="map-array-button">
+                                    <i class="iconfont icon-Minus" (click)="deleteMapValue(configDefinition,i)"></i>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <i class="iconfont icon-plus" (click)="addMapValue(configDefinition)"></i>
+                    </div>
+                </div>
+                <div class="config-value"
+                     *ngIf="configDefinition.configtype === 'tripletext2'">
+                    <div class="map-array">
+                        <div class="map-array-title" style="display: flex">
+                            <p class="title-value">类别</p>
+                            <p class="title-value">处理方法</p>
+                            <p class="title-value">指定值</p>
+                        </div>
+                        <div *ngIf="configDefinition.value.param && configDefinition.value.param.length > 0" class="map-array-content">
+                            <ng-container  *ngFor="let tempValue of configDefinition.value.param;let i =index;">
+                                <div class="map-array-value-content">
+                                    <div class="map-array-value">
+                                        <div class="my-column">
+                                            <app-simple-select [(selectValue)]="tempValue.coltype"
+                                                               [selectList]="configDefinition.value.datalist.coltype">
+                                            </app-simple-select>
+                                        </div>
+                                        <div class="my-column">
+                                            <app-simple-select [(selectValue)]="tempValue.dealmethod"
+                                                               [selectList]="configDefinition.value.datalist.dealmethod">
+                                            </app-simple-select>
+                                        </div>
+                                        <div class="map-array-value my-column">
+                                            <input type="text" name="fillvalue"
+                                                   [disabled]="tempValue.dealmethod !== 'insert'"
+                                                   [(ngModel)]="tempValue.fillvalue"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="map-array-button">
+                                    <i class="iconfont icon-Minus" (click)="deleteMapValue(configDefinition,i)"></i>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <i *ngIf="configDefinition.value && configDefinition.value.param.length < 3" class="iconfont icon-plus" (click)="addMapValue(configDefinition)"></i>
+                    </div>
+                </div>
+                <div class="config-value"
+                     *ngIf="configDefinition.configtype === 'tripletext1'">
+                    <div class="map-array">
+                        <div class="map-array-title" style="display: flex">
+                            <p class="title-value">名称</p>
+                            <p class="title-value">类型</p>
+                            <p class="title-value">重命名</p>
+                        </div>
+                        <div *ngIf="configDefinition.value.param && configDefinition.value.param.length > 0" class="map-array-content">
+                            <ng-container  *ngFor="let tempValue of configDefinition.value.param;let i =index;">
+                                <div class="map-array-value-content">
+                                    <div class="map-array-value">
+                                        <div class="map-array-value my-column">
+                                            <input type="text" name="oldcol" [(ngModel)]="tempValue.oldcol"/>
+                                        </div>
+                                        <div class="my-column">
+                                            <app-simple-select [(selectValue)]="tempValue.newtype"
+                                                               [selectList]="configDefinition.value.datalist.newtype">
+                                            </app-simple-select>
+                                        </div>
+                                        <div class="map-array-value my-column">
+                                            <input type="text" name="newcol" [(ngModel)]="tempValue.newcol"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="map-array-button">
+                                    <i class="iconfont icon-Minus" (click)="deleteMapValue(configDefinition,i)"></i>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <i class="iconfont icon-plus" (click)="addMapValue(configDefinition)"></i>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+
+</div>

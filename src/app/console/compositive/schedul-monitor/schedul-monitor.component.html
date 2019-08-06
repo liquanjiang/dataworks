@@ -1,0 +1,73 @@
+<div class="main-right-area" *ngIf="!showHistoryArea">
+    <div id='user_consumer' class="add-area">
+        <span class="add" title="刷新列表"
+              [class.circle]="showCircle"
+              (click)="refresh()">
+            <i class="icon iconfont icon-dw_refresh"></i>
+        </span>
+        <span class="search">
+            <input type="text" placeholder="请输入作业名称"
+                   (keyup.enter)="searchData()"
+                   [(ngModel)]="searchParam">
+            <span class="search-span" (click)="searchData()">
+                <i class="icon iconfont icon-dw_search"></i>
+            </span>
+        </span>
+    </div>
+    <div class="table-area" id="mainTablearea" style="height:calc(100% - 30px);">
+        <ng-yydatafin-table class="table"
+                            [tableId]="'mainTable'"
+                            [colHeaders]="tableColHeaders"
+                            [dataUrl]="tableUrl"
+                            [columns]="tableColumns" #mainTable>
+        </ng-yydatafin-table>
+    </div>
+</div>
+<div class="main-right-area history-area" *ngIf="showHistoryArea">
+    <app-schedul-history
+        [schedulerId]="schedulerId"
+        (backTo)='backToList()'
+        [itemObj]='itemObj'>
+    </app-schedul-history>
+</div>
+
+<!-- 显示日志 弹框 -->
+<div class="modal fade" tabindex="-1" role="dialog" id="showLogs" data-backdrop="static">
+    <div class="modal-dialog" role="document" style="width:380px!important;">
+        <div class="modal-content">
+            <app-scan-logs
+                [logsName]="'执行状态'"
+                [logInfoStyle]="logInfoStyle"
+                [logInfoObj]="logInfoObj">
+            </app-scan-logs>
+        </div>
+    </div>
+</div>
+
+
+<div class="pull-down-div"
+     *ngIf="showJob"
+     [style.left]="Jobleft"
+     [style.top]="Jobtop">
+    <ul>
+        <li *ngFor="let item of JobFilterArr"
+            (click)="filterJobStatus(item)"
+            [class.active]="item.status === jobStatus">
+            {{item.name}}
+        </li>
+    </ul>
+</div>
+
+<div class="pull-down-div"
+     *ngIf="showTrigger"
+     [style.left]="Triggerleft"
+     [style.top]="Triggertop">
+    <ul>
+        <li *ngFor="let item of TriggerFilterArr"
+            (click)="filterTriggerStatus(item)"
+            [class.active]="item.status === triggerstatus">
+            {{item.name}}
+        </li>
+    </ul>
+</div>
+

@@ -1,0 +1,142 @@
+.order-report {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    padding: 16px 20px;
+    font-size: 12px;
+    position: relative;
+}
+
+.order-report-top {
+    margin-bottom: 20px;
+}
+
+.order-report-top:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#reportTable {
+    height: calc(100% - 44px);
+}
+
+.float-right {
+    float: right;
+}
+
+.order-report-search {
+    position: relative;
+    display: inline-block;
+}
+
+.order-report-search input {
+    width: 130px;
+    border: 1px solid #dadada;
+    text-indent: 10px;
+    font-size: 12px;
+    line-height: 20px;
+    padding-right: 24px;
+}
+
+.order-report-search .searchCheck {
+    position: absolute;
+    right: 5px;
+    line-height: 24px;
+}
+
+.order-report-top .addCheck {
+    margin-left: 16px;
+    line-height: 24px;
+    vertical-align: middle;
+}
+
+.refreshCheck {
+    display: inline-block;
+    margin-left: 16px;
+    line-height: 24px;
+    vertical-align: middle;
+}
+
+.modal {
+    display: block;
+    background: rgba(51, 51, 51, 0.5);
+}
+
+
+.item-content {
+    display: flex;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.item-content:last-child {
+    margin-bottom: 0;
+}
+
+.item-content label {
+    text-align: right;
+    margin-right: 12px;
+    margin-bottom: 0;
+    font-weight: normal;
+    line-height: 30px;
+    width: 64px;
+}
+
+.item-content input {
+    height: 30px;
+    padding-left: 12px;
+    border: 1px solid #c9c9c9;
+    border-radius: 2px;
+    flex: 1;
+}
+
+.item-content textarea {
+    min-height: 60px;
+    resize: vertical;
+    padding-left: 12px;
+    border: 1px solid #c9c9c9;
+    border-radius: 2px;
+    flex: 1;
+}
+
+.item-content .select-source {
+    flex: 1;
+}
+
+.item-content .always-key-empty {
+    position: absolute;
+    color: red;
+    top: 30px;
+    left: 80px;
+}
+
+.checkbox-content {
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.checkbox-bg {
+    width: 14px;
+    height: 14px;
+    background-repeat: no-repeat;
+    background-size: 12px 13px;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 12px;
+    background-image: url(/assets/plugins/reportplugin/img/check-normal.svg);
+}
+
+.checkbox-bg.active {
+    background-image: url(/assets/plugins/reportplugin/img/check-active.svg);
+}
+
+::ng-deep .linkName {
+    color: #4c7daa;
+    cursor: pointer;
+}
+
+#EditSettingMetaModel, #SettingMetaModel, #showLogs {
+    display: none;
+}

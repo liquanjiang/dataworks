@@ -1,0 +1,27 @@
+<div class="crumbs">
+    <span class="meta-query-info" (click)="backToMetaDetails()" title="点击返回数据地图">
+        检核结果
+    </span>
+    <span class="meta-bg-info"></span>
+    <span class="list-info">
+        {{crumbsName}}
+    </span>
+</div>
+<div class="echarts-table-area" *ngIf="showTable">
+    <ng-yydatafin-table class="table"
+                        [tableId]="'queryTable'"
+                        [colHeaders]="detailsColumnColHeaders"
+                        [dataUrl]="TableUrl"
+                        [columns]="detailsColumnColumns">
+    </ng-yydatafin-table>
+</div>
+<div class="echarts-table-area" *ngIf="!showTable">
+    <div class="no-result">
+        <div class="no-result-bg">
+
+        </div>
+        <div class="no-result-text">
+            未选择标识字段
+        </div>
+    </div>
+</div>

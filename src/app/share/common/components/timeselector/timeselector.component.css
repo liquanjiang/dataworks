@@ -1,0 +1,169 @@
+.time-selector {
+    width: 268px;
+    border-radius: 4px;
+    border: 1px solid #dadada;
+    box-shadow: 0 0 3px #dadada;
+    position: absolute;
+    height: 296px;
+    background: #fff;
+}
+
+.time-selector-header {
+    background: #4c7daa;
+    width: 100%;
+    height: 40px;
+    border-radius: 4px;
+    line-height: 40px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.time-selector-header span {
+    display: inline-block;
+    margin-left: 10px;
+    color: #fff;
+}
+
+.text-span {
+    width: 210px;
+    margin: 10px auto 3px;
+}
+
+.text-span span {
+    display: inline-block;
+    width: 70px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.time-selector-header span.time-h {
+    margin-left: 20px;
+}
+
+.time-selector-area {
+    height: 170px;
+    width: 210px;
+    margin: 5px auto 10px;
+}
+
+.time-selector-area .time-div {
+    display: inline-block;
+    border: 1px solid #ddd;
+    width: 70px;
+    height: 170px;
+    overflow: auto;
+}
+
+.hour-div {
+
+}
+
+.time-div ul {
+    margin: 0;
+    padding: 0;
+}
+
+.time-div ul li {
+    list-style: none;
+    text-align: left;
+    font-size: 12px;
+    height: 24px;
+    line-height: 24px;
+    text-indent: 27px;
+    cursor: pointer;
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .time-div ul li {
+        text-indent: 20px;
+    }
+}
+
+.time-div ul li.active {
+    background: #4c7daa;
+    color: #fff;
+}
+
+.time-div::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.time-div:hover::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+}
+
+.time-div::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.1)
+}
+
+.time-div::-webkit-scrollbar-track {
+    background: #ededed
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .time-div {
+        /*三角箭头的颜色*/
+        scrollbar-arrow-color: #f0f0f0;
+        /*滚动条滑块按钮的颜色*/
+        scrollbar-face-color: #f0f0f0;
+        /*滚动条整体颜色*/
+        scrollbar-highlight-color: #f0f0f0;
+        /*滚动条阴影*/
+        scrollbar-shadow-color: #fff;
+        /*滚动条轨道颜色*/
+        scrollbar-track-color: #fff;
+    }
+}
+
+.time-selector-footer {
+    height: 40px;
+    position: relative;
+    padding-left: 10px;
+}
+
+.time-selector-footer .time-span {
+    padding: 3px 10px;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid #dadada;
+    border-radius: 3px;
+    margin-left: 5px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.time-selector-footer .time-span.time-now {
+    position: absolute;
+    left: 22px;
+    top: 5px;
+    background: #4c7daa;
+    color: #fff;
+}
+
+.time-selector-footer .time-span.time-clear {
+    position: absolute;
+    right: 140px;
+    top: 5px;
+    background: #f2f2f2;
+    color: #333;
+}
+
+.time-selector-footer .time-span.time-cancel {
+    position: absolute;
+    right: 82px;
+    top: 5px;
+    background: #f2f2f2;
+    color: #333;
+}
+
+.time-selector-footer .time-span.time-confirm {
+    position: absolute;
+    right: 28px;
+    top: 5px;
+    background: #4c7daa;
+    color: #fff;
+}
+

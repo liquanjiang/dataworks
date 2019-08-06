@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="7px" viewBox="0 0 12 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>ico_下拉_slice</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-528.000000, -82.000000)" fill-rule="nonzero" fill="#000000">
+            <g id="ico-下拉" transform="translate(528.000000, 82.000000)">
+                <path d="M5.999862,6.5390625 C5.86025567,6.5390625 5.72069734,6.48588215 5.61418662,6.37947353 L0.159748077,0.930263282 C-0.0532493591,0.717470011 -0.0532493591,0.372445194 0.159748077,0.159627923 C0.372745514,-0.0531893259 0.718125367,-0.0531893259 0.931122826,0.159627923 L5.999886,5.22350853 L11.0688652,0.159603945 C11.2818866,-0.0532133036 11.6272425,-0.0531893259 11.8402639,0.159603945 C12.0532614,0.372421193 12.0532374,0.71744601 11.8402399,0.930239304 L6.38556137,6.3794256 C6.27905065,6.4858582 6.13944432,6.5390625 5.999862,6.5390625 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,322 @@
+.my-select-tree li {
+    padding: 0;
+    margin: 2px 4px;
+    list-style: none;
+    line-height: 14px;
+    text-align: left;
+    white-space: nowrap;
+    outline: 0;
+}
+
+.my-select-tree li span.button {
+    line-height: 0;
+    margin: 0;
+    width: 10px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    border: 0 none;
+    cursor: pointer;
+    outline: none;
+}
+
+.my-select-tree li span.button.noline_close {
+    width: 6px;
+    height: 6px;
+    border-left: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    transform: rotate(-135deg);
+    margin-right: 4px;
+}
+
+.my-select-tree li span.button.noline_open {
+    width: 6px;
+    height: 6px;
+    border-left: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    transform: rotate(-45deg);
+    margin-right: 4px;
+}
+
+.my-select-tree li span.button.chk {
+    width: 12px;
+    height: 12px;
+    margin: 0 4px 0 0;
+    cursor: pointer;
+}
+
+.my-select-tree li span.button.chk.checkbox_false_full, .my-select-tree li span.button.chk.checkbox_false_full_focus {
+    background: url(/assets/plugins/reportplugin/img/check-normal.svg) no-repeat;
+    background-size: 12px 12px;
+}
+
+.my-select-tree li span.button.chk.radio_false_full, .my-select-tree li span.button.chk.radio_false_full_focus {
+    background: url(/assets/plugins/reportplugin/img/radio-normal.svg) no-repeat;
+    background-size: 12px 12px;
+}
+
+.my-select-tree li span.button.chk.checkbox_true_full, .my-select-tree li span.button.chk.checkbox_true_part, .my-select-tree li span.button.chk.checkbox_true_full_focus, .my-select-tree li span.button.chk.checkbox_true_part_focus {
+    background: url(/assets/plugins/reportplugin/img/check-active.svg) no-repeat;
+    background-size: 12px 12px;
+}
+
+.my-select-tree li span.button.chk.radio_true_full, .my-select-tree li span.button.chk.radio_false_part, .my-select-tree li span.button.chk.radio_true_full_focus, .my-select-tree li span.button.chk.radio_false_part_focus {
+    background: url(/assets/plugins/reportplugin/img/radio-active.svg) no-repeat;
+    background-size: 12px 12px;
+}
+
+.ztree li span.button.folder-show-head
+.my-select-tree li a {
+    padding: 1px 3px 0 0;
+    margin: 0;
+    cursor: pointer;
+    height: 17px;
+    color: #333;
+    background-color: transparent;
+    text-decoration: none;
+    /*vertical-align: top;*/
+    display: inline;
+    font-size: 12px;
+}
+
+.my-select-tree.my-radio-tree li a {
+    margin-left: 10px;
+    width: calc(100% - 10px);
+    display: inline-block;
+    height: 100%;
+}
+
+.my-select-tree.my-radio-tree li:hover a {
+    background: #f1f1f1;
+}
+
+.my-select-tree.my-check-tree li a {
+    /*margin-left: 18px;*/
+}
+
+.my-select-tree li ul {
+    margin: 0;
+    padding: 0 0 0 12px;
+}
+
+.my-select .my-select-tree li {
+    line-height: 30px;
+    margin: 0;
+    padding-left: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.my-select .my-select-tree li span.button.noline_open {
+    margin-bottom: 4px;
+}
+
+.my-select .my-select-tree li span.button.noline_close, .my-select .my-select-tree li span.button.noline_open {
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    border-color: #666;
+}
+
+.my-select .my-select-tree li span.button.chk {
+    margin-right: 8px;
+}
+
+.my-select .my-select-tree li ul {
+    padding: 0;
+}
+
+.my-select.common-select .my-select-tree li span.noline_docu {
+    display: none;
+}
+
+.my-select-tree.my-radio-tree li span.button.chk {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background-position: 4px 9px;
+}
+
+.my-select-tree.my-radio-tree li span.button.chk.radio_false_full, .my-select-tree.my-radio-tree li span.button.chk.radio_false_full_focus {
+    background-color: transparent;
+}
+
+.my-select-tree.my-radio-tree li span.button.chk.radio_true_full, .my-select-tree.my-radio-tree li span.button.chk.radio_false_part, .my-select-tree li span.button.chk.radio_true_full_focus, .my-select-tree li span.button.chk.radio_false_part_focus {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.my-select-tree.my-check-tree li span.button.chk {
+    height: 30px;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 35px;
+    background-position: 12px 9px;
+}
+
+/* ------ 元数据采集ztree 样式表 ----------*/
+.my-check-tree .ztree li a {
+    width: calc(100% - 30px);
+    position: relative;
+}
+
+.my-check-tree .ztree li ul li {
+    padding-left: 5px;
+}
+
+.my-check-tree .ztree li ul li ul li {
+    padding-left: 13px;
+}
+
+.my-check-tree .ztree li ul {
+    padding-left: 16px;
+}
+
+.my-check-tree .ztree li ul li ul {
+    padding-left: 12px;
+}
+
+.my-check-tree .ztree li ul li a {
+    padding-left: 0px;
+}
+
+.my-check-tree .ztree li a:hover {
+    background: #e4e4e4;
+}
+
+.my-check-tree .ztree li>span {
+    position: relative;
+    z-index: 11;
+}
+
+.my-check-tree .ztree li a span {
+    position: relative;
+    z-index: 2;
+}
+
+.my-check-tree .ztree li a:hover:before {
+    background: #e4e4e4;
+    width: 600px;
+    height: 30px;
+    top: 0;
+    left: -100px;
+    position: absolute;
+    content: '';
+    z-index: 0;
+}
+
+.my-check-tree .ztree li a.curSelectedNode {
+    background: #e4e4e4;
+}
+
+.my-check-tree .ztree li a.curSelectedNode:before {
+    background: #e4e4e4;
+    width: 600px;
+    height: 30px;
+    top: 0;
+    left: -100px;
+    position: absolute;
+    content: '';
+    z-index: 0;
+}
+
+.my-check-tree .ztree li a.curSelectedNode span {
+    color: #4c7daa;
+}
+
+.my-check-tree .ztree li a.curSelectedNode_Edit {
+    border-color: transparent;
+    height: 100%;
+}
+
+.my-check-tree .ztree li a.curSelectedNode_Edit .node_name input {
+    box-shadow: none !important;
+    border: none;
+    border-bottom: 2px solid #4c7daa;
+}
+
+.my-check-tree .ztree li a.curSelectedNode_Edit .node_name input:focus {
+    box-shadow: none !important;
+    border: none;
+    border-bottom: 2px solid #4c7daa;
+    outline: none !important;
+}
+
+.my-check-tree .ztree li a span.node_name {
+    display: inline-block;
+    width: calc(100% - 45px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 30px;
+    vertical-align: middle;
+    vertical-align: middle;
+    line-height: 30px;
+}
+
+.my-check-tree .ztree li span.button.chk.checkbox_false_full, .my-check-tree .ztree li span.button.chk.checkbox_false_full_focus {
+    background: url(/assets/plugins/reportplugin/img/check-normal.svg) no-repeat;
+    background-size: 12px;
+}
+
+.my-check-tree .ztree li span.button.chk.checkbox_true_full, .my-check-tree .ztree li span.button.chk.checkbox_true_part, .my-check-tree .ztree li span.button.chk.checkbox_true_full_focus, .my-check-tree .ztree li span.button.chk.checkbox_true_part_focus {
+    background: url(/assets/plugins/reportplugin/img/check-active.svg) no-repeat;
+    background-size: 12px;
+}
+
+.my-check-tree .ztree li span.button.chk {
+    width: 12px;
+    height: 12px;
+    margin-right: 0;
+}
+
+#datasetTree .ztree#dataTreeID li span.button.ico_docu {
+    background-image: url(/assets/plugins/zTree/img/08-14-14-folder.svg);
+    margin-right: 12px;
+}
+
+#datasetTree .ztree#dataTreeID li span.button.ico_docu {
+    position: relative;
+    top: -2px;
+}
+
+.ztree#dataTreeID li span.button.folder-show-head {
+    background: url(/assets/imgs/tree/folder-show-head.svg) no-repeat;
+    width: 12px;
+    height: 12px;
+    margin-right: 0;
+    margin-top: 9px;
+}
+
+.ztree#dataTreeID li span.switch.noline_open, .ztree#dataTreeID li span.switch.noline_close {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-size: 8px;
+    background-position: 0 0;
+    background-image: url(/assets/imgs/tree/treeDown-icon.svg);
+    background-repeat: no-repeat;
+    margin-right: 12px;
+}
+
+.ztree#dataTreeID li span.switch.noline_open {
+    margin-top: 4px;
+}
+
+.ztree#dataTreeID li span.switch.noline_close {
+    transform: rotate(-90deg);
+}
+
+.ztree#dataTreeID li span.switch.noline_docu {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 12px;
+}
+

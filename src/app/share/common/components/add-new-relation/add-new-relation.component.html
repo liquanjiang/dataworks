@@ -1,0 +1,88 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">新增影响关系</h4>
+    </div>
+    <div class="modal-body" style="position:relative;overflow:auto;height:320px;">
+        <div class="no-relation" *ngIf="relationColumns.length === 0">
+            <div class="left-div">
+                <div class="bg-div"></div>
+            </div>
+            <div class="middle-div">
+
+            </div>
+            <div class="right-div">
+                <div class="bg-div"></div>
+            </div>
+            <div class="add-relation" (click)="addRelation()">
+                新增影响关系
+            </div>
+        </div>
+        <div class="ipt-area pause-area" *ngFor="let item of relationColumns;let i=index">
+            <div class="schema-app-div app-div" (click)="showSchemaApps(i,item.path)"
+                 [style.background]="item.path ? '#f1f1f1' : '#fff'">
+                <span class="select-schema-name">
+                   {{item.namespace ? item.namespace : ''}}{{item.schemaName ? item.schemaName : '请选择数据源'}}
+                </span>
+                <div *ngIf="showSchemaApp[i]" class="apps-area">
+                    <app-search-single-select
+                        [setWidth]="'200px'"
+                        [FixedName]="true"
+                        [FilterArr]="[]"
+                        [ItemsArr]="SchemasArr"
+                        (newSelectItem)="selectSchema($event,i)"
+                        [selectedItem]="schemasName[i]">
+                    </app-search-single-select>
+                </div>
+                <span class="pull-down-triangle">
+                </span>
+            </div>
+            <div class="table-app-div app-div" (click)="showTableApps(i,item.path)"
+                 [style.background]="item.path ? '#f1f1f1' : '#fff'">
+                <span class="select-table-name">
+                    &nbsp;{{item.destTableName ? item.destTableName : '请选择数据表'}}
+                </span>
+                <div *ngIf="showTableApp[i]" class="apps-area">
+                    <app-search-single-select
+                        [FilterArr]="TableFilterArr"
+                        [FixedName]="false"
+                        [ItemsArr]="TablesArr[i]"
+                        (newSelectItem)="selectTable($event,i)"
+                        [selectedItem]="tablesName[i]">
+                    </app-search-single-select>
+                </div>
+                <span class="pull-down-triangle">
+                </span>
+            </div>
+            <div class="column-app-div app-div" (click)="showColumnApps(i,item.path)"
+                 [style.background]="item.path ? '#f1f1f1' : '#fff'">
+                <span class="select-column-name">
+                    &nbsp;{{item.destColumnName ? item.destColumnName : '请选择字段'}}
+                </span>
+                <div *ngIf="showColumnApp[i]" class="apps-area">
+                    <app-search-single-select
+                        [FixedName]="false"
+                        [FilterArr]="ColumnFilterArr"
+                        [ItemsArr]="ColumnsArr[i]"
+                        (newSelectItem)="selectColumnName($event,i)"
+                        [selectedItem]="columnsName[i]">
+                    </app-search-single-select>
+                </div>
+                <span class="pull-down-triangle">
+                </span>
+            </div>
+            <span class="add-column" title="增加字段" (click)="addColumn()">+</span>
+            <span class="delete-column" title="删除字段" (click)="delColumn(i)" *ngIf="!item.path">-</span>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="close()">
+            取消
+        </button>
+        <button type="button" class="btn btn-primary" (click)="confirmAdd()">
+            确定
+        </button>
+    </div>
+</div>

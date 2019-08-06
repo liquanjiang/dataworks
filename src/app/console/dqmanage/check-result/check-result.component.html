@@ -1,0 +1,79 @@
+<div class="check-result">
+    <div class="top-content-area">
+        <div class="top-div schema-div" *ngFor="let item of topObjArr">
+            <span class="content-span">
+                <span class="top-area">
+                    <span class="top-area-icon font-icon"
+                          *ngIf="item.icon && item.icon !== 'date' && item.icon !== 'icon-equal'">
+                        <i class="icon iconfont " [ngClass]="item.icon"
+                           [style.color]="item.icon === 'icon-decline' ? '#5cc85c' : '#f00'"></i>
+                    </span>
+                    <span class="top-area-icon font-icon"
+                          *ngIf="item.icon && item.icon === 'icon-equal'">
+                        <i class="icon iconfont icon-constant1"
+                           [style.font-weight]="'bold'"
+                           [style.color]="'#777'"></i>
+                    </span>
+                    <span class="top-area-icon" *ngIf="item.icon && item.icon === 'date'" [ngClass]="item.icon">
+                        <i class="icon iconfont icon-data"></i>
+                        <input type="text" id="showTime" autocomplete="off" disableautocomplete (click)="showTimeWindow()">
+                    </span>
+                    <span class="top-area-num"
+                          *ngIf="!item.date && !item.showTotal"
+                          [style.margin-left]="item.icon ? '10px' : '0'">
+                        {{item.num ? item.num : 0}}
+                    </span>
+                    <span class="top-area-num"
+                          *ngIf="!item.date && item.showTotal"
+                          [style.margin-left]="item.icon ? '5px' : '0'">
+                        {{item.num ? item.num : 0}}/{{item.total ? item.total : 0}}
+                    </span>
+                    <span class="top-area-num"
+                          *ngIf="item.date"
+                          [style.magin-left]="item.icon ? '5px' : '0'">
+                        {{selectedDate}}
+                    </span>
+                </span>
+                <span class="text-span">
+                    {{item.name}}
+                </span>
+            </span>
+        </div>
+    </div>
+    <div class="background-area">
+
+    </div>
+    <div class="echarts-area">
+        <div class="no-pie-charts charts-div no-charts" *ngIf="nopiedata">
+            <h5>问题规则占比</h5>
+            <div class="no-charts-bg ">
+                <div class="no-pie-bg"></div>
+                <div class="no-charts-data">当前无数据</div>
+            </div>
+        </div>
+        <div class="no-bar-charts charts-div no-charts" *ngIf="nobardata">
+            <h5>问题记录数占比</h5>
+            <div class="no-charts-bg">
+                <div class="no-bar-bg"></div>
+                <div class="no-charts-data">当前无数据</div>
+            </div>
+        </div>
+        <div class="pie-charts-area charts-div" id="pieCharts">
+
+        </div>
+        <div class="bar-charts-area charts-div" id="barCharts">
+
+        </div>
+    </div>
+    <div class="data-table-area">
+        <app-result-table
+            (recordDetails)="showRecordDetails($event)"
+            [searchDate]="selectedDate"></app-result-table>
+    </div>
+</div>
+<!-- 点击问题记录数字弹出详情页 -->
+<div class="record-details" *ngIf="showRecord">
+    <app-issue-record
+        [queryObj]="queryObj"
+        (closeDetails)="showRecord = false"></app-issue-record>
+</div>

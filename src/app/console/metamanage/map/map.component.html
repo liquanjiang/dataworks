@@ -1,0 +1,91 @@
+<div class="top-content-area">
+    <div class="top-div schema-div" *ngFor="let item of topObjArr;let i = index">
+        <span class="content-span">
+            <span class="top-area">
+                <span class="top-area-icon" [ngClass]="item.icon">
+                </span>
+                <span class="top-area-num">
+                    {{item.num ? item.num : 0}}
+                </span>
+            </span>
+            <span class="text-span">
+                {{item.name}}
+            </span>
+        </span>
+    </div>
+</div>
+<div class="echarts-search-area">
+    <div class="search-area">
+        <div class="serach-div">
+            <input type="text" title="搜索" class="search-input"
+                   [(ngModel)]="searchObj.name"
+                   placeholder="请输入表/存储过程/视图名称搜索"
+                   (keyup.enter)="searchData(searchObj,$event)">
+            <span class="search-bg-span" (click)="searchData(searchObj,null)">
+                <i class="icon iconfont icon-dw_search"></i>
+            </span>
+            <div class="search-div-ul-area" *ngIf="showSearchUl">
+                <ul>
+                    <li *ngFor="let item of searchUlArr;let i = index" (click)="selectSearch(item)">
+                        <span class="name-span" [style.color]="item.color">
+                            {{item.name}}
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="select-div">
+            <div class="select-value-span" id="showUL" (click)="showUL()" title="{{selectedNames}}">
+                <div class="selectedNames-span">
+                    {{selectedNames ? selectedNames : '请选择至少一个数据库'}}
+                </div>
+                <div class="pull-down" id="Pulldown">
+                    <i class="icon iconfont icon-dw_dropdown"></i>
+                </div>
+            </div>
+            <div *ngIf="showUl && schemaObjArr.length > 0"
+                 [style.left]="pullLeft + 'px'"
+                 [style.top]="pullTop + 'px'"
+                 class="select-ul-div">
+                <div class="select-ul-area">
+                    <ul class="select-ul">
+                        <li *ngFor="let item of schemaObjArr;let i =index" (click)="toggleCheck(item)">
+                            <input type="checkbox" name="schema" title="勾选">
+                            <span class="bg-span" [class.active]="item.selected"></span>
+                            <span class="name-span">{{item.namespace + item.name}}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="select-ul-div-footer">
+                    <button type="button" class="btn  btn-default cancel-span" (click)="cancelSelect()">取消</button>
+                    <button type="button" class="btn  btn-primary confirm-span" (click)="confirmSelect(schemaObjArr)">确定</button>
+                </div>
+            </div>
+        </div>
+        <span class="update-time-span">
+            <span class="clock-span">
+              <i class="icon iconfont icon-dw_update"></i>
+            </span>
+            <span class="label-span">
+              更新时间：
+            </span>
+            <span class="time-span">
+                {{updateTime}}
+            </span>
+        </span>
+    </div>
+    <div class="echarts-area" id="echarts_div">
+
+    </div>
+</div>
+
+<!-- 数据地图点击显示数据详情的区域 -->
+<div class="map-data-area" *ngIf="showDataDetails">
+    <app-data-details [querypk]="querypk"
+                      [metaType]="metaType"
+                      [FirsrName]="'数据地图'"
+                      [moduleName]="'数据地图'"
+                      [crumbsName]="null"
+                      (back)="backToMetaDetails($event)">
+    </app-data-details>
+</div>

@@ -1,0 +1,457 @@
+.top-content-area {
+    width: 100%;
+    height: 120px;
+    margin-bottom: 10px;
+    background: transparent;
+}
+
+.top-content-area .top-div {
+    width: calc(25% - 1px);
+    margin-left: 1px;
+    background: #fff;
+    height: 120px;
+    display: inline-block;
+    position: relative;
+}
+
+.top-content-area .top-div:last-child {
+    width: 25%;
+}
+
+.top-content-area .top-div:first-child {
+    margin-left: 0;
+}
+
+.top-content-area .top-div .content-span {
+    display: inline-block;
+    width: calc(100% - 20px);
+    height: 80px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+}
+
+.top-content-area .top-div .content-span .top-area {
+    display: block;
+    width: 100%;
+    height: 48px;
+    text-align: center;
+}
+
+.top-content-area .top-div .content-span .top-area span {
+    display: inline-block;
+}
+
+.top-content-area .top-div .content-span .top-area .top-area-icon {
+    width: 24px;
+    height: 24px;
+    line-height: 1;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    position: relative;
+    top: 3px;
+}
+
+.top-content-area .top-div .content-span .top-area .top-area-icon.schema {
+    background-image: url(/assets/imgs/map/schema.svg);
+}
+
+.top-content-area .top-div .content-span .top-area .top-area-icon.Table {
+    background-image: url(/assets/imgs/map/tablse.svg);
+}
+
+.top-content-area .top-div .content-span .top-area .top-area-icon.pro {
+    background-image: url(/assets/imgs/map/pro.svg);
+}
+
+.top-content-area .top-div .content-span .top-area .top-area-icon.view {
+    background-image: url(/assets/imgs/map/view.svg);
+}
+
+.top-content-area .top-div .content-span .top-area .top-area-num {
+    height: 48px;
+    font-size: 24px;
+    line-height: 48px;
+    margin-left: 10px;
+}
+
+.top-content-area .top-div .content-span .text-span {
+    font-size: 14px;
+    display: block;
+    height: 32px;
+    width: 100%;
+    text-align: center;
+    line-height: 32px;
+}
+
+.echarts-search-area {
+    height: calc(100% - 130px);
+    width: 100%;
+    background: #fff;
+    padding: 16px;
+}
+
+.echarts-search-area .search-area {
+    height: 40px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.echarts-search-area .search-area .serach-div {
+    display: inline-block;
+    position: relative;
+}
+
+.echarts-search-area .search-area .serach-div .search-div-ul-area {
+    position: absolute;
+    left: 0;
+    top: 29px;
+    width: 240px;
+    height: 240px;
+    overflow: auto;
+    background: #fff;
+    z-index: 9999;
+    border: 1px solid #efefef;
+}
+
+.echarts-search-area .search-area .serach-div .search-div-ul-area::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.echarts-search-area .search-area .serach-div .search-div-ul-area::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.1)
+}
+
+.echarts-search-area .search-area .serach-div .search-div-ul-area::-webkit-scrollbar-track {
+    background: #ededed
+}
+
+.echarts-search-area .search-area .serach-div .search-div-ul-area ul {
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.echarts-search-area .search-area .serach-div .search-div-ul-area ul li {
+    list-style: none;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    position: relative;
+}
+
+.echarts-search-area .search-area .serach-div .search-div-ul-area ul li input[type='checkbox'] {
+    margin-left: 20px;
+    opacity: 0;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    top: -2px;
+    position: relative;
+}
+
+.echarts-search-area .search-area .serach-div .search-div-ul-area ul li span.bg-span {
+    left: 20px;
+    top: 8px;
+}
+
+.echarts-search-area .search-area .serach-div .search-div-ul-area ul li span.name-span {
+    display: inline-block;
+    margin-left: 10px;
+    width: calc(100% - 40px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.echarts-search-area .search-area .search-bg-span {
+    display: inline-block;
+    width: 20px;
+    height: 32px;
+    position: absolute;
+    left: 220px;
+    top: 0;
+    z-index: 20;
+}
+
+.echarts-search-area .search-area .search-bg-span i {
+    display: inline-block;
+    position: relative;
+    top: 6px;
+}
+
+.echarts-search-area .search-area .search-input {
+    width: 240px;
+    height: 30px;
+    border: 1px solid #efefef;
+    border-radius: 3px;
+    text-indent: 10px;
+    font-size: 12px;
+    color: #333;
+}
+
+.echarts-search-area .search-area .search-input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #999;
+    font-size: 12px;
+}
+
+.echarts-search-area .search-area .search-input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #999;
+    opacity: 1;
+    font-size: 12px;
+}
+
+.echarts-search-area .search-area .search-input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #999;
+    opacity: 1;
+    font-size: 12px;
+}
+
+.echarts-search-area .search-area .search-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #333;
+    font-size: 12px;
+}
+
+.echarts-search-area .search-area .search-input::-ms-input-placeholder { /* Microsoft Edge */
+    color: #333;
+    font-size: 12px;
+}
+
+.echarts-search-area .search-area .update-time-span {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 220px;
+}
+
+.echarts-search-area .search-area .update-time-span span {
+    display: inline-block;
+    font-size: 12px;
+    color: #666;
+    height: 30px;
+}
+
+.echarts-search-area .search-area .update-time-span span.clock-span {
+    width: 20px;
+}
+
+.echarts-search-area .search-area .update-time-span span.clock-span i {
+
+}
+
+.echarts-search-area .search-area .update-time-span span.label-span {
+    width: 60px;
+}
+
+.echarts-search-area .echarts-area {
+    width: 100%;
+    height: calc(100% - 48px);
+    background: #fff;
+}
+
+.toolDiv span {
+    font-size: 12px;
+}
+
+.search-area .select-div {
+    margin-left: -150px;
+    position: absolute;
+    width: 300px;
+    height: 30px;
+    top: 0;
+    left: 50%;
+
+}
+
+.search-area .select-div, .search-area .select-div .select-value-span, .search-area .confirm-btn {
+    display: inline-block;
+}
+
+.search-area .select-div .select-value-span {
+    width: 300px;
+    height: 30px;
+    position: relative;
+    line-height: 30px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.search-area .select-div .select-value-span .selectedNames-span {
+    display: inline-block;
+    max-width: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.search-area .select-div .select-value-span .pull-down {
+    display: inline-block;
+    margin-left: 12px;
+    position: absolute;
+    top: -2px;
+}
+
+.search-area .select-div .select-value-span .pull-down i {
+    font-size: 10px;
+}
+
+.search-area .select-div .select-ul-div {
+    width: 300px;
+    border: 1px solid #e2e2e2;
+    box-shadow: 0 0 3px 2px rgba(227, 226, 226, 0.5);
+    position: fixed;
+    left: 0;
+    top: 30px;
+    z-index: 9999;
+    background: #fff;
+}
+
+.search-area .select-div .select-ul-div .select-ul-area {
+    max-height: 185px;
+    min-height: 100px;
+    overflow: auto;
+    width: 100%;
+    padding-top: 16px;
+}
+
+.search-area .select-div .select-ul-div .select-ul-area::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.search-area .select-div .select-ul-div .select-ul-area::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-area .select-div .select-ul-div .select-ul-area::-webkit-scrollbar-track {
+    background: #ededed;
+    border-radius: 0;
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-area .select-div .select-ul-div .select-ul-div-footer {
+    height: 53px;
+    position: relative;
+}
+
+.btn {
+    display: inline-block;
+    width: 60px;
+    height: 28px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: center;
+    position: absolute;
+}
+
+.btn.cancel-span {
+    color: #333;
+    right: 96px;
+    top: 16px;
+}
+
+.btn.confirm-span {
+    color: #fff;
+    background: #4c7daa;
+    right: 16px;
+    top: 16px;
+}
+
+.btn.confirm-span:hover {
+    border-color: transparent;
+}
+
+.btn.cancel-span:hover {
+    background: #fff;
+    border-color: #ccc;
+}
+
+.search-area .select-div .select-ul {
+    margin: 0;
+    padding: 0;
+}
+
+.search-area .select-div .select-ul li {
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 12px;
+    width: 298px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.search-area .select-div .select-ul li input[type='checkbox'] {
+    margin-left: 20px;
+    opacity: 0;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+}
+
+span.bg-span {
+    position: absolute;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-image: url(/assets/plugins/reportplugin/img/check-normal.svg);
+    background-repeat: no-repeat;
+    background-size: 12px 13px;
+}
+
+.search-area .select-div .select-ul li span.bg-span {
+    left: 20px;
+    top: 8px;
+}
+
+.search-area .select-div .select-ul li .name-span {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+span.bg-span.active {
+    background-image: url(/assets/plugins/reportplugin/img/check-active.svg);
+}
+
+.triangle {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 6px solid #4c7daa;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    cursor: pointer;
+}
+
+.value-span-triangle {
+    position: relative;
+    top: -13px;
+    margin-left: 10px;
+}
+
+.map-data-area {
+    position: absolute;
+    width: calc(100% - 32px);
+    height: calc(100% - 32px);
+    z-index: 1000;
+    left: 16px;
+    top: 16px;
+    background: #fff;
+    padding: 20px 20px 0 20px;
+}
+
+
+
+

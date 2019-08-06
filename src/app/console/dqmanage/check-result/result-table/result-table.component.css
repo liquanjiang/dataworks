@@ -1,0 +1,56 @@
+.search-table-area {
+    height: 40px;
+    width: 100%;
+    position: relative;
+}
+
+.search-table-area .search-div {
+    width: 160px;
+    height: 28px;
+    border-radius: 3px;
+    border: 1px solid #dadada;
+    position: absolute;
+    right: 1px;
+    top: 4px;
+}
+
+.search-table-area .search-div input {
+    border: none;
+    position: absolute;
+    width: 140px;
+    height: 26px;
+    font-size: 12px;
+    line-height: 26px;
+    text-indent: 8px;
+    border-radius: 3px;
+    color: #333;
+}
+
+.search-table-area .search-div span {
+    display: inline-block;
+    position: absolute;
+    width: 20px;
+    height: 28px;
+    line-height: 28px;
+    right: 0;
+    top: 0;
+}
+
+.result-tabls-area {
+    min-height: 450px;
+    height: 450px;
+}
+
+.result-tabls-area ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.result-tabls-area ::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.1)
+}
+
+.result-tabls-area ::-webkit-scrollbar-track {
+    background: #ededed
+}

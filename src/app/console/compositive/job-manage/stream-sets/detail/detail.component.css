@@ -1,0 +1,60 @@
+.tab-menu li span {
+    margin-left: 12px;
+}
+
+.tab-menu .iconfont {
+    font-size: 14px;
+    color: inherit;
+    margin-right: 12px;
+}
+
+.detail-pane {
+    font-size: 12px;
+}
+
+
+.size-toolbar {
+    line-height: 50px;
+}
+
+.size-toolbar span {
+    margin-right: 20px;
+}
+
+
+.log-content {
+    padding: 18px 20px;
+}
+
+.log-content .error {
+    color: red;
+}
+
+.panel-body::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.panel-body::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.panel-body::-webkit-scrollbar-track {
+    background: #ededed;
+}
+
+.node-info{
+    padding: 20px 20px 0 20px;
+}
+.node-info .info-item{
+    margin-bottom: 20px;
+}
+.node-info .info-item label {
+    font-weight: normal;
+}
+.node-info .info-item p{
+    display: inline-block;
+    margin: 0;
+    padding-left: 20px;
+}

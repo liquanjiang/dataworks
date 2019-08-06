@@ -1,0 +1,132 @@
+.collect-details-header {
+    height: 128px;
+    width: calc(100%);
+    margin-bottom: 6px;
+}
+
+.collect-details-header .crumbs-div {
+    height: 40px;
+    position: relative;
+}
+
+.collect-details-header .crumbs-div span {
+    display: inline-block;
+    height: 18px;
+    line-height: 18px;
+    margin-left: 10px;
+    margin-right: 10px;
+    vertical-align: middle;
+    font-size: 12px;
+}
+
+.collect-details-header .crumbs-div span.crumbs-span {
+    color: #4c7daa;
+    cursor: pointer;
+}
+
+.collect-details-header .crumbs-div span.crumbs-info {
+    margin-left: 0;
+}
+
+.collect-details-header .crumbs-div span.crumbs-back {
+    position: absolute;
+    color: #4c7daa;
+    right: 0;
+    cursor: pointer;
+}
+
+.collect-details-header .crumbs-div span.crumbs-bg {
+    width: 10px;
+    background-image: url(/assets/imgs/meta/slide_down.svg);
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
+    transform: rotate(-90deg);
+    margin: 5px;
+}
+
+.collect-details-header .header-span-area {
+    background: #f7f7f7;
+    width: 100%;
+    padding: 12px 10px;
+}
+
+.collect-details-header .header-span-area .header-span {
+    display: inline-block;
+    width: 30%;
+    height: 18px;
+    margin: 8px 10px;
+    font-size: 12px;
+}
+
+.collect-details-header .header-span-area .header-span .my-label {
+    display: inline-block;
+    width: 72px;
+    text-align: right;
+    margin-right: 12px;
+}
+
+.collect-details-header .header-span-area .header-span .my-info {
+    display: inline-block;
+}
+
+.collect-details-table {
+    height: calc(100% - 150px);
+}
+
+.collect-details-table .tab-list-area {
+    margin-bottom: 16px;
+}
+
+.collect-details-table .tab-list-area ul {
+    width: 240px;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.collect-details-table .tab-list-area .bordr-div {
+    width: calc(100% - 240px);
+    border-bottom: 1px solid #dadada;
+    display: inline-block;
+    height: 40px;
+    position: relative;
+    top: 14px;
+}
+
+.collect-details-table .tab-list-area ul li {
+    list-style: none;
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #dadada;
+    text-align: center;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.collect-details-table .tab-list-area ul li:first-child {
+    border-right: none;
+    border-radius: 4px 0 0 0;
+}
+
+.collect-details-table .tab-list-area ul li:last-child {
+    border-radius: 0 4px 0 0;
+    border-left: 0;
+}
+
+.collect-details-table .tab-list-area ul li.active {
+    border-bottom: 1px solid transparent;
+}
+
+.child-details-info-area {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    padding: 20px 20px 0 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 999;
+}
+

@@ -1,0 +1,132 @@
+.stage-library-pane{
+    height: 100%;
+    font-size: 12px;
+}
+.stage-filter, .stage-search{
+    padding: 12px 12px 0 12px;
+}
+.stage-search{
+    padding-bottom: 12px;
+    position: relative;
+}
+.stage-filter select, .stage-search input{
+    height: 30px;
+    width: 100%;
+    border: 1px solid #d7d7d7;
+    border-radius: 2px;
+    padding-left: 12px;
+    padding-right: 20px;
+}
+
+.stage-search .icon-dw_search{
+    position: absolute;
+    right: 12px;
+    line-height: 32px;
+    width: 20px;
+}
+.stage-list-container{
+    width: 100%;
+    height: calc(100% - 100px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.stages-list{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 180px;
+}
+.stages-list li{
+    display: inline-block;
+    width: 89px;
+    height: 100px;
+    float: left;
+    position: relative;
+    border-bottom: 1px solid #dedede;
+    border-right: 1px solid #dedede;
+    text-align: center;
+    overflow: hidden;
+    transition: all .2s linear 0;
+    cursor: default;
+}
+
+.stage-library-pane .stage-list-container .stages-list li a {
+    display: block;
+    width: 90px;
+    position: relative;
+    opacity: 1;
+    background: no-repeat center center;
+    background-origin: content-box;
+    padding: 0 12px;
+    background-size: contain;
+    outline: none;
+    text-decoration: none;
+}
+
+.stage-library-pane .stage-list-container .stages-list li a img{
+    height: 28px;
+    margin: 20px 0 16px 0;
+}
+
+.stage-library-pane .stage-list-container .stages-list li a span.nodeName-content{
+    display: table;
+    height: 24px;
+    width: 100%;
+    word-wrap: break-word;
+    table-layout: fixed;
+}
+.stage-library-pane .stage-list-container .stages-list li a span.nodeName {
+    color: #383838;
+    font-size: 12px;
+    line-height: 12px;
+    text-align: center;
+    text-transform: capitalize;
+    overflow: hidden;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+.stage-library-pane .stage-list-container .stages-list li a .circle {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    font-size: 10px;
+    color: white;
+    line-height: 15.5px;
+    text-align: center;
+    display: block;
+    top: 10px;
+    left: 56px;
+    font-weight: bolder;
+    animation: none;
+}
+
+.stage-library-pane .stage-list-container .stages-list li a .circle.origin {
+    background: #5bc0de;
+}
+
+.stage-library-pane .stage-list-container .stages-list li a .circle.processor {
+    background: #f0ad4e;
+}
+
+
+.stage-library-pane .stage-list-container .stages-list li a .circle.destination {
+    background: #5cb85c;
+}
+
+.stage-list-container::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.stage-list-container::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.stage-list-container::-webkit-scrollbar-track {
+    background: #fff;
+}

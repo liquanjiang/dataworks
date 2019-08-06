@@ -1,0 +1,58 @@
+<div class="main">
+    <div class="tree-header">
+        <h5 title="点击选中根目录" (click)="checkRootNode()">
+            任务分类
+        </h5>
+        <span class="new-folder" title="新建目录" (click)="newFolder()">
+            <i class="icon iconfont icon-dw_addfolder"></i>
+        </span>
+        <span class="add-job" title="新建任务" (click)="addJob()">
+            <i class="icon iconfont icon-dw_add"></i>
+        </span>
+    </div>
+    <div id="datasetTree" class="my-check-tree">
+        <ng-yydatafin-tree [id]="'dataTreeID'"
+                           [treeNodes]="dataztreeNodes"
+                           [simpleData]="simpleData"
+                           [addHoverDom]="addHoverDom"
+                           [onHoverDomClick]="onHoverDomClick()"
+                           [onRename]="onRename()"
+                           [beforeClick]="beforeClick()"
+                           [clickExpand]="true">
+        </ng-yydatafin-tree>
+    </div>
+</div>
+
+<!-- 复制任务 弹框 -->
+<div class="modal fade" tabindex="-1" role="dialog" id="copyTask" data-backdrop="static">
+    <div class="modal-dialog" role="document" style="width:408px!important;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">复制任务</h4>
+            </div>
+            <div class="modal-body" style="padding: 10px 30px!important;position:relative;height:300px">
+                <h5 class="copy-tree-title" (click)="selectCopyRoot()" title="点击选择根目录">
+                    <span>任务分类</span>
+                    <span class="h5-bg-span" *ngIf="copyTreePK === 'root'"></span>
+                </h5>
+                <div id="dataTree" class="my-check-tree my-copy-tree" *ngIf="showCopytree">
+                    <ng-yydatafin-tree [id]="'TreeID'"
+                                       [treeNodes]="copyztreeNodes"
+                                       [simpleData]="simpleData"
+                                       [clickExpand]="true"
+                                       [beforeClick]="copyTreebeforeClick()">
+                    </ng-yydatafin-tree>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="Cancelcopy()">
+                    取消
+                </button>
+                <button type="button" class="btn btn-primary" (click)="ConfirmCopy()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>

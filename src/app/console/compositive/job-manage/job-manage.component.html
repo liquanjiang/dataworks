@@ -1,0 +1,19 @@
+<!-- 元数据采集左侧树 -->
+<div class="main-right-area">
+    <div class="ztree-area">
+        <app-job-tree
+            (rootNode)="changeRootNode($event)"
+            (querydirPK)="changeQuerydirPK($event)"
+            (treeNode)="changeTreeNode($event)"
+            (nameChange)="changeTreeNodeName($event)">
+        </app-job-tree>
+    </div>
+    <app-streamsets *ngIf="pkTask"
+                    [hidden]="showRightarea"
+                    [pkTask]="pkTask" #streamsets>
+    </app-streamsets>
+    <div class="no-folder" *ngIf="showRightarea">
+        <div class="new-folder-area" (click)="newTreeFolder()" title="在当前目录新建任务">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,496 @@
+.sche-set-area {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    position: relative;
+    margin: 0;
+    padding: 0 !important;
+}
+
+.sche-set-area::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.sche-set-area::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.1)
+}
+
+.sche-set-area::-webkit-scrollbar-track {
+    background: #ededed
+}
+
+.sche-set-area .shce-info-area-div {
+    margin: 10px 0;
+    padding: 5px 0 5px 20px;
+    position: relative;
+}
+
+.sche-set-area .shce-info-area-div label {
+    font-size: 12px;
+    font-weight: normal;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 60px;
+    margin-right: 20px;
+}
+
+.sche-set-area .shce-info-area-div input[type='text'] {
+    height: 24px;
+    border: 1px solid #dedede;
+    border-radius: 3px;
+    width: 240px;
+    font-size: 12px;
+}
+
+.sche-set-area .shce-info-area-div input[type='checkbox'] {
+    position: relative;
+    top: -1px;
+    opacity: 0;
+}
+
+.checkbox-bg {
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    left: 108px;
+    top: 4px;
+    background-image: url(/assets/plugins/reportplugin/img/check-normal.svg);
+    background-repeat: no-repeat;
+    background-size: 12px 13px;
+    cursor: pointer;
+}
+
+.checkbox-bg.active {
+    background-image: url(/assets/plugins/reportplugin/img/check-active.svg);
+}
+
+.shce-info-area-div .btn {
+    display: inline-block;
+    width: 60px;
+    height: 28px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: center;
+    position: absolute;
+}
+
+.shce-info-area-div .btn.confirm-span {
+    color: #fff;
+    background: #4c7daa;
+    left: 100px;
+    top: 5px;
+}
+
+.shce-info-area-div .btn.confirm-span:hover {
+    border-color: transparent;
+}
+
+.ipt-area {
+    position: relative;
+}
+
+.ipt-area span {
+    font-size: 12px;
+}
+
+.select-value {
+    display: inline-block;
+    border: 1px solid #dadada;
+    border-radius: 4px;
+    width: 240px;
+    height: 32px;
+    text-indent: 10px;
+    font-size: 12px;
+    outline: none;
+    position: absolute;
+    left: 108px;
+    top: 0;
+    line-height: 32px;
+    cursor: pointer;
+}
+
+#EditMetaModel .select-value, #MetaModel .select-value {
+    left: 60px;
+}
+
+.triangle {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 6px solid #999;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    position: absolute;
+    left: 330px;
+    top: 12px;
+    cursor: pointer;
+}
+
+#EditMetaModel .triangle, #MetaModel .triangle {
+    left: 220px;
+}
+
+.modal-body .ipt-area .checkbox-span {
+    display: inline-block;
+    font-size: 12px;
+    margin-left: 24px;
+}
+
+.modal-body .ipt-area.time-period {
+    height: 52px;
+}
+
+.modal-body .ipt-area.time-period div.div {
+    display: inline-block;
+    position: relative;
+    width: 120px;
+    top: 17px;
+    height: 32px;
+}
+
+.modal-body .ipt-area .text-area {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 240px;
+    height: 100px;
+    font-size: 12px;
+    padding-left: 10px;
+    outline: none !important;
+    resize: none;
+}
+
+.modal-body .ipt-area .text-area:focus {
+    outline: none !important;
+}
+
+#SettingMetaModel .modal-body .ipt-area.time-period div.div {
+    height: 32px;
+    top: 17px;
+}
+
+#NewPeriod {
+    top: 17px;
+}
+
+.modal-body .ipt-area.time-period div.div.time-period-a {
+    margin-left: 28px;
+}
+
+#EditSettingMetaModel .modal-body .ipt-area.time-period div.div.time-period-a {
+    top: 17px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.modal-body .ipt-area.time-period .select-value.time-period-span {
+    width: 120px;
+    left: 0;
+    top: -5px;
+    overflow: hidden;
+    padding-right: 18px;
+    cursor: pointer;
+}
+
+.modal-body .ipt-area.time-period .time-period-select {
+    width: 120px;
+    left: 0;
+}
+
+.modal-body .ipt-area.time-period .time-period-triangle {
+    left: 102px;
+    top: 12px;
+}
+
+.modal-body .ipt-area.can-date .date-input {
+    width: 120px;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid #dadada;
+    height: 32px;
+    font-size: 12px;
+    text-indent: 10px;
+    opacity: 0;
+    position: relative;
+    z-index: 5;
+}
+
+.modal-body .ipt-area.can-date .time-span {
+    position: absolute;
+    width: 120px;
+    height: 32px;
+    border: 1px solid #dedede;
+    background: #fff;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 12px;
+    line-height: 32px;
+    text-indent: 10px;
+}
+
+.modal-body .ipt-area.can-date .time-span.editStart-span {
+    left: 108px;
+    top: 0;
+}
+
+.modal-body .ipt-area.can-date .time-span.editEnd-span {
+    left: 256px;
+    top: 0;
+}
+
+#dateEnd, #editEnd {
+    margin-left: 6px;
+}
+
+.modal-body .ipt-area.can-date .font-text {
+    display: inline-block;
+    width: 14px;
+    text-align: center;
+    margin-left: 8px;
+}
+
+.modal-body .ipt-area.can-date input[type='checkbox'] {
+    margin: 0 4px 0 8px;
+    opacity: 0;
+    position: relative;
+    z-index: 9;
+    left: -3px;
+    width: 13px;
+    height: 13px;
+    cursor: pointer;
+}
+
+.input-checkbox {
+    opacity: 0;
+    position: relative;
+    z-index: 9;
+    cursor: pointer;
+    width: 13px;
+    height: 13px;
+    left: -1px;
+}
+
+.modal-body .time-selector-div {
+    position: absolute;
+    left: 108px;
+    top: 120px;
+    z-index: 99;
+}
+
+.modal-body .time-periodsetter-div {
+    position: absolute;
+    left: 256px;
+    top: 70px;
+    z-index: 99;
+}
+
+.modal-body .mylabel {
+    display: inline-block;
+    width: 96px;
+    text-align: right;
+    margin-right: 12px;
+    font-size: 12px;
+    position: relative;
+}
+
+#SettingMetaModel .modal-body .mylabel, #EditSettingMetaModel .modal-body .mylabel {
+    width: 60px;
+}
+
+#MetaModel .modal-body .mylabel, #EditMetaModel .modal-body .mylabel {
+    width: 48px;
+}
+
+#showLogs .modal-body .mylabel, #EditSettingMetaModel .modal-body .mylabel {
+    width: 60px;
+}
+
+.modal-body .input[type=text] {
+    border: 1px solid #dadada;
+    border-radius: 4px;
+    width: 240px;
+    height: 32px;
+    text-indent: 10px;
+    font-size: 12px;
+    outline: none;
+}
+
+.modal-body .select {
+    display: inline-block;
+    border-radius: 4px;
+    width: 240px;
+    height: 32px;
+    text-indent: 10px;
+    font-size: 12px;
+    border: 1px solid #dadada;
+    vertical-align: top;
+    appearance: none;
+    -webkit-appearance: none;
+    background: #fff;
+}
+
+.modal-body .select:focus {
+    outline: none;
+}
+
+.modal-body .error {
+    height: 20px;
+    line-height: 20px;
+    color: #ee4a4b;
+    font-size: 12px;
+    padding-left: 94px;
+}
+
+.my-select {
+    opacity: 0;
+}
+
+.modal-body .checkbox_item {
+    display: inline-block;
+    margin-right: 16px;
+    font-weight: normal;
+}
+
+.modal-body .checkbox_item input {
+    vertical-align: 0;
+}
+
+.can-date .checkbox-bg {
+    left: 214px;
+    top: 9px;
+}
+
+#SettingDate, #SettingEditDate {
+    width: 268px;
+}
+
+.pause-area {
+    height: 25px;
+}
+
+.period-ul.time-period-ul {
+    position: absolute;
+    left: 0;
+    width: 120px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    top: 26px;
+    background: #fff;
+    z-index: 10;
+}
+
+.period-ul li {
+    list-style: none;
+    text-align: left;
+    width: 100%;
+    padding: 3px 0;
+    color: #333;
+    font-size: 12px;
+    cursor: pointer;
+    text-indent: 10px;
+}
+
+.period-ul li:hover {
+    color: #333;
+    background: #f1f1f1;
+}
+
+.period-ul li.active, .period-ul li.active:hover {
+    color: #4c7daa;
+}
+
+.timeselect-span {
+    position: absolute;
+    left: 108px;
+    top: 10px;
+    width: 268px;
+    height: 32px;
+    border: 1px solid #dedede;
+    background: #fff;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 12px;
+    line-height: 32px;
+    text-indent: 10px;
+}
+
+#SettingEditDate, #SettingDate {
+    opacity: 0;
+    position: relative;
+    z-index: 5;
+}
+
+.log-span {
+    width: 100%;
+    height: 15px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.period-ul {
+    position: absolute;
+    left: 66px;
+    width: 240px;
+    margin: 0;
+    padding: 1px;
+    border: 1px solid #dedede;
+    border-radius: 3px;
+    top: 29px;
+    background: #fff;
+    z-index: 10;
+}
+
+.period-ul li {
+    list-style: none;
+    text-align: left;
+    width: 100%;
+    padding: 3px 0;
+    color: #333;
+    border-radius: 3px;
+    font-size: 12px;
+    cursor: pointer;
+    text-indent: 10px;
+}
+
+.period-ul li.active {
+    color: #4c7daa;
+}
+
+.period-ul li:hover {
+    background: #f1f1f1;
+    color: #333;
+}
+
+.period-ul li.active:hover {
+    background: #f1f1f1;
+    color: #4c7daa;
+}
+
+.btn.confirm-span {
+    color: #fff;
+    background: #4c7daa;
+    width: 60px;
+    height: 28px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: center;
+    margin-left: 108px;
+}
+
+.btn.confirm-span:hover {
+    border-color: transparent;
+}
+
+.btn.confirm-span.save-span {
+    position: absolute;
+    right: 20px;
+    top: -50px;
+}

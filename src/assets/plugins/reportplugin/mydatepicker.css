@@ -1,0 +1,36 @@
+.my-date .mydp {
+  border: 0;
+  border-bottom: 1px solid #979797;
+  border-radius: 0px;
+}
+
+.my-date .mydp .selection {
+  padding-left: 16px;
+}
+
+.my-date .mydp .btnpicker, .my-date .mydp .btnpicker:hover{
+  background: #f7f7f7 url(/assets/plugins/reportplugin/img/date_icon.svg) no-repeat;
+  background-size: 16px;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  color: #333;
+}
+
+.my-date .mydp .btnpicker .icon-mydpcalendar:before {
+  content: '';
+}
+
+.filter-date .mydp .selection {
+  background: none;
+  padding-left: 16px;
+}
+
+.filter-date .mydp .btnpicker, .filter-date .mydp .btnpicker:hover{
+  background: #fff url(/assets/plugins/reportplugin/img/date_icon.svg) no-repeat;
+  background-size: 16px;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  color: #333;
+}

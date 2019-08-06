@@ -1,0 +1,199 @@
+<!-- 元数据采集左侧树 -->
+<div class="main-right-area">
+    <div class="ztree-area">
+        <app-work-tree
+            (rootNode)="changeJobInfo($event)"
+            (querydirPK)="changeQuerydirPK($event)"
+            (treeNode)="changeTreeNode($event)">
+        </app-work-tree>
+    </div>
+    <div class="table-out-area">
+        <div class="streamset-top" *ngIf="!showRightarea">
+            <span class="gn-btn gn-del" (click)="deleteItem()" title="删除" id="delItem">
+                <i class="icon iconfont icon-dw_delete"></i>
+            </span>
+            <span class="gn-btn gn-save" (click)="saveGraph()" title="保存">
+                <i class="icon iconfont icon-save"></i>
+            </span>
+            <span class="gn-btn gn-exec" (click)="ExecJob()" title="立即执行" *ngIf="!showStopBtn">
+                <i class="icon iconfont icon-admin_running"></i>
+            </span>
+            <span class="gn-btn gn-exec" (click)="StopJob()" title="立即停止" *ngIf="showStopBtn">
+                <i class="icon iconfont icon-end"></i>
+            </span>
+            <span class="gn-btn gn-hide" (click)="HiddenTaskList()" title="隐藏列表">
+                <i class="iconfont icon-expand"></i>
+            </span>
+        </div>
+        <div class="streamset-bottom" [hidden]="showRightarea">
+            <div class="streamsets-left" [style.width]="(hiddenMainArea || !showTaskList) ? '100%' : 'calc(100% - 180px)'">
+                <!-- 任务关系图区域开始 -->
+                <div class="split-pane1" [style.height]="hideenDetailArea ? 'calc(100% - 50px)' : '55%'"
+                     (drop)="stageDrop($event)" [hidden]="hiddenMainArea"
+                     (dragover)="Dropover($event)">
+                    <app-streamsets-graph (onNodeSelection)="updateDetailPane($event)"
+                                          (onRemoveNodeSelection)="updateDetailPane($event)">
+                    </app-streamsets-graph>
+                </div>
+                <!-- 任务关系图区域结束 -->
+                <!-- 中间区域开始 -->
+                <div class="split-handler">
+                    <span class="Jobname" *ngIf="!stageSelected">
+                        {{JobInfo ? JobInfo.name : ''}}
+                    </span>
+                    <span class="Jobname" *ngIf="stageSelected">
+                        {{activeTaskObj ? activeTaskObj.name : ''}}
+                    </span>
+                    <span class="max-btn min" (click)="minDetails()" title="收起基本信息">
+                        <i class="iconfont icon-minimize"></i>
+                    </span>
+                    <span class="max-btn max" (click)="maxDetails()" title="最大化">
+                        <i class="iconfont icon-maximize"></i>
+                    </span>
+                </div>
+                <!-- 中间区域结束 -->
+                <!-- 基本信息区域开始 -->
+                <div class="split-pane2" [style.height]="hiddenMainArea ? 'calc(100% - 50px)' : 'calc(45% - 50px )'"
+                     [hidden]="hideenDetailArea">
+                    <!-- 当前作业的基本信息选择列表 -->
+                    <div class="job-info-ul-area" [hidden]="stageSelected">
+                        <ul>
+                            <li *ngFor="let item of JobBaseInfoArr"
+                                [class.active]="item.active"
+                                (click)="checkActive(item)">
+                                <span class="bg-span">
+                                    <i class="icon iconfont" [style.color]="item.active ? '#4c7daa' :'#333'"
+                                       [ngClass]="item.icon"></i>
+                                </span>
+                                <span class="name-span" [style.color]="item.active ? '#4c7daa' :'#333'">
+                                    {{item.name}}
+                                </span>
+                            </li>
+                        </ul>
+                        <div class="border"></div>
+                    </div>
+                    <!-- 当前选中的任务的基本信息选择列表 -->
+                    <div class="job-info-ul-area" [hidden]="!stageSelected">
+                        <ul>
+                            <li class="active">
+                                <span class="bg-span">
+                                    <i class="icon iconfont icon-task2"></i>
+                                </span>
+                                <span class="name-span">
+                                    基本信息
+                                </span>
+                            </li>
+                        </ul>
+                        <div class="border border2"></div>
+                    </div>
+                    <!-- 当前选中的任务的基本信息展示区域 -->
+                    <div class="job-info-list-area" [hidden]="!stageSelected">
+                        <div class="base-info job-info">
+                            <div class="info-text">
+                                <label class="title-label">任务名称：</label>
+                                <label class="text-label">
+                                    {{activeTaskInfo ? activeTaskInfo.name : ''}}
+                                </label>
+                            </div>
+                            <div class="info-text">
+                                <label class="title-label">创建者：</label>
+                                <label class="text-label">
+                                    {{activeTaskInfo ? activeTaskInfo.create_user : ''}}
+                                </label>
+                            </div>
+                            <div class="info-text">
+                                <label class="title-label">创建时间：</label>
+                                <label class="text-label">
+                                    {{activeTaskInfo ? activeTaskInfo.create_time : ''}}
+                                </label>
+                            </div>
+                            <div class="info-text">
+                                <label class="title-label">最后修改者：</label>
+                                <label class="text-label">
+                                    {{activeTaskInfo ? activeTaskInfo.modify_user : ''}}
+                                </label>
+                            </div>
+                            <div class="info-text">
+                                <label class="title-label">最后修改时间：</label>
+                                <label class="text-label">
+                                    {{activeTaskInfo ? activeTaskInfo.ts : ''}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 当前作业的基本信息展示区域 -->
+                    <div class="job-info-list-area" [hidden]="stageSelected">
+                        <!-- 当前作业的基本信息展示区域 -->
+                        <div class="base-info job-info" *ngIf="showInfoModule === 'baseinfo' && JobInfo">
+                            <div class="info-text">
+                                <label class="title-label">作业名称：</label>
+                                <label class="text-label">
+                                    {{activeJobInfo.name}}
+                                </label>
+                            </div>
+                            <div class="info-text">
+                                <label class="title-label">创建者：</label>
+                                <label class="text-label">
+                                    {{activeJobInfo.creater}}
+                                </label>
+                            </div>
+                            <div class="info-text">
+                                <label class="title-label">创建时间：</label>
+                                <label class="text-label">
+                                    {{activeJobInfo.create_time}}
+                                </label>
+                            </div>
+                            <div class="info-text">
+                                <label class="title-label">最后修改者：</label>
+                                <label class="text-label">
+                                    {{activeJobInfo.lastModify}}
+                                </label>
+                            </div>
+                            <div class="info-text">
+                                <label class="title-label">最后修改时间：</label>
+                                <label class="text-label">
+                                    {{activeJobInfo.ts}}
+                                </label>
+                            </div>
+                        </div>
+                        <!-- 当前作业的设置信息展示区域 -->
+                        <div class="base-info job-setting" [hidden]="showInfoModule !== 'setting'">
+                            <div class="shce-info-area">
+                                <app-work-schesetting
+                                    [Job]="JobInfo">
+                                </app-work-schesetting>
+                            </div>
+                        </div>
+                        <!-- 当前作业的调度历史信息展示区域 -->
+                        <div class="base-info job-history" *ngIf="showInfoModule === 'history'">
+                            <app-work-schehistory
+                                [itemObj]="JobInfo">
+                            </app-work-schehistory>
+                        </div>
+                        <!-- 当前作业的调度日志信息展示区域 -->
+                        <div class="base-info job-log" *ngIf="showInfoModule === 'log'">
+                            <div class="shce-info-area">
+                                <div class="loglist-area">
+                                    <p *ngFor="let log of logList;let i=index" [class.error]="log.code===1">
+                                        {{log.msg}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="streamsets-right" *ngIf="!showRightarea && !hiddenMainArea" [hidden]="!showTaskList">
+                <app-task-list
+                    [stageLibraries]="stageLibraries"
+                    (addTaskClick)="addStageInstance($event)">
+                </app-task-list>
+            </div>
+        </div>
+    </div>
+    <div class="no-folder" *ngIf="showRightarea">
+        <div class="new-folder-area" (click)="newTreeFolder()" title="在当前目录下新建作业">
+        </div>
+    </div>
+</div>

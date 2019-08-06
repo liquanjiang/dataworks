@@ -1,0 +1,124 @@
+<div class="crumbs">
+    <span class="meta-query-info" (click)="backToMetaDetails(true)" title="点击返回返回查询列表">
+        元数据查询
+    </span>
+    <span class="meta-bg-info"></span>
+    <span class="meta-query-info" (click)="backToMetaDetails(false)" title="点击返回返回查询列表">
+        {{preNameObj.meta_name}}
+    </span>
+    <span class="meta-bg-info"></span>
+    <span class="list-info" title={{metaDetailData.meta_name}}>
+        {{metaDetailData.meta_name}}
+    </span>
+</div>
+<div class="meta-list">
+    <!-- 查询详情-信息详情展示 -->
+    <div class="list-details">
+        <div class="input-area">
+            <label>元数据名称：</label>
+            <span>{{metaDetailData.meta_name}}</span>
+        </div>
+        <div class="input-area">
+            <label>元数据类型：</label>
+            <span>
+                {{getkeyByvalue(metaDetailData.meta_type, typeArr)}}
+            </span>
+        </div>
+        <div class="input-area">
+            <label>采集时间：</label>
+            <span>
+                {{metaDetailData.ts}}
+            </span>
+        </div>
+        <div class="input-area" *ngIf="metaDetailData.meta_type === 'Column'">
+            <label>类型：</label>
+            <span>
+                {{metaDetailData.dataType}}
+            </span>
+        </div>
+        <div class="input-area" *ngIf="metaDetailData.meta_type === 'Column' || metaDetailData.meta_type ===  'Table'">
+            <label>注释：</label>
+            <span>{{metaDetailData.meta_comment}}</span>
+        </div>
+        <div class="input-area" *ngIf="metaDetailData.meta_type === 'Column'">
+            <label>是否允许空：</label>
+            <span>
+                {{metaDetailData.nullable}}
+            </span>
+        </div>
+        <div class="input-area path-info-span">
+            <label>路径信息：</label>
+            <span class="path-info" *ngFor="let item of PathArr;let i = index">
+                {{ item ? '/' + item : '' }}
+            </span>
+        </div>
+    </div>
+    <ul class="sql-list-ul" *ngIf="metaDetailData.meta_type === 'Procedure'">
+        <li>SQL：</li>
+    </ul>
+    <!-- 查询详情-表头 -->
+    <div class="tab-list" *ngIf="tablist.length > 0">
+        <ul class="tab-list-ul" *ngIf="tablist.length > 2">
+            <li [class.active]="activeIndex === i"
+                *ngFor="let item of tablist; let i =index"
+                (click)="Listtab(i,metaType,item.value)">
+                {{item.name}}
+            </li>
+        </ul>
+        <ul class="tab-list-ul none-boder-ul" *ngIf="tablist.length === 1">
+            <li [class.active]="activeIndex === i"
+                *ngFor="let item of tablist; let i =index"
+                (click)="Listtab(i,metaType,item.value)">
+                {{item.name}}
+            </li>
+        </ul>
+        <div class="border-div" *ngIf="tablist.length > 2"></div>
+    </div>
+    <div class="tab-content-area">
+        <!-- SQL语句显示区域 -->
+        <div class="Sql-area div-area" *ngIf="tablist.length === 0 && metaDetailData.meta_type === 'Procedure'">
+            <span class="sql-area-span" [innerHTML]="metaDetailData.sql">
+            </span>
+        </div>
+        <!-- 字段表格区域 -->
+        <div class="Column-area  div-area" *ngIf="activeIndex === 0 && tablist.length > 0 && metaType !== 'Schema'">
+            <ng-yydatafin-table class="table"
+                                [tableId]="'queryTable'"
+                                [colHeaders]="detailsColumnColHeaders"
+                                [dataUrl]="ColumntableUrl"
+                                [columns]="detailsColumnColumns">
+            </ng-yydatafin-table>
+        </div>
+        <!-- 查询详情-影响关系 -->
+        <div class="relation-area div-area" *ngIf="activeIndex === 1 && metaType === 'Table'">
+            <app-relation-ship [querypk]="relationPK"
+                               [Blood]="false"
+                               (addNewRelation)="addNewRelation($event)"
+                               [name]="metaDetailData.meta_name" #Relation>
+
+            </app-relation-ship>
+        </div>
+        <!-- 查询详情-血缘关系 -->
+        <div class="relation-area div-area" *ngIf="activeIndex === 2 && metaType === 'Table'">
+            <app-relation-ship [querypk]="bloodPK" [Blood]="true" [name]="metaDetailData.meta_name">
+
+            </app-relation-ship>
+        </div>
+    </div>
+</div>
+
+<!-- 影响关系新增 弹框 -->
+<div class="modal add-modal" role="dialog" id="addNewModel" style="display:none;">
+    <div class="modal-dialog" role="document" style="width:800px!important;">
+        <app-add-new-relation *ngIf="showAddWindow"
+                              [columnObj]="addColumnObj"
+                              (addSuccess)="RedrawRelation($event)"
+                              (closeAdd)="hideAdd()">
+
+        </app-add-new-relation>
+    </div>
+</div>
+
+<div class="add-zz">
+
+</div>

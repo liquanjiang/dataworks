@@ -1,0 +1,71 @@
+<div class="change-history-area" [hidden]="showechartsDetails">
+    <div class="history-header">
+        <div class="history-header-list">
+            <label>元数据：</label>
+            <span class="meta-name" (click)="showMetaList = true" title="{{selectedNames}}">
+                {{selectedNames}}
+            </span>
+            <span class="triangle list-triangle" (click)="showMetaList = true"></span>
+            <span class="border-span"></span>
+            <div class="selectData-area" *ngIf="showMetaList">
+                <ul>
+                    <li *ngFor="let item of MetalistArr"
+                        (click)="selectMeta(item)"
+                        title="{{item.namespace + item.name}}"
+                        [class.active]="item.key === activeMeta.key">
+                        <span class="bg-span" [class.active]="item.selected"></span>
+                        <span class="name-span">{{item.namespace + item.name}}</span>
+                    </li>
+                </ul>
+                <div class="selectData-area-footer">
+                    <span class="select-all bg-span" [class.active]="isSelectedAll"
+                          (click)="SelectAll(MetalistArr)"></span>
+                    <span class="select-all-name">全选</span>
+                    <button type="button" class="btn  btn-default cancel-span" (click)="cancelSelect()">取消</button>
+                    <button type="button" class="btn  btn-primary confirm-span" (click)="confirmSelect(MetalistArr)">确定</button>
+                </div>
+            </div>
+        </div>
+        <div class="history-header-list history-header-date">
+            <label>变更期间：</label>
+            <span class="date-bg">
+                 <i class="icon iconfont icon-date"></i>
+            </span>
+            <span class="start-time-input">{{startTime}}</span>
+            <input type="text" id="startTime" autocomplete="off" disableautocomplete>
+            <span class="between-bg"></span>
+            <span class="end-time-input">{{endTime}}</span>
+            <input type="text" id="endTime" autocomplete="off" disableautocomplete>
+        </div>
+        <div class="search-btn-area">
+            <span (click)="searchData()">搜索</span>
+        </div>
+    </div>
+    <div class="period-area">
+        <div class="select-period">
+            <span class="span-name">统计周期</span>
+            <span class="span-select" (click)="showPeriod = true">
+                {{queryPeriod.value}}
+                <span class="triangle period-triangle"></span>
+            </span>
+            <ul *ngIf="showPeriod">
+                <li *ngFor="let item of PeriodArr"
+                    [class.active]="item.key === queryPeriod.key"
+                    (click)="selectPeriod(item)">
+                    {{item.value}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="data-echarts-area" id="echarts_div">
+
+    </div>
+</div>
+
+<!-- echarts点击显示数据详情的区域 -->
+<div class="change-data-area" *ngIf="showechartsDetails">
+    <app-echarts-details [queryObj]="queryObj"
+                         (closeDetails)="hideechartsDetails($event)">
+    </app-echarts-details>
+</div>
+

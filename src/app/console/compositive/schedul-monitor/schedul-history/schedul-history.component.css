@@ -1,0 +1,28 @@
+.crumbs-area {
+    height: 24px;
+    margin-bottom: 12px;
+}
+
+.crumbs-area span {
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.crumbs-header {
+    color: #4c7daa;
+    display: inline-block;
+}
+
+.crumbs-bg-info {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-image: url(/assets/imgs/meta/slide_down.svg);
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
+    transform: rotate(-90deg);
+    margin: 0 5px;
+    position: relative;
+    top: 1px;
+}
+

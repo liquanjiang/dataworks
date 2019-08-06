@@ -1,0 +1,216 @@
+.pipeline-graph{
+    font-size: 12px;
+}
+.pipeline-graph g.rectangleG rect {
+    fill: #f1f1f1;
+    stroke: #d7d7d7;
+    stroke-width: 2px;
+}
+/*.pipeline-graph g.rectangleG.hover rect,*/
+.pipeline-graph g.rectangleG.selected rect {
+    stroke: #7497b7;
+}
+
+.pipeline-graph g.rectangleG circle {
+    fill: #ffffff;
+    stroke: #d7d7d7;
+    stroke-width: 2px;
+}
+
+/*.pipeline-graph g.rectangleG:hover circle,*/
+.pipeline-graph g.rectangleG.selected circle{
+    stroke: #7497b7;
+}
+
+.pipeline-graph g.pathG .link {
+    fill: none;
+    stroke: rgb(199,199,199);
+    stroke-width: 3px;
+    cursor: default;
+}
+
+
+.pipeline-graph .dragline {
+    fill: none;
+    stroke: rgb(199,199,199);
+    stroke-width: 3px;
+    cursor: default;
+}
+
+.pipeline-graph .dragline.hidden {
+    stroke-width: 0;
+}
+
+/*.pipeline-graph g.pathG .link:hover,*/
+.pipeline-graph g.pathG.selected .link{
+    stroke: #4c7daa;
+}
+
+.pipeline-graph .axis line {
+    fill: none;
+    stroke: #EFEFEF;
+    shape-rendering: crispEdges;
+    vector-effect: non-scaling-stroke;
+}
+
+.pipeline-graph marker {
+    fill: #CCCCCC;
+}
+
+.pipeline-graph marker#select-end-arrow {
+    fill: #4c7daa;
+}
+
+/*.pipeline-graph g.rectangleG:hover text,*/
+.pipeline-graph g.rectangleG.selected text {
+    cursor: default;
+    fill: #4c7daa;
+}
+
+.dropdown-menu{
+    font-size: 12px;
+}
+
+.split-pane2 .panel {
+    height: 100%;
+    border: 0;
+    margin-bottom: 0;
+}
+
+.split-pane2 .panel-heading {
+    padding: 0;
+}
+
+.split-pane2 .panel-heading h3{
+    line-height: 50px;
+    font-size: 12px;
+    color: #4C7DAA;
+    margin-left: 20px;
+}
+
+.split-pane2 .panel-heading .btn {
+    height: 50px;
+}
+
+.split-pane2 .panel-body {
+    height: calc(100% - 50px);
+    position: relative;
+    padding: 0;
+    overflow: auto;
+}
+
+.tab-menu.vertical {
+    width: 140px;
+    position: absolute;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border-right: 1px solid #d7d7d7;
+    font-size: 12px;
+}
+
+.tab-menu.vertical li{
+    height: 50px;
+    line-height: 50px;
+    margin-right: -1px;
+    cursor: default;
+    padding-left: 20px;
+    border: 1px solid transparent;
+    border-left: 4px solid transparent;
+}
+
+.tab-menu.vertical li:hover {
+    background: #f5f5f5;
+}
+.tab-menu.vertical li.tabSelected:hover {
+    background: transparent;
+}
+
+.tab-menu.vertical li.tabSelected{
+    border: 1px solid #d7d7d7;
+    border-right: 1px solid #fff;
+    border-left: 4px solid #4C7DAA;
+    color: #6E93B5;
+}
+
+.tab-menu.vertical li.tabSelected:first-child {
+    border-top: 1px solid transparent;
+}
+
+.tab-menu.vertical+.tab-content{
+    margin-left: 140px;
+}
+
+.tab-menu.horionzal{
+    list-style: none;
+    margin: 20px 20px 0;
+    line-height: 38px;
+    border-bottom: 1px solid #d7d7d7;
+    padding: 0;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+.tab-menu.horionzal li{
+    display: inline-block;
+    padding: 0 16px;
+    border: 1px solid transparent;
+    margin-bottom: -1px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.tab-menu.horionzal li:hover{
+    background: #f5f5f5;
+    border-bottom: transparent;
+}
+.tab-menu.horionzal li.tabSelected{
+    color: #4C7DAA;
+    display: inline-block;
+    padding: 0 16px;
+    border: 1px solid #d7d7d7;
+    border-bottom: 1px solid transparent;
+    margin-bottom: -1px;
+    background: #fff;
+}
+
+.stremsets-config {
+    padding: 20px 20px 0;
+}
+.stremsets-config .config-item{
+    margin-bottom: 20px;
+}
+.stremsets-config .config-item label, .info-item label {
+    margin: 0;
+    width: 120px;
+    text-align: right;
+    font-weight: normal;
+}
+
+.stremsets-config .config-item .config-value, .info-item p {
+    display: inline-block;
+    width: calc(100% - 136px);
+    margin-left: 16px;
+}
+
+.stremsets-config .config-item .config-value>input[type='text'],
+.stremsets-config .config-item .config-value>input[type='password'],
+.stremsets-config .config-item .config-value .map-array-value>input[type='text'] {
+    height: 30px;
+    width: 100%;
+    border: 1px solid #d7d7d7;
+    border-radius: 2px;
+    padding: 12px;
+}
+.stremsets-config .config-item .config-value .simple-select, .stage-filter .simple-select{
+    height: 30px!important;
+    width: 100%;
+}
+
+.stremsets-config .config-item .config-value textarea{
+    resize: vertical;
+    width: 100%;
+}
+input[readonly] {
+    background: #f5f5f5;
+}

@@ -1,0 +1,44 @@
+<div class="stage-library-pane">
+    <div class="stage-filter">
+        <div class="tree-pull" (click)="showTreeModel()">
+            <span class="folder-bg-span" *ngIf="selectedFolderName"></span>
+            <span class="folder-name-span">{{selectedFolderName}}</span>
+            <span class="pull-down-span">
+                <span class="triangle"></span>
+            </span>
+        </div>
+        <div class="tree-area" [hidden]="!showTree">
+            <app-task-tree
+                (SelectedFolder)="changeTaskFolder($event)"
+                (SelectEmit)="changeTaskList($event)"
+                (cancelSelectEmit)="hiddenTree()">
+            </app-task-tree>
+        </div>
+    </div>
+
+    <div class="stage-search">
+        <input type="search" placeholder="搜索"
+               (keyup.enter)="SearchTask(searchInput)"
+               [(ngModel)]="searchInput">
+        <span class="search-bg" (click)="SearchTask(searchInput)">
+            <i class="icon iconfont icon-dw_search"></i>
+        </span>
+    </div>
+
+    <div class="stage-list-container">
+        <ul class="tasks-list">
+            <li *ngFor="let item of stageLibraries; let i = index"
+                (dragstart)="DragStart($event, item)"
+                (click)="addTask($event, item)"
+                draggable="true"
+                [style.border-right]="i % 2 === 0 ? '1px solid #dedede' : 'none'"
+                [attr.drag-data]="item"
+                [title]="item.name">
+                <div role="menuitem" tabindex="-1">
+                    <img src="dataworks/assets/share/img/task-0.svg">
+                    <span class="nodeName-content"><span class="nodeName">{{item.name}}</span></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

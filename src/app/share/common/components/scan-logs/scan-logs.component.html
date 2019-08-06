@@ -1,0 +1,27 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">日志信息</h4>
+    </div>
+    <div class="modal-body logModal" style="padding-bottom: 10px;">
+        <div class="ipt-area" style="height:32px;">
+            <span class="mylabel">{{logsName}}：</span>
+            <span [style.color]="logInfoStyle.color">{{logInfoStyle.text}}</span>
+        </div>
+        <div class="ipt-area" style="height:32px;">
+            <span class="mylabel">开始时间：</span>
+            <span>{{logInfoObj.startTime}}</span>
+        </div>
+        <div class="ipt-area">
+            <span class="mylabel log-info-label-span">日志信息：</span>
+            <span class="log-info-span">
+                {{logInfoObj.taskResultCnt}}
+            </span>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div type="button" class="btn btn-default" data-dismiss="modal">关闭</div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="time-period-selector">
+    <!-- 月份时选择日期 -->
+    <div class="month-div  time-period-div" *ngIf="PeriodType === 'Month'">
+        <ul>
+            <li *ngFor="let item of MonthArr;let i = index" (click)="selectTimeArr(item,MonthselectArr)">
+                <span class="checkbox-bg bg-span" [class.active]="item.key"></span>
+                <span class="text">
+                    {{item.name}}
+                </span>
+            </li>
+        </ul>
+    </div>
+    <!-- 周时选择星期 -->
+    <div class="week-div  time-period-div" *ngIf="PeriodType === 'Week'">
+        <ul>
+            <li *ngFor="let item of WeekArr;let i = index" (click)="selectTimeArr(item,WeekselectArr)">
+                <span class="checkbox-bg bg-span" [class.active]="item.key"></span>
+                <span class="text">
+                    {{item.name}}
+                </span>
+            </li>
+        </ul>
+    </div>
+    <!-- 小时时选择小时数 -->
+    <div class="hour-div  time-period-div" *ngIf="PeriodType === 'Hour'">
+        <ul>
+            <li *ngFor="let item of HourArr;let i = index" (click)="selectTimeArr(item,HourselectArr)">
+                <span class="checkbox-bg bg-span" [class.active]="item.key"></span>
+                <span class="text">
+                    {{item.name}}
+                </span>
+            </li>
+        </ul>
+    </div>
+</div>

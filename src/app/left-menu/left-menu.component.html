@@ -1,0 +1,24 @@
+<div class="leftMenusPage">
+    <h3 class="parentMenuName">{{parentMenuName}}</h3>
+    <ul class="level2MenuList" *ngFor="let item of leftMenus;let i = index;">
+        <li class="level2MenuLi">
+            <a (click)="selThisMenu(item)">
+                <div class="menuIcon {{item.iconUrl}}">
+                    <i class="icon iconfont" [ngClass]="getFontClassByMenu(item.menuCode)"></i>
+                </div>
+                <div class="level2MenuLiName" [ngClass]="{menuSelected: menuSelectedCode === item.menuCode}">
+                    {{item.menuName}}
+                </div>
+            </a>
+            <ul class="level3MenuList">
+                <li class="level3MenuLi" *ngFor="let it of item.children">
+                    <a routerLink="{{it.url}}" (click)="selThisMenu(item)">
+                        <div class="level3MenuLiName" [ngClass]="{menuSelected: menuSelectedCode === it.menuCode}">
+                            {{it.menuName}}
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

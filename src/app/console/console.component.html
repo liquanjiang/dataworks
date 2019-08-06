@@ -1,0 +1,25 @@
+<div class="consolePage">
+    <app-dataworks-header
+        [topMenus]="topMenus"
+        [modules]="modules"
+        [nowModule]="nowModule"
+        [nowMenuCode]="nowMenuCode"
+        (selectedMenu)="selMenu($event)"
+        [userName]="userName"
+        class="page-header navbar">
+    </app-dataworks-header>
+    <div class="mainContainer">
+        <div class="leftPanel">
+            <app-left-menu
+                [leftMenus]="leftMenus"
+                [menuSelectedCode]="menuSelectedCode"
+                [parentMenuName]="nowMenuName">
+            </app-left-menu>
+        </div>
+        <div class="rightPanel">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
+

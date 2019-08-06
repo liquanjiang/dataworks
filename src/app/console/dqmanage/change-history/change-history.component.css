@@ -1,0 +1,408 @@
+.change-history-area {
+    height: 100%;
+    padding: 20px;
+    background: #fff;
+    position: relative;
+}
+
+.change-history-area .history-header {
+    height: 40px;
+}
+
+.change-history-area .history-header .history-header-list {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: 350px;
+    overflow: visible;
+}
+
+.change-history-area .history-header .history-header-list label {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    display: inline-block;
+    width: 48px;
+    margin-right: 12px;
+    height: 40px;
+    line-height: 40px;
+    font-weight: normal;
+}
+
+.change-history-area .history-header .history-header-list span.meta-name {
+    display: inline-block;
+    width: 250px;
+    height: 25px;
+    color: #333;
+    border-bottom: 1px solid #dedede;
+    position: absolute;
+    top: 7px;
+    left: 60px;
+    font-size: 12px;
+    text-indent: 5px;
+    line-height: 25px;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.triangle {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 6px solid #4c7daa;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    line-height: 0;
+    cursor: pointer;
+}
+
+.change-history-area .history-header .history-header-list span.border-span {
+    display: inline-block;
+    border-bottom: 1px solid #dedede;
+    width: 15px;
+    height: 0;
+    position: absolute;
+    left: 310px;
+    top: 31px;
+}
+
+.change-history-area .history-header .history-header-list span.list-triangle {
+    margin-left: 6px;
+    position: absolute;
+    top: 16px;
+    left: 312px;
+}
+
+.change-history-area .history-header .history-header-list .selectData-area {
+    position: absolute;
+    width: 265px;
+    left: 60px;
+    top: 32px;
+    background: #fff;
+    border: 1px solid #dedede;
+    border-radius: 3px;
+    height: 200px;
+    z-index: 88888;
+}
+
+.change-history-area .history-header .history-header-list .selectData-area ul {
+    margin: 0;
+    padding: 0;
+    border-radius: 3px;
+    width: 265px;
+    height: 150px;
+    overflow: auto;
+}
+
+.change-history-area .history-header .history-header-list .selectData-area ul::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.change-history-area .history-header .history-header-list .selectData-area ul::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.1)
+}
+
+.change-history-area .history-header .history-header-list .selectData-area ul::-webkit-scrollbar-track {
+    background: #ededed
+}
+
+.change-history-area .history-header .history-header-list .selectData-area .selectData-area-footer {
+    height: 53px;
+    position: relative;
+}
+
+.change-history-area .history-header .history-header-list .selectData-area .selectData-area-footer span {
+    display: inline-block;
+    position: absolute;
+}
+
+.change-history-area .history-header .history-header-list .selectData-area .selectData-area-footer span.select-all {
+    left: 12px;
+    top: 25px;
+}
+
+.change-history-area .history-header .history-header-list .selectData-area .selectData-area-footer span.select-all-name {
+    font-size: 12px;
+    left: 36px;
+    top: 23px;
+}
+
+.btn {
+    display: inline-block;
+    width: 60px;
+    height: 28px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: center;
+    position: absolute;
+}
+
+.btn.cancel-span {
+    color: #333;
+    right: 96px;
+    top: 16px;
+}
+
+.btn.confirm-span {
+    color: #fff;
+    background: #4c7daa;
+    right: 16px;
+    top: 16px;
+}
+
+.btn.confirm-span:hover {
+    border-color: transparent;
+}
+
+.btn.cancel-span:hover {
+    background: #fff;
+    border-color: #ccc;
+}
+
+
+.change-history-area .history-header .history-header-list ul li {
+    font-size: 12px;
+    color: #333;
+    list-style: none;
+    height: 28px;
+    line-height: 28px;
+    padding-left: 24px;
+    position: relative;
+}
+
+.change-history-area .history-header .history-header-list ul li span.bg-span {
+    left: 12px;
+    top: 8px;
+}
+
+span.bg-span {
+    position: absolute;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-image: url(/assets/plugins/reportplugin/img/check-normal.svg);
+    background-repeat: no-repeat;
+    background-size: 12px 13px;
+}
+
+span.bg-span.active {
+    background-image: url(/assets/plugins/reportplugin/img/check-active.svg);
+}
+
+.change-history-area .history-header .history-header-list ul li span.name-span {
+    display: inline-block;
+    margin-left: 12px;
+    width: calc(100% - 40px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.change-history-area .history-header .history-header-list ul li.active {
+    color: #4c7daa;
+}
+
+.change-history-area .history-header .history-header-list ul li:hover {
+    background: #f1f1f1;
+}
+
+.change-history-area .history-header .history-header-list.history-header-date {
+    width: 380px;
+}
+
+.change-history-area .history-header .history-header-list.history-header-date label {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    display: inline-block;
+    width: 60px;
+    margin-right: 2px;
+    height: 40px;
+    line-height: 40px;
+    font-weight: normal;
+}
+
+.change-history-area .history-header .history-header-list.history-header-date span {
+    display: inline-block;
+}
+
+.change-history-area .history-header .history-header-list.history-header-date .date-bg {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 2px;
+}
+
+.change-history-area .history-header .history-header-list.history-header-date .date-bg i {
+    font-size: 16px;
+}
+
+.change-history-area .history-header .history-header-list.history-header-date .start-time-input,
+.change-history-area .history-header .history-header-list.history-header-date input#startTime {
+    width: 120px;
+    height: 24px;
+    border-bottom: 1px solid #dedede;
+    position: absolute;
+    left: 90px;
+    top: 7px;
+    font-size: 12px;
+    line-height: 24px;
+    cursor: pointer;
+    text-indent: 10px;
+}
+
+.change-history-area .history-header .history-header-list.history-header-date input#startTime {
+    opacity: 0;
+    border: none;
+    z-index: 2;
+}
+
+.change-history-area .history-header .history-header-list.history-header-date .between-bg {
+    height: 0;
+    line-height: 0;
+    border-bottom: 1px solid #999;
+    width: 16px;
+    position: absolute;
+    left: 217px;
+    top: 20px;
+}
+
+.change-history-area .history-header .history-header-list.history-header-date .end-time-input,
+.change-history-area .history-header .history-header-list.history-header-date input#endTime {
+    width: 120px;
+    height: 24px;
+    border-bottom: 1px solid #dedede;
+    position: absolute;
+    left: 240px;
+    top: 7px;
+    font-size: 12px;
+    line-height: 24px;
+    cursor: pointer;
+    text-indent: 10px;
+}
+
+.change-history-area .history-header .history-header-list.history-header-date input#endTime {
+    opacity: 0;
+    border: none;
+    z-index: 2;
+}
+
+.change-history-area .history-header .search-btn-area {
+    display: inline-block;
+}
+
+.change-history-area .history-header .search-btn-area span {
+    border: 1px solid #4c7daa;
+    border-radius: 4px;
+    font-size: 12px;
+    display: inline-block;
+    text-align: center;
+    color: #4c7daa;
+    margin: 0;
+    cursor: pointer;
+    padding: 3px 12px;
+    margin-left: 11px;
+}
+
+.change-history-area .data-echarts-area {
+    width: 100%;
+    margin-top: 20px;
+    height: calc(100% - 60px);
+    background: #fff;
+    position: relative;
+}
+
+.change-history-area .period-area {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    z-index: 99999;
+}
+
+.change-history-area .period-area .select-period {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    z-index: 99999;
+    width: 200px;
+    height: 20px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.change-history-area .period-area .select-period span {
+    display: inline-block;
+    font-size: 12px;
+}
+
+.change-history-area .period-area .select-period span.span-name {
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.change-history-area .period-area .select-period span.span-select {
+    width: 100px;
+    border: 1px solid #dedede;
+    height: 30px;
+    position: absolute;
+    left: 72px;
+    top: 0;
+    font-size: 12px;
+    line-height: 28px;
+    padding-left: 12px;
+}
+
+.change-history-area .period-area .select-period span.span-select span.period-triangle {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+}
+
+
+.change-history-area .period-area .select-period ul {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 72px;
+    top: 29px;
+    width: 100px;
+    border: 1px solid #dedede;
+    border-radius: 3px;
+    background: #fff;
+}
+
+.change-history-area .period-area .select-period ul li {
+    color: #333;
+    font-size: 12px;
+    list-style: none;
+    height: 28px;
+    line-height: 28px;
+    padding-left: 12px;
+}
+
+.change-history-area .period-area .select-period ul li.active {
+    color: #4c7daa;
+}
+
+.change-history-area .period-area .select-period ul li:hover {
+    background: #f1f1f1;
+}
+
+.change-data-area {
+    position: absolute;
+    width: calc(100% - 32px);
+    height: calc(100% - 32px);
+    z-index: 100;
+    left: 16px;
+    top: 16px;
+    background: #fff;
+    padding: 20px 20px 0 20px;
+}
+
+

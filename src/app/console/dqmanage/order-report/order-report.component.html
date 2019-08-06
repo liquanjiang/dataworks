@@ -1,0 +1,117 @@
+<div class="order-report">
+    <div class="order-report-top">
+        <div class="float-right">
+            <div class="order-report-search">
+                <input type="text" (change)="searchReport($event)" placeholder="请输入报告名称">
+                <i class="iconfont icon-dw_search searchCheck"></i>
+            </div>
+            <span class="refreshCheck" title="刷新列表"
+                  [class.circle]="showCircle"
+                  (click)="refreshMeta(true,false)">
+                <i class="icon iconfont icon-dw_refresh"></i>
+            </span>
+            <i class="iconfont icon-dw_add addCheck" title='新增' (click)="addReport()"></i>
+        </div>
+    </div>
+    <div id="reportTable">
+        <ng-yydatafin-table class="table"
+                            [tableId]="'reportTable'"
+                            [colHeaders]="tableColHeaders"
+                            [dataUrl]="tableUrl"
+                            [columns]="tableColumns" #reportTable>
+        </ng-yydatafin-table>
+    </div>
+    <div *ngIf="showDetail" style="position: absolute;width:100%;height:100%;top:0;left:0;z-index:99999;">
+        <app-report-detail [reportDetail]="reportDetail"
+                           [pk]="currentReportObj.pk"
+                           (closeDetail)="showDetail=false">
+        </app-report-detail>
+    </div>
+    <!-- 新增报告 弹框 -->
+    <div *ngIf="currentReportShow" class="modal" tabindex="-1" role="dialog" id="checkModel" data-backdrop="static">
+        <div class="modal-dialog" role="document" style="width:400px!important;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="CancelAdd()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">{{currentReportObj.pk ? '编辑' : '新增'}}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="item-content">
+                        <label>报告名称:</label>
+                        <input type="text" placeholder="请输入报告名称" [(ngModel)]="currentReportObj.report_name">
+                        <span class="always-key-empty" *ngIf="!currentReportObj.report_name&&saveError">*请输入报告名称</span>
+                    </div>
+                    <div class="item-content">
+                        <label>数据源:</label>
+                        <div class="select-source">
+                            <app-simple-select [selectList]="dataSourceList"
+                                               [placeholder]="'请输入数据源'"
+                                               [multi]="true"
+                                               [(selectValue)]="currentReportObj.data_source">
+                            </app-simple-select>
+                            <span class="always-key-empty" *ngIf="!currentReportObj.data_source&&saveError">*请输入数据源</span>
+                        </div>
+                    </div>
+                    <div class="item-content">
+                        <label>是否订阅:</label>
+                        <div class="checkbox-content" (click)="metaChange()">
+                            <span class="checkbox-bg" [class.active]="currentReportObj.meta_change === 1"></span>
+                            <span>变更信息</span>
+                        </div>
+                    </div>
+                    <div class="item-content">
+                        <label>接受人邮箱:</label>
+                        <textarea placeholder="邮件用逗号分隔" [(ngModel)]="currentReportObj.revice_mail"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" (click)="CancelAdd()">取消</button>
+                    <button type="button" class="btn btn-primary" (click)="reportDataAdd()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 调度设置新增 弹框 -->
+<div class="modal" tabindex="-1" role="dialog" id="SettingMetaModel" data-backdrop="static">
+    <div class="modal-dialog" role="document" style="width:408px!important;">
+        <app-new-sch-setting
+            [buildCls]="buildCls"
+            (newScheSetting)="AddnewScheObj($event)"
+            (cancelNewSche)="CancelAddnewScheObj($event)"
+            [businessId]="NewScebusinessId"
+            [triggerName]="NewSchetriggerName"
+            *ngIf="showNewSche">
+        </app-new-sch-setting>
+    </div>
+</div>
+
+<!-- 调度设置修改 弹框-->
+<div class="modal" tabindex="-1" role="dialog" id="EditSettingMetaModel" data-backdrop="static">
+    <div class="modal-dialog" role="document" style="width:408px!important;">
+        <app-edit-sch-setting
+            [EditTimeInit]="TimeInit"
+            [EditScheObject]="editScheObj"
+            (EditScheSetting)="EditeditScheObj($event)"
+            (cancelEditSche)="CancelEditeditScheObj($event)"
+            *ngIf="showEditSche">
+        </app-edit-sch-setting>
+    </div>
+</div>
+
+<!-- 显示日志 弹框 -->
+<div class="modal" tabindex="-1" role="dialog" id="showLogs" data-backdrop="static">
+    <div class="modal-dialog" role="document" style="width:380px!important;">
+        <div class="modal-content">
+            <app-scan-logs
+                [logsName]="'发送状态'"
+                [logInfoStyle]="logInfoStyle"
+                [logInfoObj]="logInfoObj">
+            </app-scan-logs>
+        </div>
+    </div>
+</div>

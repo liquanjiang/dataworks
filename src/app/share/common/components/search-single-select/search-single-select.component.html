@@ -1,0 +1,18 @@
+<div class="single-search" [style.width]="setWidth ? setWidth : ''">
+    <input type="text" name="name" title="请输入搜索关键字"
+           placeholder="请输入搜索关键字"
+           [(ngModel)]="searchKey" (keyup.enter)="searchList(searchKey)">
+    <span class="span-bg" (click)="searchList(searchKey)" [style.right]="setWidth ? '30px' : '10px'">
+        <i class="icon iconfont icon-dw_search"></i>
+    </span>
+    <div class="search-ul-div">
+        <ul>
+            <li *ngFor="let item of listArr;let i = index"
+                [hidden]="FilterArr.includes(item.pk)"
+                (click)="ClickItem(item)">
+                {{FixedName ? item.namespace + item.name : item.name}}
+            </li>
+        </ul>
+    </div>
+</div>
+

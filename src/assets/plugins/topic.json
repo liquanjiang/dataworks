@@ -1,0 +1,48 @@
+[
+    {
+        "topic":"default",
+        "bgColor":"#EDEDED",
+        "comColor":"#FFF",
+        "titleColor": "#FFF",
+        "titleFont": {
+            "fontBold":"",
+            "fontColor":"#333",
+            "fontFamily":"inherit",
+            "fontSize":16,
+            "textAlign":"left"
+        },
+        "chartColor":["#4E7FE7","#38B37D","#9ACE60","#F8CC3A","#4BB3F4","#FA8D3E","#F6514D","#D05DD8","#8A4FD7"],
+        "dividLine":false,
+        "gridsterOpt": {
+            "margin": 10,
+            "minCols": 64,
+            "maxCols": 64,
+            "defaultItemCols": 32,
+            "defaultItemRows": 16,
+            "maxItemCols": 64
+        }
+    },
+    {
+        "topic":"hr",
+        "bgColor":"#F0F0F5",
+        "comColor":"#FFF",
+        "titleColor": "#FFF",
+        "titleFont": {
+            "fontBold":"",
+            "fontColor":"#333",
+            "fontFamily":"inherit",
+            "fontSize":16,
+            "textAlign":"left"
+        },
+        "chartColor":["#4E7FE7","#38B37D","#9ACE60","#F8CC3A","#4BB3F4","#FA8D3E","#F6514D","#D05DD8","#8A4FD7"],
+        "dividLine":false,
+        "gridsterOpt": {
+            "margin": 10,
+            "minCols": 64,
+            "maxCols": 64,
+            "defaultItemCols": 32,
+            "defaultItemRows": 16,
+            "maxItemCols": 64
+        }
+    }
+]
